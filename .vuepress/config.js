@@ -22,6 +22,12 @@ module.exports = {
   markdown: {
     // lineNumbers: true
   },
+  //设置默认语言
+  locales: {
+    '/': {
+      lang: 'zh-CN'
+    }
+  },
   plugins: [
     [
       '@vuepress/pwa', 

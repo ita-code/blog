@@ -11,7 +11,7 @@ module.exports = {
       // location: 3, // 在导航栏菜单中所占的位置，默认3
       text: '标签' // 默认 “标签”
     },
-    //个人信息旁边得logo链接
+    //信息栏展示社交信息
     socialLinks: [
       { icon: 'reco-github', link: 'https://github.com/recoluan' },
       { icon: 'reco-npm', link: 'https://www.npmjs.com/~reco_luan' }
@@ -55,5 +55,5 @@ module.exports = {
   record: '京京ICP备2021009702号///暂无备案',
   // 项目开始时间
   startYear: '2021',
-  mode: 'light'
+  mode: 'light',
 }
