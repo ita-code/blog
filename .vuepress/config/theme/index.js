@@ -3,12 +3,10 @@ const nav = require('../nav')
 const sidebar = require('../sidebar')
 
 module.exports = Object.assign({}, themeReco, {
+  //头部导航栏
   nav,
+  //侧边栏
   sidebar,
-  // logo: '/head.png',
-  // 搜索设置
-  search: true,
-  searchMaxSuggestions: 10,
-  // 自动形成侧边导航
-  sidebar: 'auto',
+  //导航栏   logo
+  logo: '/head.png',
 })

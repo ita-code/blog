@@ -1,13 +1,24 @@
 module.exports = [
-  { text: 'Home', link: '/', icon: 'reco-home' },
-  { text: 'TimeLine', link: '/timeline/', icon: 'reco-date' },
-  { text: 'Contact', 
-    icon: 'reco-message',
+  { text: '主页', link: '/', icon: 'reco-home' },
+  {
+    text: '分类',
+    icon: 'reco-category',
     items: [
-      { text: 'GitHub', link: 'https://github.com/recoluan', icon: 'reco-github' },
-      { text: '简书', link: 'https://www.jianshu.com/u/cd674a19515e', icon: 'reco-jianshu' },
-      { text: 'CSDN', link: 'https://blog.csdn.net/recoluan', icon: 'reco-csdn' },
-      { text: '博客圆', link: 'https://www.cnblogs.com/luanhewei/', icon: 'reco-bokeyuan' }
+      {
+        text: '待分类', items: [
+          { text: '分类1', link: '/views/2.x/' },
+          { text: '分类1', link: '/views/1.x/' },
+        ],
+      },
+      {
+        text: '插件广场', link: '/views/other/recommend.html', items: [
+          { text: '分类1', link: '/views/2.x/' },
+          { text: '分类1', link: '/views/1.x/' },
+        ]
+      }
     ]
-  }
+  },
+  { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
+  { text: '留言板', link: '/views/other/messageBoard.html', icon: 'reco-suggestion' },
+  { text: '关于', link: '/about', icon: 'reco-account' },
 ]
