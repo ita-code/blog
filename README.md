@@ -1,10 +1,10 @@
-# 倚天丶惊鸿的博客
+# 于樂壹生的博客
 
 > 项目介绍：这是利用[vuepress](https://www.vuepress.cn/) 为主要架构，使用第三方主题[vuepress-theme-reco](https://github.com/vuepress-reco/vuepress-theme-reco) 搭建的个人技术博客，在这里记录了我的前端学习之路和一些人生感悟，欢迎大家一起交流学习。
 >
-> 博客地址：https://blog.yitian2019.cn
+> 博客地址：https://iskr.gitee.io/blog/
 >
-> 项目地址：https://gitee.com/yitian_2018/new-blog
+> 项目地址：https://gitee.com/iskr/blog
 
 
 
