@@ -15,7 +15,9 @@ module.exports = {
     ['link', { rel: 'apple-touch-icon', href: '/hero_write.png' }],
     ['link', { rel: 'mask-icon', href: '/hero_write.svg', color: '#42b983' }],
     ['meta', { name: 'msapplication-TileImage', content: '/hero_write.png' }],
-    ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
+    ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+    // 引入鼠标点击脚本
+    ['script', { language: 'javascript', type: 'text/javascript', src: '/js/MouseClickEffect.js' }]
   ],
   theme: 'reco',
   themeConfig,
