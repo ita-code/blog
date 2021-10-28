@@ -43,10 +43,10 @@ module.exports = {
   // 作者
   author: '壹樂',
   authorAvatar: '/head.png',
-  // valine 设置
+  // valine 设置   Valine - 一款快速、简洁且高效的无后端评论系统。
   valineConfig: {
-    appId: 'Q6hMeY2PSaM9FMkXetzoJoU5-gzGzoHsz',
-    appKey: 'iLQlev5jo2Cm5pLcI0z3qhtr',
+    appId: '7nuLftYTRqihah60MGXtwcTN-gzGzoHsz',
+    appKey: 'rIubETMeLM6FOD7PJ4f3ofyn',
     placeholder: '填写邮箱可以收到回复提醒哦！',
     verify: true, // 验证码服务
     // notify: true, // 
