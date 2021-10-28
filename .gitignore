@@ -2,3 +2,4 @@ node_modules/
 docs/.vuepress/theme
 docs/.vuepress/plugins
 yarn.lock
+package-lock.json

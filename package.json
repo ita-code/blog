@@ -8,8 +8,8 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev .",
-    "build": "vuepress build .",
+    "dev": "vuepress dev blogs",
+    "build": "vuepress build blogs",
     "deploy": "bash scripts/deploy.sh",
     "push": "bash scripts/push.sh"
   },
