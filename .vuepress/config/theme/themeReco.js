@@ -3,19 +3,35 @@ module.exports = {
   type: 'blog',
   // 博客设置
   blogConfig: {
-    // category: {
-    //   location: 2, // 在导航栏菜单中所占的位置，默认2
-    //   text: 'Category' // 默认 “分类”
-    // },
+    //动态加载类别并进行分类
+    category: {
+      location: 2, // 在导航栏菜单中所占的位置，默认2
+      text: '分类',
+      icon: 'reco-category',
+      items: [
+        {
+          text: '待分类', items: [
+            { text: '分类1', link: '/views/2.x/' },
+            { text: '分类1', link: '/views/1.x/' },
+          ],
+        },
+        {
+          text: '插件广场', link: '/views/other/recommend.html', items: [
+            { text: '分类1', link: '/views/2.x/' },
+            { text: '分类1', link: '/views/1.x/' },
+          ]
+        }
+      ]
+    },
     tag: {
-      // location: 3, // 在导航栏菜单中所占的位置，默认3
+      location: 3, // 在导航栏菜单中所占的位置，默认3
       text: '标签' // 默认 “标签”
     },
     //信息栏展示社交信息
-    socialLinks: [
-      { icon: 'reco-github', link: 'https://github.com/recoluan' },
-      { icon: 'reco-npm', link: 'https://www.npmjs.com/~reco_luan' }
-    ]
+    // socialLinks: [
+    //   { icon: 'reco-github', link: 'https://github.com/recoluan' },
+    //   { icon: 'reco-npm', link: 'https://www.npmjs.com/~reco_luan' }
+    // ]
   },
   // 搜索设置
   search: true,
