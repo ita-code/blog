@@ -8,7 +8,7 @@ isShowComments: false
 
 ::: tip 欢迎各位朋友一起交流合作
 ----
-<p align='left'><font face='STCAIYUN' size='5' cloor=salmon>微信：xxxxxx</font></p>
+<p align='left'><font face='STCAIYUN' size='5' cloor=salmon>微信：ita1125</font></p>
 
 <p align='left'><font face='STCAIYUN' size='5'>QQ：1745243</font></p>
 

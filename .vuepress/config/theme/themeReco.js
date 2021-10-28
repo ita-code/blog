@@ -6,7 +6,7 @@ module.exports = {
     //动态加载类别并进行分类
     category: {
       location: 2, // 在导航栏菜单中所占的位置，默认2
-      text: '分类',
+      text: '文章分类',
       icon: 'reco-category',
       items: [
         {
@@ -67,9 +67,13 @@ module.exports = {
       link: 'https://vuepress-theme-reco.recoluan.com'
     },
   ],
-  // 备案号
-  record: '京京ICP备2021009702号///暂无备案',
   // 项目开始时间
   startYear: '2021',
   mode: 'light',
+  //备案号
+  record: 'xxx',
+  recordLink: 'https://gitee.com/iskr',
+  //网安
+  // cyberSecurityRecord: '2222',
+  // cyberSecurityLink: 'http://www.baidu.com',
 }
