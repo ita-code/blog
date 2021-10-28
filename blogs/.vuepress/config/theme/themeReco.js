@@ -69,7 +69,8 @@ module.exports = {
     {
       title: '稚晖的个人站',
       desc: '“十年饮冰，难凉热血”',
-      logo: "/blogs/images/links/pengzhihui.jpg",
+      //主题中的配置---使用public目录
+      logo: "/links/pengzhihui.jpg",
       link: 'http://pengzhihui.xyz'
     },
   ],

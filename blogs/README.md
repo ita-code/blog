@@ -1,7 +1,10 @@
 ---
 home: true
 #首页背景图片
-bgImage: '/banner_2.jpg'
+bgImage: '/bg.jpg'
+# bgStyle: {
+#   color: '#fff'
+# }
 #首页背景高度
 # bgImageStyle: {
 #   height: '450px'
