@@ -30,7 +30,18 @@ module.exports = {
       lang: 'zh-CN'
     }
   },
+
   plugins: [
+    [
+      //离开页面时提示
+      "dynamic-title", {
+        showIcon: "/assets/img/logo.png",
+        showText: "(/≧▽≦/)你来啦！",
+        hideIcon: "/assets/img/favicon.ico",
+        hideText: "(●—●)喔哟，崩溃啦！",
+        recoverTime: 2000
+      },
+    ],
     [
       '@vuepress/pwa',
       {
@@ -47,7 +58,26 @@ module.exports = {
         ga: 'UA-149716079-2'
       }
     ],
+     // [
+    // "vuepress-plugin-ribbon": "^1.0.4",
+    //   'ribbon',//背景彩带
+    //   {
+    //     size: 90, // 彩带的宽度，默认为 90
+    //     opacity: 0.8, // 彩带的不透明度，默认为 0.3
+    //     zIndex: -1, // 彩带的 z-index 属性，默认值为 -1
+    //   }
+    // ],
+    // [  鼠标点击球的爆炸效果
+    // "vuepress-plugin-cursor-effects": "^1.0.2",
+    //   "cursor-effects",
+    //   {
+    //     size: 3,                    // size of the particle, default: 2
+    //     shape: ['circle'],  // shape of the particle, default: 'star'
+    //     zIndex: 999999999           // z-index property of the canvas, default: 999999999
+    //   }
+    // ],
     // 提示公告组件
+    // "@vuepress-reco/vuepress-plugin-bulletin-popover": "^1.5.7",
     // ['@vuepress-reco/bulletin-popover', {
     //   body: [
     //     {
