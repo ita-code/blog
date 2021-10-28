@@ -66,6 +66,12 @@ module.exports = {
       logo: "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
       link: 'https://vuepress-theme-reco.recoluan.com'
     },
+    {
+      title: '稚晖的个人站',
+      desc: '“十年饮冰，难凉热血”',
+      logo: "http://pengzhihui.xyz/logo.jpg",
+      link: 'http://pengzhihui.xyz'
+    },
   ],
   // 项目开始时间
   startYear: '2021',
