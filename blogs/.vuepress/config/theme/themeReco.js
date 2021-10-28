@@ -69,7 +69,7 @@ module.exports = {
     {
       title: '稚晖的个人站',
       desc: '“十年饮冰，难凉热血”',
-      logo: "http://pengzhihui.xyz/logo.jpg",
+      logo: "/blogs/images/links/pengzhihui.jpg",
       link: 'http://pengzhihui.xyz'
     },
   ],
