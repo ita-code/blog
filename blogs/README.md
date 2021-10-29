@@ -6,18 +6,19 @@ bgImage: '/bg.jpg'
 #   color: '#fff'
 # }
 #首页背景高度
-# bgImageStyle: {
-#   height: '450px'
-# }
+bgImageStyle: {
+  height: 'calc(100vh - 3.6rem)'
+}
 #首页logo背景图片
-# heroImage: /head.png
-# heroImageStyle: {
+# heroImage: /bg.jpg
+heroImageStyle: {
+#   height: 'calc(100vh - 3.6rem)'
 #   maxHeight: '200px',
 #   display: block,
 #   margin: '6rem auto 1.5rem',
 #   borderRadius: '50%',
 #   boxShadow: '0 5px 18px rgba(0,0,0,0.2)'
-# }
+}
 isShowTitleInHome: false
 isShowHeroImage: true
 actionText: About Me
