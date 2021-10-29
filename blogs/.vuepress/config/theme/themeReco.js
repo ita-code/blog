@@ -19,14 +19,14 @@ module.exports = {
     //   { icon: 'reco-npm', link: 'https://www.npmjs.com/~reco_luan' }
     // ]
   },
-  subSidebar: 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
+  // subSidebar: 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
   // 搜索设置
   search: true,
   searchMaxSuggestions: 10,
   // 自动形成侧边导航
   sidebar: 'auto',
   // 最后更新时间
-  lastUpdated: 'Last Updated', // string | boolean
+  lastUpdated: false, // string | boolean
   // 作者
   author: '壹樂',
   authorAvatar: '/head.png',

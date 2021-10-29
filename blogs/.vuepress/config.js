@@ -22,7 +22,7 @@ module.exports = {
   theme: 'reco',
   themeConfig,
   markdown: {
-    // lineNumbers: true
+    lineNumbers: true
   },
   //设置默认语言
   locales: {
@@ -66,7 +66,7 @@ module.exports = {
         tip: {
           content: "复制成功!",
         },
-        buttonStaticIcon:true
+        buttonStaticIcon: true
       },
     ],
     // [
