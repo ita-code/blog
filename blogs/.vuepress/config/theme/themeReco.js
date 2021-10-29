@@ -8,20 +8,6 @@ module.exports = {
       location: 2, // 在导航栏菜单中所占的位置，默认2
       text: '文章分类',
       icon: 'reco-category',
-      items: [
-        {
-          text: '待分类', items: [
-            { text: '分类1', link: '/views/2.x/' },
-            { text: '分类1', link: '/views/1.x/' },
-          ],
-        },
-        {
-          text: '插件广场', link: '/views/other/recommend.html', items: [
-            { text: '分类1', link: '/views/2.x/' },
-            { text: '分类1', link: '/views/1.x/' },
-          ]
-        }
-      ]
     },
     tag: {
       location: 3, // 在导航栏菜单中所占的位置，默认3
@@ -47,13 +33,20 @@ module.exports = {
   valineConfig: {
     appId: '7nuLftYTRqihah60MGXtwcTN-gzGzoHsz',
     appKey: 'rIubETMeLM6FOD7PJ4f3ofyn',
-    placeholder: '填写邮箱可以收到回复提醒哦！',
+    placeholder: '发一条友善的评论',
     verify: true, // 验证码服务
     // notify: true, // 
     recordIP: true,
     hideListAccessNumber: true
   },
   friendLink: [
+    {
+      title: '稚晖的个人站',
+      desc: '“十年饮冰，难凉热血”',
+      //主题中的配置---使用public目录
+      logo: "/links/pengzhihui.jpg",
+      link: 'http://pengzhihui.xyz'
+    },
     {
       title: '于樂壹生',
       desc: 'Enjoy when you can, and endure when you must.',
@@ -66,19 +59,12 @@ module.exports = {
       logo: "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
       link: 'https://vuepress-theme-reco.recoluan.com'
     },
-    {
-      title: '稚晖的个人站',
-      desc: '“十年饮冰，难凉热血”',
-      //主题中的配置---使用public目录
-      logo: "/links/pengzhihui.jpg",
-      link: 'http://pengzhihui.xyz'
-    },
   ],
   // 项目开始时间
   startYear: '2021',
   mode: 'light',
   //备案号
-  record: 'xxx',
+  record: 'gitee.com',
   recordLink: 'https://gitee.com/iskr',
   //网安
   // cyberSecurityRecord: '2222',
