@@ -11,7 +11,7 @@ function css(el, styles) {
 
 window.onload = function () {
   document.querySelector("body").onclick = (e) => {
-    console.log('e=>', e);
+    // console.log('e=>', e);
     var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
     var span = document.createElement("span");
     span.innerText = '' + a[a_idx] + '';

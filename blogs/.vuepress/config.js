@@ -58,7 +58,18 @@ module.exports = {
         ga: 'UA-149716079-2'
       }
     ],
-     // [
+    // 复制代码功能
+    [
+      "vuepress-plugin-nuggets-style-copy",
+      {
+        copyText: "复制代码",
+        tip: {
+          content: "复制成功!",
+        },
+        buttonStaticIcon:true
+      },
+    ],
+    // [
     // "vuepress-plugin-ribbon": "^1.0.4",
     //   'ribbon',//背景彩带
     //   {
