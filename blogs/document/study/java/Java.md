@@ -1,0 +1,2097 @@
+---
+title: Java基础教程
+date: 2021-09-05
+sidebar: false
+isShowComments: true
+categories:
+ - Java
+tags:
+ -  笔记
+---
+##### java HelloWorld的执行过程以及原理
+
+- 第一步：启动Java虚拟机（JVM)
+- 第二步：虚拟机启动后，虚拟机会启动 **类加载器 classloader**
+  - 类加载器的作用：加载类。本质上就是类加载器负责去硬盘上找"类"对应的"字节码"文件
+  - 例如 java helloworld 那么类加载文件就会去找helloworld.class文件。
+- 第三步：类加载器如果在硬盘上找不到对应的字节码文件，会报错，无法加载主类
+  - 类加载器如果找到对应的字节码文件，类加载器会将字节码文件装载到JVM当中，JVM启动”解释器“将字节码解释为”101010000...“这种二进制码，操作系统执行二进制文件和硬件交互。
+
+##### Java数据类型
+
+- 基本数据类型   **8种**
+
+  - 整数型  byte(字节型)、short(短整型)、int(整型)、long (长整型)
+  - 浮点型  double(双精度)、float(单精度)
+  - 布尔型  boolean
+  - 字符型  char
+
+- 引用数据类型:Java中除了基本数据类型之外都是引用数据类型。
+
+  - String字符串不属于基本数据类型
+
+- 计算机存储单位
+
+  - 计算机只能识别二进制。（10011100...)
+
+  - 1字节=8bit（8比特）--> 1byte=8bit
+
+  - 1bit就是一个1或0
+
+  - 1KB=1024byte、1MB=1024KB、1GB=1024MB、1TB=1024GB
+
+  - **byte b=2**：在计算机中表示为 00000010
+
+  - **short s=2**：在计算机中表示为 00000000 00000010
+
+  - **int i=2**：在计算机中表示为00000000 00000000 00000010
+
+  - **byte-->1字节（-128~127） short-->2字节(-32768~32767) int-->4字节（-2147483648~2147483647） long-->8字节**
+
+  - float-->4字节 double-->8字节
+
+  - boolean-->1字节
+
+  - char-->2字节(0~65535)可以表示65536个不同的数字，和short相同
+
+  - ```
+        int a=10;
+        System.out.println(a);//默认十进制  10
+        int b=010;
+        System.out.println(b);//八进制  8
+        int c=0x10;
+        System.out.println(c);//十六进制 16
+        int d=0b10;
+        System.out.println(d);//二进制 2
+    ```
+
+- **ASCII（'a'是97  'A'是65 '0'是48）**
+
+- 计算机原码反码补码
+
+  - 计算机存储的是二进制补码形式
+
+  - ```
+    int i = 1;//正整数的原码反码补码相同
+    //对应的二进制原码：00000000 00000000 00000000 00000001
+    //对应的二进制反码：00000000 00000000 00000000 00000001
+    //对应的二进制补码：00000000 00000000 00000000 00000001
+    
+    byte b = 1;
+    //对应的二进制原码(第一位是符号位：负数的符号位为1)：10000001
+    //对应的二进制反码(符号位不变，其他位取反)：10000001 ==》 11111110
+    //对应的二进制补码(反码+1)：11111110 ==》 11111111
+    ```
+
+- 数据类型混合运算的时候取**最大类型的字节**在继续做运算
+
+##### 逻辑判断符
+
+```
+    //&与&&的区别
+    int x = 10;
+    int y = 11;
+    System.out.println(x > y & x > y++);//false
+    System.out.println(y);//12
+
+    int n = 10;
+    int m = 11;
+    System.out.println(n > m && n > m++);//false
+    System.out.println(m);//11
+```
+
+##### Java方法
+
+- 普通方法
+
+  - ```
+    public class test02 {
+        public static void main(String[] args) {
+            Print_Str("打印一个方法体里面的内容");//打印一个方法体里面的内容
+        }
+        //[修饰符列表] 返回值类型 方法名称 方法参数
+        //[]修饰符参数为可选参数
+        //返回值类型包括基本数据类型和引用数据类型
+        public static void Print_Str(String st) {
+            //void表示空类型,没有返回值类型
+            System.out.println(st);
+            //方法体
+    
+            if(big(4,5)){
+                System.out.print("是的大于");
+            }else {
+                System.out.print("不是小于");//不是小于
+            }
+        }
+        public static Boolean big(int x,int y){
+            if(x>y){
+                return true;
+            }else {
+                return false;
+            }
+        }
+    }
+    ```
+
+- 方法的执行顺序
+
+  - 方法体中的代码遵循自上而下的顺序依次执行
+
+  - ```
+    public class test03 {
+        public static void main(String[] args) {
+            print("main执行");
+            m1();
+            print("main结束");
+        }
+    
+        public static void m1() {
+            print("m1执行");
+            m2();
+            print("m1结束");
+        }
+    
+        public static void m2() {
+            print("m2执行");
+            myClass.m3();
+            print("m2结束");
+        }
+    
+        public static void print(String str) {
+            System.out.println(str);
+        }
+    }
+    
+    class myClass {
+        public static void m3() {
+            test03.print("m2执行");
+            System.out.println("这是m3方法！");
+            test03.print("m2结束");
+        }
+    }
+    
+    //打印输入结果
+    
+    main执行
+    m1执行
+    m2执行
+    m2执行
+    这是m3方法！
+    m2结束
+    m2结束
+    m1结束
+    main结束
+    ```
+
+  - break和return的区别
+
+    - break控制的是循环；终止循环
+    - return控制的是方法；终止当前方法
+
+##### Java方法重载
+
+- 条件1:在同一个类当中
+
+- 条件2:方法名相同
+
+- 条件3:
+
+  - 参数列表不同
+
+    - 参数个数不同
+    - 参数类型不同
+    - 参数顺序不同
+
+  - 注意:
+
+    - 和返回类型无关
+    - 和修饰符无关
+
+  - ```
+    public class test06 {
+        public static void main(String[] args) {
+            System.out.println(m1(10, 1));//11
+            double a = m1(10.8, 1.8);
+            System.out.println(String.format("%.2f", a));//12.60
+        }
+    
+        public static int m1(int x, int y) {
+            return x + y;
+        }
+    
+        public static double m1(double x, double y) {
+            return x + y;
+        }
+    }
+    
+    //重载  println方法
+    System.out.println(1.8d);
+    System.out.println(1977777777777777777L);
+    System.out.println(456);
+    System.out.println(true);
+    ```
+
+##### Java递归
+
+- ```
+  public class RecursionTest02 {
+      public static void main(String[] args) {
+          int result=getSum(3);
+          System.out.println(result);
+      }
+      public static int getSum(int n) {
+          if (n == 1) {
+              return 1;
+          }
+          return n + getSum(--n);
+      }
+  }
+  ```
+
+![image-20210911220127437](https://iskr.gitee.io/pic/image-20210911220127437.png)
+
+![image-20210911220552370](https://iskr.gitee.io/pic/image-20210911220552370.png)
+
+##### 面向对象和面向过程的区别
+
+- 从语言方面
+  - 对于c语言来说，是完全面向过程的。
+  - 对于c++语言来说，是一半面向过程，一半是面向对象（c++半面向对象）
+  - 对于Java和c#语言来说，是完全面向对象的。
+- 面向过程开发
+  - 面向过程的开发方式主要特点是：
+    - 注重步骤，注重的是实现这个功能的步骤
+    - 第一步做什么
+    - 第二步做什么
+    - ...
+    - 另外面向过程也注重实现功能的因果关系
+    - 因为A所以B
+    - 因为B所以C
+    - ...
+    - 面向过程中没有对象的概念。只是实现这个功能的步骤以及因果关系。
+  - 面向过程的优缺点
+    - 缺点：耦合度高拓展力差
+      - 面向过程最主要的是每一步与每一步的因果关系，其中A步骤因果关系到B步骤，A和B联合起来形成一个子模块，子模块和子模块之间又因为因果关系结合在一起，假设其中任何一个因果关系出现问题（错误），此时整个系统的运转都会出现问题。（代码和代码之间的耦合度太高，拓展性太差）
+        - 耦合度高导致拓展力差（集成显卡：计算机显卡不是独立显卡，是集成在主板上）
+        - 耦合度低导致拓展力强（灯泡和灯口关系，螺栓和螺母关系）
+        - 集成显卡和*独立显卡*=》面向过程和*面向对象*
+    - 优点：快速开发
+      - 对于小型项目（功能）,采用面向过程的方式进行开发，效率较高。不需要前期进行对象的提取，模型的建立，采用面向过程方式可以直接开始干活。一上来直接写代码，编写因果关系。从而实现功能。
+- 面向对象开发
+  - 面向对象的开发方式主要特点是：
+    - 更符合人类的思维方式。（面向对象成为主流的原因）
+    - 人类就是以`对象`的方式去认识世界的。
+    - 面向对象就是将现实世界分割成不同的单元，然后每一个单元都实现成对象，然后给一个环境驱动一下。让各个对象之间协作起来形成一个系统。
+    - ![image-20210912101442515](https://iskr.gitee.io/pic/image-20210912101442515.png)
+  - 特点：耦合度低，拓展力强。
+    - ![image-20210912101639622](https://iskr.gitee.io/pic/image-20210912101639622.png)
+  - 面向过程主要关注的是：实现步骤以及整个过程。
+  - 面向对象主要关注的是：对象A，对象B，对象C，然后对象ABC组合，或者CBA组合...
+- 当我们采用面向对象的方式贯穿整个系统的话，涉及到的三个术语：
+  - OOA:面向对象分析
+  - OOD:面向对象设计
+  - OOP:面向对象编程
+  - 实现一个软件的过程：
+    - 分析（A）-->设计（D）-->编程（p）
+- 类和对象
+  - 类：是一个抽象的概念，不存在的，人类大脑思考总结一个模板（这个模板描述了共同特征）,对象特征的总结
+    - 具有共同特征，抽象出来的东西，就是一个类
+  - 对象：实际存在的个体（人是一个类，姚明是一个对象...)
+  - 实例：对象还有一个名字叫做实例  Stu s=new Stu(),s为实例
+  - 实例化：通过类这个模板创建对象的过程，叫做：实例化
+  - 抽象：多个对象具有共同特征，进行思考总结抽取共同特征的过程
+  - 类 -- 【实例化】--> 对象（实例)
+  - 对象 -- 【抽象】--> 类
+  - ![image-20210912104112097](https://iskr.gitee.io/pic/image-20210912104112097.png)
+  - ![image-20210912104204744](https://iskr.gitee.io/pic/image-20210912104204744.png)
+  - ![image-20210912112455941](https://iskr.gitee.io/pic/image-20210912112455941.png)
+
+##### Java工程师与现实世界的关系
+
+- ![image-20210912114657300](https://iskr.gitee.io/pic/image-20210912114657300.png)
+
+##### 创建对象
+
+- ```
+  public class test07 {
+      public static void main(String[] args) {
+          Student s1=new Student();
+          s1.name="张三";
+          System.out.println(s1.name);
+          System.out.println("-------------------");
+          Student s2=new Student();
+          s2.name="李四";
+          System.out.println(s2.name);
+      }
+  }
+  class Student {
+      //学生名字
+      String name;
+      //学号
+      int number;
+      //性别
+      boolean sex;
+      //地址
+      String address;
+  }
+  ```
+
+- ![image-20210912141118385](https://iskr.gitee.io/pic/image-20210912141118385.png)
+
+- ![image-20210912165115840](https://iskr.gitee.io/pic/image-20210912165115840.png)
+
+- 引用和对象区分
+
+  - 引用是存储对象内存地址的一个变量。
+  - 对象是堆内存里面new出来的。
+
+- ```
+  package com.cobj.test01;
+  
+  public class Addres {
+      //城市
+      String city;
+      //街道
+      String street;
+      //邮编
+      int zipcode;
+  }
+  package com.cobj.test01;
+  
+  public class User {
+      int id;//成员变量，实例变量（对象变量）
+      String name;
+      Addres addres;
+  }
+  package com.cobj.test01;
+  //第一步：类加载
+  public class Test {
+      //第二步：test调用main方法（方法调用要压栈）
+      //String name;   成员变量
+      public static void main(String[] args){
+          User u1=new User();
+          u1.addres=new Addres();
+          u1.addres.street="瑶湖区";
+          u1.addres.city="南昌";
+          u1.addres.zipcode=331200;
+          u1.name="张三";
+          System.out.println(u1.name+','+u1.addres.street+','+u1.addres.zipcode);
+      }
+  }
+  ```
+
+- ![image-20210912172736452](https://iskr.gitee.io/pic/image-20210912172736452.png)
+
+##### 对象回收
+
+- 垃圾回收器：**`GC`**
+  - 在Java语言中,垃圾回收器主要针对的是**`堆内存`**
+  - 当一个Java对象没有任何引用指向该对象的时候
+  - GC会考虑将该垃圾数据释放回收掉
+
+- ![image-20210912181838305](https://iskr.gitee.io/pic/image-20210912181838305.png)
+- 空指针异常（NullPointerException）
+  - **`空引用`**访问实例【对象相关】相关的数据时，都会出现空指针异常。
+
+##### 方法调用参数传递
+
+- Java中关于方法调用时参数传递实际只有一个规则：
+  - 在参数传递的时候，将变量中保存的那个`值`复制一份过去
+
+- ```
+  public class Test01 {
+      public static void main(String[]args){
+          int i=10;
+          add(i);
+          System.out.println("main=>"+i);//10
+      }
+      public static void add(int i){
+          i++;
+          System.out.println("add=>"+i);//11
+      }
+  }
+  //基于对象传值
+  public class Test {
+      public static void main(String[] args) {
+          Persion p = new Persion();
+          p.age = 10;
+          add(p);
+          System.out.println("main=>" + p.age);//11
+      }
+  
+      public static void add(Persion p) {
+          p.age++;
+          System.out.println("add=>" + p.age);//11
+      }
+  
+  }
+  
+  class Persion {
+      int age;
+  }
+  ```
+
+- ![image-20210912204619980](https://iskr.gitee.io/pic/image-20210912204619980.png)
+
+##### 构造方法
+
+- 什么是构造方法，有什么用？
+
+  - 构造方法是一个比较特殊的方法，**通过构造方法可以完成对象的创建，以及实例变量的初始化**。换句话说：构造方法是用来创建对象，并且同时给对象的属性赋值。（注意：实例变量没有手动赋值的时候，系统会赋默认值
+  - 重点：当一个类没有提供任何构造方法，系统会默认提供一个无参数的构造方法。（而这个构造方法被称为缺省构造器）
+
+- 调用构造方法怎么调用
+
+  - 使用new运算符来调用构造方法
+
+  - ```
+    public class Test {
+        public static void main(String [] args){
+            Student st=new Student(19,"张三","REP");
+            System.out.println("年龄"+st.age);//年龄19
+        }
+    }
+    
+    public class Student {
+        String name;
+        int Number;
+        int age;
+        String hb;
+        public Student(int age,String name,String hb) {//构造方法
+            this.name=name;
+            this.age=age;
+            this.hb=hb;
+            System.out.println("我是"+this.name);//张三
+        }
+    }
+    ```
+
+- 构造方法的语法结构
+
+  - 【修饰符列表】构造方法名（形式参数列表）{  构造方法体；  }
+  - 构造方法名和类名必须一致
+
+- 普通方法的语法结构
+
+  - 【修饰符列表】返回值类型  方法名（形式参数列表）{  方法体； }
+
+- 实例变量没有手动赋值的时候，实际上系统会默认赋值
+
+  - 赋值操作在什么时间进行
+    - 实例变量是在构造方法执行的过程中完成初始化赋值
+    - 错误❌不是在类加载的时候给实例变量赋值
+
+##### 封装
+
+- 面向对象的首要特征：封装 。什么是封装？有什么用？
+
+  - 现实生活中有很多现实的例子都是封装的，
+  - 例如：手机，电视机，笔记本电脑，照相机，这些都是外部有一个坚硬的壳儿。封装起来，保护内部的部件。保证内部的部件是安全的。另外封装了之后，对于我们使用者来说，我们是看不见内部的复杂结构的，我们也不需要关心内部有多么复杂，我们只需要操作外部壳儿上的几个按钮就可以完成操作。
+  - 封装的作用有两个：
+    - 第一个作用：保证内部结构的安全。
+    - 第二个作用：屏蔽复杂，暴露简单。
+  - 代码级别上的作用
+    - 一个类体当中的数据，假设封装之后，对于代码的调用人员来说，不需要关心代码的复杂实现，只需要通过一个简单的入口就可以访问了。另外，类体中安全级别较高的数据封装起来，外部人员不能随意访问，来保证数据的安全性。
+
+  - 怎么进行封装，代码怎么实现？
+    	第一步：属性私有化（使用private关键字进行修饰。）
+    	第二步：对外提供简单的操作入口。
+
+- ```
+  public class Student {
+      private String name;
+      private int Number;
+      private int age;
+      private String hb;
+  
+      public Student(int age, String name, String hb) {
+          this.name = name;
+          this.age = age;
+          this.hb = hb;
+          System.out.println("我是" + this.name);//张三
+      }
+  
+      public void setAge(int age) {
+          if (age <= 0 || age >= 150) {
+              System.out.println("年龄设置不合法");
+              return;
+          }
+          this.age = age;
+  
+      }
+  
+      public int getAge() {
+          return age;
+      }
+  }
+  
+  public class Test {
+      public static void main(String [] args){
+          Student st=new Student(19,"张三","REP");
+          System.out.println("年龄"+st.getAge());//年龄19
+          st.setAge(-18);
+          System.out.println("年龄"+st.getAge());//年龄19
+      }
+  }
+  ```
+
+##### 静态
+
+- ```
+  class VarTest{
+      /*
+      *   成员变量：
+      *       实例变量
+      *       静态变量
+      * */
+  
+      //以下实例的，都是对象相关的，访问时采用“引用.”的方式访问。需要先new对象
+      //实例相关的，必须先有对象，才能访问，可能会出现空指针异常的情况。
+      int i;//成员变量中的实例变量
+      public void m2(){}//实例方法
+  
+      //以下静态的，都是类相关的，访问时采用“类名.”的方式访问。不需要new对象
+      //不需要对象的参与即可访问。没有空指针异常的发生。
+      //静态变量在类加载的时候初始化，不需要new对象，静态变量的空间就开出来了。
+      //静态变量存储在方法区
+      static int n;//成员变量中的静态变量
+      public static void m1(){}//静态方法
+  }
+  ```
+
+- 静态变量
+
+  - 如果这个类型的所有对象的某个属性都是一样的，不建议定义为实例变量，浪费内存空间。建议定义为类级别特征。定义为静态变量
+
+- ![image-20210913123448674](https://iskr.gitee.io/pic/image-20210913123448674.png)
+
+##### 代码执行顺序
+
+- ```
+  public class Test {
+      //代码执行顺序
+      static {
+          System.out.println("A");
+      }
+  
+      public static void main(String[] args) {
+          System.out.println("C");
+          new Test();
+          System.out.println("F");
+          //ABCDEF
+      }
+  
+      public Test() {
+          System.out.println("E");
+      }
+  
+      {
+          System.out.println("D");
+      }
+  
+      static {
+          System.out.println("B");
+      }
+  }
+  ```
+
+##### This
+
+- this是一个关键字
+- 一个对象一个this
+  - this是一个变量，是一个引用。this保存当前对象的内存地址，指向自身。所以严格意义上来说，this代表的就是`当前对象`，this存储在堆内存当中对象的全部。
+  - this不能使用在静态方法中。
+
+- ```
+  package com.This;
+  
+  public class Shop {
+      String name;
+      public Shop(String name){
+          this.name=name;
+      }
+      public void Look(){
+          System.out.println(this);
+          System.out.println(this.name+"正在购物！");
+      }
+  }
+  
+  package com.This;
+  
+  public class Test {
+      public static void main(String[] args) {
+          Shop s=new Shop("张三");
+          System.out.println(s);
+          s.Look();
+          //com.This.Shop@1b6d3586
+          //com.This.Shop@1b6d3586
+          //张三正在购物！
+          Shop s1=new Shop("李四");
+          System.out.println(s1);
+          s1.Look();
+          //com.This.Shop@4554617c
+          //com.This.Shop@4554617c
+          //李四正在购物！
+      }
+  }
+  ```
+
+- this()
+
+  - ```
+    public Date(){
+        //this.year=1970;
+        //this.month=1;
+        //this.day=1;
+        this(1970,1,1);//更优
+    }
+    
+    public Date(int year, int month, int day) {
+        this.year = year;
+        this.month = month;
+        this.day = day;
+    }
+    ```
+
+- ![image-20210913210947832](https://iskr.gitee.io/pic/image-20210913210947832.png)
+
+##### 变量内存图
+
+- ![image-20210913223444841](https://iskr.gitee.io/pic/image-20210913223444841.png)
+
+##### 总结（实例、静态、构造）
+
+- ```java
+  public class Sutdent {//类
+  
+      static {
+          System.out.println("Student类开始加载");
+      }
+      //类加载机制中：在程序执行之前，凡是需要加载的类全部加载到JVM当中。
+      //先完成加载才会执行main方法
+  
+      public static void main(String[] args) {
+          //局部变量
+          int i = 100;
+          Stu s = new Stu("张😀", 2021001);
+          s.study();
+      }
+  }
+  
+  class Stu {
+      static {
+          System.out.println("Stu类开始加载");
+      }
+  
+      /*
+       类体{
+          实例变量
+          实例方法
+  
+          静态变量
+          静态方法
+  
+          构造方法
+  
+          静态代码语句块
+          实例代码语句块
+  
+          方法(){
+              局部变量
+              int i =100
+          }
+       }
+       */
+      private String name;//实例变量
+      private int idCard;//实例变量
+      static String job = "学生";//静态变量
+  
+      //构造方法
+      public Stu() {
+          this("未知学生名字", 00001);//this直接调用构造方法赋默认值
+      }
+  
+      public Stu(String name, int idCard) {
+          this.name = name;
+          this.idCard = idCard;
+      }
+  
+      //实例方法
+      //静态方法的调用使用 “引用”.
+      public void study() {
+          //私有的是可以在本类访问，其他类中需要使用get取值set赋值
+          //System.out.println(this.name+"正在学习！");
+          //System.out.println(name+"正在学习！");
+          //System.out.println(this.getName()+"正在学习！");
+          System.out.println(getName() + "正在学习！");
+          this.eat();
+      }
+  
+      public void eat() {
+          System.out.println(this.getName() + "正在吃饭！");
+          Stu.m1();
+      }
+  
+      //静态方法
+      //静态方法的调用使用 “类名”.
+      public static void m1() {
+          System.out.println("执行了m1静态方法！");
+          Stu.m2();
+      }
+  
+      public static void m2() {
+          System.out.println("m2方法访问静态变量Job:" + job);
+      }
+  
+      //getter和setter方法
+      public String getName() {
+          return name;
+      }
+  
+      public void setName(String name) {
+          this.name = name;
+      }
+  
+      public int getIdCard() {
+          return idCard;
+      }
+  
+      public void setIdCard(int idCard) {
+          this.idCard = idCard;
+      }
+  }
+  ```
+
+##### 继承
+
+- 继承的相关特性
+
+  1. B类继承A类，则称A类为**超类(superclass)、父类、基类**，B类则称为**子类(subclass)、派生类、扩展类**。
+     		class A{}
+        		class B extends A{}
+        		我们平时聊天说的比较多的是：父类和子类。
+        		superclass 父类
+        		subclass 子类
+  2. java 中的继承只支持单继承，不支持多继承，C++中支持多继承，这也是 java 体现简单性的一点，换句话说，java 中不允许这样写代码：
+     	`class B extends A,C{ } 这是错误的。`
+  3.  虽然 java 中不支持多继承，但有的时候会产生间接继承的效果，例如：class C extends B，class B extends A，也就是说，C 直接继承 B，其实 C 还间接继承 A。
+  4. java 中规定，子类继承父类，除构造方法不能继承之外，剩下都可以继承。但是私有的属性无法在子类中直接访问。**父类中private修饰的不能在子类中直接访问。可以通过间接的手段来访问（getter和setter访问、赋值）**。
+  5.  java 中的类没有显示的继承任何类，则默认继承 Object类，Object类是 java 语言提供的根类（老祖宗类），也就是说，一个对象与生俱来就有 Object类型中所有的特征。
+  6.  继承也存在一些**缺点**，例如：CreditAccount 类继承 Account 类会导致它们之间的耦合度非常高，Account 类发生改变之后会马上影响到 CreditAccount 类
+
+  - ```java
+    public class InheriTest {
+        public static void main(String [] args){
+            Dog d=new Dog("小狗");
+            d.eat();
+            Cat c=new Cat("小猫");
+            c.eat();
+        }
+    }
+    class Animal{
+        String name;
+        public void eat(){
+            System.out.println(this.name+"正在吃饭！");
+        }
+    }
+    class Dog extends Animal{
+        public Dog(String name){
+            this.name=name;
+        }
+    }
+    class Cat extends Animal{
+        public Cat(String name){
+            this.name=name;
+        }
+    }
+    ```
+
+##### System.out.println
+
+- ```java
+  public class Test {
+  
+      static Student stu = new Student();
+  
+      public static void main(String[] args) {
+          stu.name = "张三";
+          Test.stu.study();
+          System.out.println("Hello word!");
+      }
+  }
+  
+  class Student {
+      String name;
+  
+      public void study() {
+          System.out.println(this.name + "正在学习");
+      }
+  }
+  ```
+
+##### 方法覆盖
+
+- 条件一：两个类必须要有继承关系。
+
+- 条件二：重写之后的方法和之前的方法具有：
+
+  - 相同的返回值类型
+  - 相同的方法名
+  - 相同的形式参数列表
+
+- 条件三：访问权限不能更低，可以更高（protected==>public）
+
+- 条件四：重写之后的方法不能比之前的方法抛出更多的异常，可以更少。
+
+- 注意：
+
+  - 方法覆盖只是针对于方法，和属性无关
+  - 私有方法无法覆盖
+  - 构造方法不能被继承，所以构造方法不能被覆盖
+  - 方法覆盖针对的是`实例方法`，`静态方法`覆盖没有意义
+
+- ```java
+  public class Test {
+      public static void main(String[]args){
+          Dog d=new Dog("小花狗");
+          d.move();
+  
+          Cat c=new Cat("小懒猫");
+          c.move();
+      }
+  }
+  class Animal{
+      String name;
+      public void move(){
+          System.out.println(this.name+"正在移动！");
+      }
+  }
+  class Dog extends Animal{
+      public Dog(String name){
+          this.name=name;
+      }
+  
+      @Override
+      public void move() {
+          System.out.println(this.name+"正在奔跑！");
+      }
+  }
+  class Cat extends Animal{
+      public Cat(String name){
+          this.name=name;
+      }
+  
+      //@Override
+      //public void move() {
+      //    System.out.println(this.name+"正在路上爬！");
+      //}
+  }
+  ```
+
+##### 多态
+
+- 父类型引用指向子类型对象
+- 包括编译阶段和运行阶段
+  - 编译阶段：绑定父类的方法
+    - 编译阶段编译器只知道d的类型是Animal，所以编译器在检查语法的时候，会去Animal.class字节码中找move（）方法。进行静态绑定（前提Animal中有move方法）
+  - 运行阶段：动态绑定子类型对象的方法
+    - 运行阶段的时候，实际上在堆内存中创建的Java对象是Dog对象，所以move的时候，真正参与move的对象是Dog对象。动态执行Dog对象的move()方法(动态绑定)
+  - 多种形态 ，多种状态，编译和运行有两个不同的状态
+
+- ```
+  public class Animal {
+      String name;
+  
+      public void move() {
+          System.out.println(this.name + "在移动！");
+      }
+  }
+  public class Cat extends Animal {
+      public Cat(String name) {
+          this.name = name; 
+      }
+  
+      @Override
+      public void move() {
+          System.out.println(this.name + "在床上爬！");
+      }
+  }
+  public class Dog extends Animal {
+      public Dog(String name) {
+          this.name = name;
+      }
+  
+      @Override
+      public void move() {
+          System.out.println(this.name + "在路上跑");
+      }
+      
+      public void likeFood(){
+          System.out.println(this.name+"爱吃骨头");
+      }
+  }
+  public class Test {
+      public static void main(String[] args) {
+          //向上转型
+          Animal d=new Dog("小花狗");
+          d.move();//小花狗在路上跑
+  
+          //向下转型
+          Animal d1=new Dog("小狗狗");
+          if(d1 instanceof Dog){//判断对象类型
+              Dog dx=(Dog) d1;
+              dx.likeFood();
+          }
+      }
+  }
+  ```
+
+##### 多态应用
+
+- ```java
+  public class Test {
+      public static void main(String [] args){
+          Person p=new Person();
+          Dog d=new Dog();
+          p.eats(d);
+  
+          Cat c=new Cat();
+          p.eats(c);
+      }
+  }
+  class Person{
+      public void eats(Animal a){
+          a.eat();
+      }
+      //面向父类型编程，面向更加抽象进行编程，不建议面向具体编程。面向具体编程会让软件的拓展力很差
+      //public void eats(Dog a){
+      //    a.eat();
+      //}
+      //public void eats(Cat a){
+      //    a.eat();
+      //}
+  }
+  class Animal{
+      public void eat(){
+  
+      }
+  }
+  class Dog extends Animal{
+  
+      @Override
+      public void eat() {
+          System.out.println("狗正在吃骨头");
+      }
+  }
+  class Cat extends Animal{
+      @Override
+      public void eat() {
+          System.out.println("猫正在吃鱼");
+      }
+  }
+  ```
+
+- 静态方法不谈覆盖 static
+
+- 私有方法不能覆盖 private
+
+- **多态在开发中的作用是**：
+  	降低程序的耦合度，提高程序的扩展力。
+
+  	public class Master{
+  		public void feed(Dog d){}
+  		public void feed(Cat c){}
+  	}
+  	以上的代码中表示：Master和Dog以及Cat的关系很紧密（耦合度高）。导致扩展力很差。
+  	
+  	public class Master{
+  		public void feed(Pet pet){
+  			pet.eat();
+  		}
+  	}
+  	以上的代表中表示：Master和Dog以及Cat的关系就脱离了，Master关注的是Pet类。
+  	这样Master和Dog以及Cat的耦合度就降低了，提高了软件的扩展性。
+
+##### Super
+
+- super能出现在实例方法和构造方法中。
+
+  - super的语法是：“super.”、“super()”
+  - super不能使用在静态方法中。
+  - super. 大部分情况下是可以省略的。super.什么时候不能省略呢？
+    - 父类和子类中有同名属性，或者说有同样的方法，
+    - 想在子类中访问父类的，super. 不能省略。
+  - super() 只能出现在构造方法第一行，通过当前的构造方法去调用“父类”中
+    的构造方法，目的是：创建子类对象的时候，先初始化父类型特征。
+  - super的使用：
+    	super.属性名				【访问父类的属性】
+    	super.方法名(实参)		【访问父类的方法】
+    	super(实参)					【调用父类的构造方法】
+  
+- ```
+  // 示例代码
+  public class test02 {
+      public static void main(String []args){
+          Stu s=new Stu("张三",12,202101,"学生卡");
+          System.out.println(s.getName()+"，拥有："+s.getType()+"，卡号："+s.getCid());
+  
+          Tea t=new Tea("梁老师",12,202101,"老师卡");
+          System.out.println(t.getName()+"，拥有："+t.getType()+"，卡号："+t.getCid());
+      }
+  }
+  class Card{
+      private int cid;
+      private String type;
+  
+      public Card(){
+          System.out.println("Card");
+      }
+      public Card(String type,int cid){
+          this.type=type;
+          this.cid=cid;
+      }
+  
+      public int getCid() {
+          return cid;
+      }
+  
+      public void setCid(int cid) {
+          this.cid = cid;
+      }
+  
+      public String getType() {
+          return type;
+      }
+  
+      public void setType(String type) {
+          this.type = type;
+      }
+  }
+  class Stu extends Card{
+      private String name;
+      private int age;
+      public Stu(){
+  
+      }
+      public Stu(String name,int age,int cid,String type){
+          super(type,cid);
+          this.name=name;
+          this.age=age;
+      }
+  
+      public String getName() {
+          return name;
+      }
+  
+      public void setName(String name) {
+          this.name = name;
+      }
+  
+      public int getAge() {
+          return age;
+      }
+  
+      public void setAge(int age) {
+          this.age = age;
+      }
+  }
+  class Tea extends Card{
+      private String name;
+      private int age;
+      public Tea(){
+  
+      }
+      public Tea(String name,int age,int cid,String type){
+          //super(type,cid);
+          this.name=name;
+          this.age=age;
+      }
+  
+      public String getName() {
+          return name;
+      }
+  
+      public void setName(String name) {
+          this.name = name;
+      }
+  
+      public int getAge() {
+          return age;
+      }
+  
+      public void setAge(int age) {
+          this.age = age;
+      }
+  }
+  ```
+
+##### final
+
+- final是Java语言中的一个关键字
+
+- final表示最终的，不可变的，只能赋一次值
+
+- final可以修饰变量、方法、类等
+
+- final修饰的方法无法覆盖和重写
+
+- final修饰的类无法继承
+
+- ![image-20211003205329800](https://iskr.gitee.io/pic/image-20211003205329800.png)
+
+- final修饰的实例变量，系统不负责赋默认值，必须手动赋值。在**构造方法中赋值**或者在**变量后面赋**值。
+
+- ```
+  public class Tc {
+      public static void main(String[] args) {
+          BAB b = new BAB("张三");
+          BAB V = new BAB("三");
+      }
+  }
+  
+  class BAB {
+      final private String name;
+      final private int age = 18;
+  
+      public BAB(String name) {
+          this.name = name;//必须在构造方法中
+      }
+  
+      public void setName(String name) {
+  //        this.name=name;在此赋值报错
+      }
+  
+      public String getName() {
+          return name;
+      }
+  }
+  ```
+
+
+##### 抽象类（abstract）
+
+- 抽象类定义
+
+  - ```
+    abstract class AbsTest{ }
+    ```
+
+- 抽象类：无法实例化、无法创建对象，抽象类是用来被子类继承的
+
+- final和abstract不能联合使用，这两个关键字是对立的。final修饰的类无法继承
+
+- 抽象类的子类可以是抽象类，也可以是非抽象类
+
+- 抽象类虽然无法实例化，但是抽象类有构造方法，这个构造方法供子类使用的
+
+- 抽象类中不一定有抽象方法，抽象方法必须在抽象类中
+
+- 抽象方法定义
+
+  - ```
+    public abstract void dosome();
+    ```
+
+- 一个非抽象类继承抽象类，必须将抽象类中的抽象方法进行覆盖、重写、实现
+
+- ```
+  abstract class AbsTest {
+      public abstract void dosome();
+  }
+  
+  class Test extends AbsTest {
+      @Override
+      public void dosome() {
+      }
+  }
+  ```
+
+##### 接口（interface ）
+
+- 接口时一种“引用数据类型”
+
+- 接口时完全抽象的
+
+- 接口的定义
+
+  - [修饰符列表] interface 接口名{} 
+
+- 接口支持多继承
+
+- 接口中只有常量+抽象方法
+
+- 接口中所有的元素都是public修饰的
+
+- 接口中抽象方法的public abstract可以省略
+
+- 接口中常量的public static final可以省略
+
+- 接口中方法不能有方法体
+
+- 一个非抽象的类，实现接口的时候，必须将接口中所有方法加以实现
+
+- 一个类可以实现多个接口
+
+- extends和implements可以共存，extends在前，implements在后
+
+- 使用接口，写代码的时候，可以使用多态（父类型引用指向子类型对象）
+
+- ```
+  public class Test01 {
+      public static void main(String[] args) {
+          A e = new E();
+          double pi = e.PI;
+          System.out.println(pi);//3.1415926
+      }
+  }
+  
+  interface A {
+      double PI = 3.1415926;
+  
+      void doSome();
+  }
+  
+  interface B {
+      void doEat();
+  }
+  
+  interface C {
+  }
+  
+  interface D extends A, B, C {
+  }
+  
+  interface F {
+      void doFly();
+  }
+  
+  class E extends G implements D,F {
+  
+      @Override
+      public void doSome() {
+  
+      }
+  
+      @Override
+      public void doEat() {
+  
+      }
+  
+      @Override
+      public void doFly() {
+  
+      }
+  }
+  class G{
+      
+  }
+  ```
+
+##### 接口在开发中的作业
+
+- 注意：接口在开发中的作用，类似于多态在开发中的作用。
+
+- 多态：面向抽象编程，不要面向具体编程。降低程序的耦合度。提高程序的扩展力。
+
+- 三个字“解耦合”
+
+  - 面向接口编程，可以降低程序的耦合度，提高程序的扩展力。符合OCP开发原则。
+  - 接口的使用离不开多态机制。（接口+多态才可以达到降低耦合度。）
+  - 接口可以解耦合，解开的是谁和谁的耦合！！！
+    		任何一个接口都有调用者和实现者。
+      		接口可以将调用者和实现者解耦合。
+      		调用者面向接口调用。
+      		实现者面向接口编写实现。
+
+- ```
+  public class Test02 {
+      public static void main(String[] args) {
+          FoodMenu c = new WesternChef();   //实例化厨师
+          User u = new User();              //实例化用户
+          u.setFoodMenu(c);               //给用户菜单
+          u.order();                      //用户已经点好餐
+      }
+  }
+  
+  //菜单接口
+  interface FoodMenu {
+      void YuxiangPork();
+  
+      void ScrambledEggs();
+  }
+  
+  //厨师实现炒菜接口
+  class ChinaChef implements FoodMenu {
+  
+      @Override
+      public void YuxiangPork() {
+          System.out.println("中国厨师做的鱼香肉丝");
+      }
+  
+      @Override
+      public void ScrambledEggs() {
+          System.out.println("中国厨师做的西红柿草鸡蛋");
+      }
+  }
+  
+  class WesternChef implements FoodMenu {
+      @Override
+      public void YuxiangPork() {
+          System.out.println("西餐厨师做的鱼香肉丝");
+      }
+  
+      @Override
+      public void ScrambledEggs() {
+          System.out.println("西餐厨师做的西红柿炒鸡蛋");
+      }
+  }
+  
+  //用户点菜
+  class User {
+      private FoodMenu foodMenu;
+  
+      public User() {
+      }
+  
+      public User(FoodMenu foodMenu) {
+          this.foodMenu = foodMenu;
+      }
+  
+      public FoodMenu getFoodMenu() {
+          return foodMenu;
+      }
+  
+      public void setFoodMenu(FoodMenu foodMenu) {
+          this.foodMenu = foodMenu;
+      }
+  
+      //用户点餐
+      public void order() {
+          //用户点了两个菜
+          this.foodMenu.YuxiangPork();
+          this.foodMenu.ScrambledEggs();
+      }
+  }
+  ```
+
+##### 类型和类型之间的关系
+
+- is a（继承）、has a（关联）、like a（实现）
+- is a：
+  - Cat is a Animal（猫是一个动物）
+  - 凡是能够满足is a的表示“继承关系”
+  - A extends B
+- has a：
+  - I has a Pen（我有一支笔）
+  - 凡是能够满足has a关系的表示“关联关系”
+  - 关联关系通常以“属性”的形式存在。
+  - A{  B b;  }
+- like a:
+  - Cooker like a FoodMenu（厨师像一个菜单一样）
+  - 凡是能够满足like a关系的表示“实现关系”
+  - 实现关系通常是：类实现接口。
+  - A implements B
+
+##### 抽象类和接口有什么区别
+
+- ```
+  在这里我们只说一下抽象类和接口在语法上的区别。
+  至于以后抽象类和接口应该怎么进行选择，通过后面的项目去体会/学习。
+  	
+  抽象类是半抽象的。
+  接口是完全抽象的。
+  
+  抽象类中有构造方法。
+  接口中没有构造方法。
+  
+  接口和接口之间支持多继承。
+  类和类之间只能单继承。
+  
+  一个类可以同时实现多个接口。
+  一个抽象类只能继承一个类（单继承）。
+  
+  接口中只允许出现常量和抽象方法。
+  
+  这里先透露一个信息：
+  	以后接口使用的比抽象类多。一般抽象类使用的还是少。
+  	接口一般都是对“行为”的抽象。
+  ```
+
+##### package和import
+
+- package
+
+  - 第一：package出现在java源文件第一行。
+  - 第二：带有包名怎么编译？javac -d . xxx.java
+  - 第三：怎么运行？java 完整类名
+  - 补充：以后说类名的时候，如果带着包名描述，表示完整类名。如果没有带包，描述的话，表示简类名。
+    - java.util.Scanner 完整类名。
+    - Scanner 简类名
+
+- import
+
+  - import什么时候不需要？
+
+    - java.lang不需要。
+    - 同包下不需要。 
+    - 其它一律都需要。
+
+  - 怎么用？
+
+    - import 完整类名;
+    - import 包名.*;
+    - import java.util.Scanner; // 完整类名。
+
+  - ```
+    	// 同学的疑问：这样是不是效率比较低。
+    	// 这个效率不低，因为编译器在编译的时候，会自动把*变成具体的类名。
+    	import java.util.*;
+    
+    	// 想省懒劲你不能太省了。
+    	import java.*; 这是不允许的，因为在java语言中规定，这里的*只代表某些类的名字。
+    ```
+
+##### 访问控制权限
+
+- private 表示私有的，只能在本类中访问
+
+- public 表示公开的，在任何位置都可以访问
+
+- “默认”表示只能在本类，以及同包下访问。
+
+- protected表示只能在本类、同包、子类中访问。
+
+- | 访问控制修饰符 | 本类 | 同包     | 子类     | 任意位置 |
+  | -------------- | ---- | -------- | -------- | -------- |
+  | public         | 可以 | 可以     | 可以     | 可以     |
+  | protected      | 可以 | 可以     | 可以     | 访问不到 |
+  | 默认           | 可以 | 可以     | 访问不到 | 访问不到 |
+  | private        | 可以 | 访问不到 | 访问不到 | 访问不到 |
+
+  范围从大到小排序：public > protected > 默认 > private
+
+- 访问控制符用在方法中
+
+  - 属性（4个都能用）
+  - 方法（4个都能用）
+  - 类（public和默认能用，其它不行。）
+  - 接口（public和默认能用，其它不行。）
+
+##### 数组
+
+- 数组是引用数据类型，所以数组对象是存储堆内存当中。
+
+- 数组一旦创建长度不可变
+
+- 数组中元素要求类型统一
+
+- 数组中的元素存储地址是连续的，内存地址连续，数组存储元素的特点
+
+- 数组的优缺点
+
+  - 第一：空间存储上，内存地址是连续的。
+  - 第二：每个元素占用的空间大小相同。
+  - 第三：知道首元素的内存地址。
+  - 第四：通过下标可以计算出偏移量。
+  - 通过一个数学表达式，就可以快速计算出某个下标位置上元素的内存地址，直接通过内存地址定位，效率非常高
+  - 优点：检索效率高
+  - 缺点：随机增删效率较低，数组无法存储大数据量
+  - 注意：数组最后一个元素的增删效率不受影响
+
+- 一维数组的静态初始化和动态初始化
+
+  - 静态初始化：
+
+    ```
+    int[] arr = {1,2,3,4};
+    Object[] objs = {new Object(), new Object(), new Object()};
+    ```
+
+  - 动态初始化：
+
+    ```
+    int[] arr = new int[4]; // 4个长度，每个元素默认值0
+    Object[] objs = new Object[4]; // 4个长度，每个元素默认值null
+    ```
+
+##### 冒泡排序
+
+- ```
+  冒泡排序算法
+      1、每一次循环结束之后，都要找出最大的数据，放到参与比较的这堆数据的最右边。（冒出最大的那个气泡。）
+      2、核心：
+          拿着左边的数字和右边的数字比对，当左边 > 右边的时候，交换位置。
+  原始数据：
+  3, 2, 7, 6, 8
+  第1次循环：(最大的跑到最右边。)
+  2, 3, 7, 6, 8 （3和2比较，2 < 3，所以2和3交换位置）
+  2, 3, 7, 6, 8 （虽然不需要交换位置：但是3和7还是需要比较一次。）
+  2, 3, 6, 7, 8 （7和6交换位置）
+  2, 3, 6, 7, 8 （虽然不需要交换位置：但是3和7还是需要比较一次。）
+  
+  经过第1次循环，此时剩下参与比较的数据：2, 3, 6, 7
+  第2次循环：
+  2, 3, 6, 7 (2和3比较，不需要交换位置)
+  2, 3, 6, 7 （3和6比较，不需要交换位置）
+  2, 3, 6, 7 (6和7比较，不需要交换位置)
+  
+  经过第2次循环，此时剩下参与比较的数据：2, 3, 6
+  第3次循环：
+  2, 3, 6 (2和3比较，不需要交换位置)
+  2, 3, 6 （3和6比较，不需要交换位置）
+  
+  经过第3次循环，此时剩下参与比较的数据：2, 3
+  第4次循环：
+  2, 3 (2和3比较，不需要交换位置)
+  ```
+
+- ```
+  for (int i = 0; i < arr.length - 1; i++) {
+      int m = i;
+      for (int j = i + 1; j < arr.length; j++) {
+          if (arr[m] > arr[j]) {
+              m = j;
+          }
+      }
+      if (m != i) {
+          int temp = arr[m];
+          arr[m] = arr[i];
+          arr[i] = temp;
+      }
+  }
+  ```
+
+##### 选择排序
+
+- 挑出小的，往前排序，减少交换次数
+- 选择排序比冒泡排序好在：每一次的交换位置都是有意义的
+
+- ```
+  for (int i = 0; i < arr.length; i++) {
+              for (int j = i + 1; j < arr.length; j++) {
+                  if (arr[i] > arr[j]) {
+                      int temp = arr[j];
+                      arr[j] = arr[i];
+                      arr[i] = temp;
+                  }
+              }
+          }
+  ```
+
+##### 二分查找
+
+- 二分法查找算法是基于排序的基础之上。（**没有排序的数据是无法查找的**。）
+
+- 二分法查找的终止条件：一直折半，直到中间的那个元素恰好是被查找的元素
+
+- ```
+  public static void main(String[] args) {
+      int[] arr = {3, 5, 7, 9, 12, 56, 78};
+      int index = FindIndex(arr, 56);
+      System.out.println("找到：" + index);
+  }
+  
+  private static int FindIndex(int[] arr, int i) {
+      if (arr.length == 0) return -1;
+      int begin = 0;
+      int end = arr.length - 1;
+      while (begin <= end) {
+          int midst = (begin + end) / 2;//求出中位数
+          if (arr[midst] == i) {//判断是否等于要查询的数并返回
+              return midst;
+          } else if (arr[midst] > i) {
+              //在左侧,已知开始的索引值
+              end = midst - 1;
+              for (int j = begin; j < end; j++) {
+                  if (arr[j] == i) return j;
+              }
+          } else if (arr[midst] < i) {
+              //在左侧,已知结束的索引值
+              begin = midst + 1;
+              for (int j = begin; j < end; j++) {
+                  if (arr[j] == i) return j;
+              }
+          }
+      }
+      return -1;
+  }
+  ```
+
+##### String
+
+- 对String在内存存储方面的理解：
+
+  - 字符串一旦创建不可变。
+
+  - 双引号括起来的字符串存储在字符串常量池中。
+
+  - 字符串的比较必须使用equals方法。
+
+  - String已经重写了toString()和equals()方法。
+
+  - ```
+        String st=new String("hello");
+        String st1=new String("hello");
+        //以上共创建了三对象:两个堆方法区的String对象,方法区字符串常量池一个
+        System.out.println(st==st1);//false
+        System.out.println(st.equals(st1));//true
+        String st2="hello1";
+        String st3="hello1";
+        System.out.println(st2==st3);//true
+    ```
+  
+  ![image-20211013223819275](https://iskr.gitee.io/pic/image-20211013223819275.png)
+  
+  - 常用API	
+  
+    ```
+    // String类当中常用方法。
+    //1（掌握）.char charAt(int index)
+    char c = "中国人".charAt(1); // "中国人"是一个字符串String对象。只要是对象就能“点.”
+    System.out.println(c); // 国
+    
+    // 2（了解）.int compareTo(String anotherString)
+    // 字符串之间比较大小不能直接使用 > < ，需要使用compareTo方法。
+    int result = "abc".compareTo("abc");
+    System.out.println(result); //0（等于0） 前后一致  10 - 10 = 0
+    
+    int result2 = "abcd".compareTo("abce");
+    System.out.println(result2); //-1（小于0） 前小后大 8 - 9 = -1
+    
+    int result3 = "abce".compareTo("abcd");
+    System.out.println(result3); // 1（大于0） 前大后小 9 - 8 = 1
+    
+    // 拿着字符串第一个字母和后面字符串的第一个字母比较。能分胜负就不再比较了。
+    System.out.println("xyz".compareTo("yxz")); // -1
+    
+    // 3（掌握）.boolean contains(CharSequence s)
+    // 判断前面的字符串中是否包含后面的子字符串。
+    System.out.println("HelloWorld.java".contains(".java")); // true
+    System.out.println("http://www.baidu.com".contains("https://")); // false
+    
+    // 4（掌握）. boolean endsWith(String suffix)
+    // 判断当前字符串是否以某个子字符串结尾。
+    System.out.println("test.txt".endsWith(".java")); // false
+    System.out.println("test.txt".endsWith(".txt")); // true
+    System.out.println("fdsajklfhdkjlsahfjkdsahjklfdss".endsWith("ss")); // true
+    
+    // 5（掌握）.boolean equals(Object anObject)
+    // 比较两个字符串必须使用equals方法，不能使用“==”
+    // equals方法有没有调用compareTo方法？ 老版本可以看一下。JDK13中并没有调用compareTo()方法。
+    // equals只能看出相等不相等。
+    // compareTo方法可以看出是否相等，并且同时还可以看出谁大谁小。
+    System.out.println("abc".equals("abc")); // true
+    
+    // 6（掌握）.boolean equalsIgnoreCase(String anotherString)
+    // 判断两个字符串是否相等，并且同时忽略大小写。
+    System.out.println("ABc".equalsIgnoreCase("abC")); // true
+    
+    // 7（掌握）.byte[] getBytes()
+    // 将字符串对象转换成字节数组
+    byte[] bytes = "abcdef".getBytes();
+    for(int i = 0; i < bytes.length; i++){
+        System.out.println(bytes[i]);
+    }
+    
+    // 8（掌握）.int indexOf(String str)
+    // 判断某个子字符串在当前字符串中第一次出现处的索引（下标）。
+    System.out.println("oraclejavac++.netc#phppythonjavaoraclec++".indexOf("java")); // 6
+    
+    // 9（掌握）.boolean isEmpty()
+    // 判断某个字符串是否为“空字符串”。底层源代码调用的应该是字符串的length()方法。
+    //String s = "";
+    String s = "a";
+    System.out.println(s.isEmpty());
+    
+    // 10（掌握）. int length()
+    // 面试题：判断数组长度和判断字符串长度不一样
+    // 判断数组长度是length属性，判断字符串长度是length()方法。
+    System.out.println("abc".length()); // 3
+    
+    System.out.println("".length()); // 0
+    
+    // 11（掌握）.int lastIndexOf(String str)
+    // 判断某个子字符串在当前字符串中最后一次出现的索引（下标）
+    System.out.println("oraclejavac++javac#phpjavapython".lastIndexOf("java")); //22
+    
+    // 12（掌握）. String replace(CharSequence target, CharSequence replacement)
+    // 替换。
+    // String的父接口就是：CharSequence
+    String newString = "http://www.baidu.com".replace("http://", "https://");
+    System.out.println(newString); //https://www.baidu.com
+    // 把以下字符串中的“=”替换成“:”
+    String newString2 = "name=zhangsan&password=123&age=20".replace("=", ":");
+    System.out.println(newString2); //name:zhangsan&password:123&age:20
+    
+    // 13（掌握）.String[] split(String regex)
+    // 拆分字符串
+    String[] ymd = "1980-10-11".split("-"); //"1980-10-11"以"-"分隔符进行拆分。
+    for(int i = 0; i < ymd.length; i++){
+        System.out.println(ymd[i]);
+    }
+    String param = "name=zhangsan&password=123&age=20";
+    String[] params = param.split("&");
+    for(int i = 0; i <params.length; i++){
+        System.out.println(params[i]);
+        // 可以继续向下拆分，可以通过“=”拆分。
+    }
+    
+    // 14（掌握）、boolean startsWith(String prefix)
+    // 判断某个字符串是否以某个子字符串开始。
+    System.out.println("http://www.baidu.com".startsWith("http")); // true
+    System.out.println("http://www.baidu.com".startsWith("https")); // false
+    
+    // 15（掌握）、 String substring(int beginIndex) 参数是起始下标。
+    // 截取字符串
+    System.out.println("http://www.baidu.com".substring(7)); //www.baidu.com
+    
+    // 16（掌握）、String substring(int beginIndex, int endIndex)
+    // beginIndex起始位置（包括）
+    // endIndex结束位置（不包括）
+    System.out.println("http://www.baidu.com".substring(7, 10)); //www
+    
+    // 17(掌握)、char[] toCharArray()
+    // 将字符串转换成char数组
+    char[] chars = "我是中国人".toCharArray();
+    for(int i = 0; i < chars.length; i++){
+        System.out.println(chars[i]);
+    }
+    
+    // 18（掌握）、String toLowerCase()
+    // 转换为小写。
+    System.out.println("ABCDefKXyz".toLowerCase());
+    
+    // 19（掌握）、String toUpperCase();
+    System.out.println("ABCDefKXyz".toUpperCase());
+    
+    // 20（掌握）. String trim();
+    // 去除字符串前后空白
+    System.out.println("           hello      world             ".trim());
+    
+    // 21（掌握）. String中只有一个方法是静态的，不需要new对象
+    // 这个方法叫做valueOf
+    // 作用：将“非字符串”转换成“字符串”
+    //String s1 = String.valueOf(true);
+    //String s1 = String.valueOf(100);
+    //String s1 = String.valueOf(3.14);
+    
+    // 这个静态的valueOf()方法，参数是一个对象的时候，会自动调用该对象的toString()方法吗？
+    String s1 = String.valueOf(new Customer());
+    //System.out.println(s1); // 没有重写toString()方法之前是对象内存地址 com.bjpowernode.javase.string.Customer@10f87f48
+    System.out.println(s1); //我是一个VIP客户！！！！
+    /*
+    java.lang.StringBuilder
+    StringBuffer和StringBuilder的区别？
+        StringBuffer中的方法都有：synchronized关键字修饰。表示StringBuffer在多线程环境下运行是安全的。
+        StringBuilder中的方法都没有：synchronized关键字修饰，表示StringBuilder在多线程环境下运行是不安全的。
+    
+        StringBuffer是线程安全的。
+        StringBuilder是非线程安全的。
+        
+     */
+    public class StringBuilderTest01 {
+        public static void main(String[] args) {
+    
+            // 使用StringBuilder也是可以完成字符串的拼接。
+            StringBuilder sb = new StringBuilder();
+            sb.append(100);
+            sb.append(true);
+            sb.append("hello");
+            sb.append("kitty");
+            System.out.println(sb);
+        }
+    }
+    ```
+
+##### 八种包装数据类型
+
+- Byte
+
+- Short
+
+- Integer
+
+  - ```
+    		Integer n=100;
+            Integer m=100;
+            System.out.println(n==m);//true  ==>因为Jvm中整数常量池中的数据127~-128
+            Integer n1=-100;
+            Integer m1=-100;
+            System.out.println(n1==m1);//true
+            Integer n3=128;
+            Integer m3=128;
+            System.out.println(n3==m3);//false
+            Integer n4=-129;
+            Integer m4=-129;
+            System.out.println(n4==m4);//false
+    ```
+
+- Long
+
+- Float
+
+- Double
+
+- Boolean
+
+- Character
+
+- 数字类
+
+  - ```
+    DecimalFormat数字格式化
+    		###,###.## 表示加入千分位，保留两个小数。
+    		###,###.0000 表示加入千分位，保留4个小数，不够补0
+    BigDecimal
+    		财务软件中通常使用BigDecimal
+    ```
+
+##### 异常处理throws
+
+- ```
+  1、什么是异常，java提供异常处理机制有什么用？
+      以下程序执行过程中发生了不正常的情况，而这种不正常的情况叫做：异常
+      java语言是很完善的语言，提供了异常的处理方式，以下程序执行过程中出现了不正常情况，
+      java把该异常信息打印输出到控制台，供程序员参考。程序员看到异常信息之后，可以对
+      程序进行修改，让程序更加的健壮。
+  
+      什么是异常：程序执行过程中的不正常情况。
+      异常的作用：增强程序的健壮性。
+  
+  2、以下程序执行控制台出现了：
+      Exception in thread "main" java.lang.ArithmeticException: / by zero
+         at com.bjpowernode.javase.exception.ExceptionTest01.main(ExceptionTest01.java:14)
+     这个信息被我们称为：异常信息。这个信息是JVM打印的。
+  ```
+
+- 处理异常的方式
+
+  - ```
+    处理异常的第一种方式：
+        在方法声明的位置上使用throws关键字抛出，谁调用我这个方法，我就抛给谁。抛给调用者来处理。
+        这种处理异常的态度：上报。
+    
+    处理异常的第二种方式：
+        使用try..catch语句对异常进行捕捉。
+        这个异常不会上报，自己把这个事儿处理了。
+        异常抛到此处为止，不再上抛了。
+    
+    注意：
+        只要异常没有捕捉，采用上报的方式，此方法的后续代码不会执行。
+        另外需要注意，try语句块中的某一行出现异常，该行后面的代码不会执行。
+        try..catch捕捉异常之后，后续代码可以执行。
+    
+    在以后的开发中，处理编译时异常，应该上报还是捕捉呢，怎么选？
+        如果希望调用者来处理，选择throws上报。
+        其它情况使用捕捉的方式。
+     */
+    public class ExceptionTest06 {
+        // 一般不建议在main方法上使用throws，因为这个异常如果真正的发生了，一定会抛给JVM。JVM只有终止。
+        // 异常处理机制的作用就是增强程序的健壮性。怎么能做到，异常发生了也不影响程序的执行。所以
+        // 一般main方法中的异常建议使用try..catch进行捕捉。main就不要继续上抛了。
+        /*
+        public static void main(String[] args) throws FileNotFoundException {
+            System.out.println("main begin");
+            m1();
+            System.out.println("main over");
+        }
+         */
+        public static void main(String[] args) {
+    
+            // 100 / 0这是算术异常，这个异常是运行时异常，你在编译阶段，可以处理，也可以不处理。编译器不管。
+            //System.out.println(100 / 0); // 不处理编译器也不管
+            // 你处理也可以。
+            /*
+            try {
+                System.out.println(100 / 0);
+            } catch(ArithmeticException e){
+                System.out.println("算术异常了！！！！");
+            }
+             */
+    
+            System.out.println("main begin");
+            try {
+                // try尝试
+                m1();
+                // 以上代码出现异常，直接进入catch语句块中执行。
+                System.out.println("hello world!");
+            } catch (FileNotFoundException e){ // catch后面的好像一个方法的形参。
+                // 这个分支中可以使用e引用，e引用保存的内存地址是那个new出来异常对象的内存地址。
+                // catch是捕捉异常之后走的分支。
+                // 在catch分支中干什么？处理异常。
+                System.out.println("文件不存在，可能路径错误，也可能该文件被删除了！");
+                System.out.println(e); //java.io.FileNotFoundException: D:\course\01-课\学习方法.txt (系统找不到指定的路径。)
+            }
+    
+            // try..catch把异常抓住之后，这里的代码会继续执行。
+            System.out.println("main over");
+        }
+    
+        private static void m1() throws FileNotFoundException {
+            System.out.println("m1 begin");
+            m2();
+            // 以上代码出异常，这里是无法执行的。
+            System.out.println("m1 over");
+        }
+    
+        // 抛别的不行，抛ClassCastException说明你还是没有对FileNotFoundException进行处理
+        //private static void m2() throws ClassCastException{
+        // 抛FileNotFoundException的父对象IOException，这样是可以的。因为IOException包括FileNotFoundException
+        //private static void m2() throws IOException {
+        // 这样也可以，因为Exception包括所有的异常。
+        //private static void m2() throws Exception{
+        // throws后面也可以写多个异常，可以使用逗号隔开。
+        //private static void m2() throws ClassCastException, FileNotFoundException{
+        private static void m2() throws FileNotFoundException {
+            System.out.println("m2 begin");
+            // 编译器报错原因是：m3()方法声明位置上有：throws FileNotFoundException
+            // 我们在这里调用m3()没有对异常进行预处理，所以编译报错。
+            // m3();
+    
+            m3();
+            // 以上如果出现异常，这里是无法执行的！
+            System.out.println("m2 over");
+        }
+    
+        private static void m3() throws FileNotFoundException {
+            // 调用SUN jdk中某个类的构造方法。
+            // 这个类还没有接触过，后期IO流的时候就知道了。
+            // 我们只是借助这个类学习一下异常处理机制。
+            // 创建一个输入流对象，该流指向一个文件。
+            /*
+            编译报错的原因是什么？
+                第一：这里调用了一个构造方法：FileInputStream(String name)
+                第二：这个构造方法的声明位置上有：throws FileNotFoundException
+                第三：通过类的继承结构看到：FileNotFoundException父类是IOException，IOException的父类是Exception，
+                最终得知，FileNotFoundException是编译时异常。
+    
+                错误原因？编译时异常要求程序员编写程序阶段必须对它进行处理，不处理编译器就报错。
+             */
+            //new FileInputStream("D:\\course\\01-开课\\学习方法.txt");
+    
+            // 我们采用第一种处理方式：在方法声明的位置上使用throws继续上抛。
+            // 一个方法体当中的代码出现异常之后，如果上报的话，此方法结束。
+            new FileInputStream("D:\\course\\01-课\\学习方法.txt");
+    
+            System.out.println("如果以上代码出异常，这里会执行吗??????????????????不会！！！");
+        }
+    }
+    ```
+
+- final finally finalize有什么区别？
+
+  - ```
+     final 关键字
+            final修饰的类无法继承
+            final修饰的方法无法覆盖
+            final修饰的变量不能重新赋值。
+      
+        finally 关键字
+            和try一起联合使用。
+            finally语句块中的代码是必须执行的。
+      
+        finalize 标识符
+            是一个Object类中的方法名。
+            这个方法是由垃圾回收器GC负责调用的。
+    ```
+
+##### 集合
+
+- ArrayList：底层是数组
+- LinkedList：底层是双向链表
+- Vector：底层是数组，线程安全的，效率较低，使用较少
+- HashSet：底层是HashMap，放到HashSet集合中的元素等同于放到HashMap集合中Key部分
+- TreeSet：底层是TreeMap，放到TreeSet集合中的元素等同于放到TreeMap集合中key部分
+- HashMap：底层是哈希表
+- Hashtable：底层是哈希表，线程安全的，效率较低使用较少
+- Properties：底层是哈希表，线程安全的，key和value只能存储字符串String
+- TreeMap：底层是二叉树。TreeMap集合中的key可以自动按照大小顺序排序
+- List集合存储元素特点：
+  - 有序可重复
+  - 有序：存进去和取出来的顺序相同，每个元素都是有下标的
+  - 可以重复：存进去
+- Set（Map）集合存储元素特点：
+  - 无序不可以重复
+  - 无序：存进去和取出来的顺序不一定相同，另外Set集合中元素没有下标
+  - 不可重复：存进去1，就不能再存进去1了
+- SortedSet（SortedMap）集合存储元素特点：
+  - 首先是无序不可重复的，但是SortedSet集合中的元素是可排序的
+  - 无序：存进去和取出来的下标不一定相同，另外Set集合没有元素下标
+  - 不可重复：就不能存入相同的值
+  - 可排序：可以按照大小顺序排序
+- Map集合中的Key，就是一个Set集合
+- 在Set集合中放数据，实际上是放在了Map集合中的Key部分
+
+##### Collection
+
+```
+package Contains01;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Objects;
+
+public class Test01 {
+    public static void main(String[] args) {
+        Collection arr = new ArrayList();
+        arr.add(123);
+        arr.add(new String("123"));
+        arr.add("123");
+        System.out.println(arr.contains("123"));//true
+        arr.remove("123");
+        System.out.println(arr.size());//2
+
+        User u1 = new User("ZH");
+        User u2 = new User("ZH");
+        arr.add(u1);
+        System.out.println(arr.contains(u2));//在重写equals前为false,重写equals后为true
+        //contains比较的是内容不是内存地址。remove删除比较的是equals
+        System.out.println("============");
+        //创建迭代器迭代对象
+        Iterator iterator=arr.iterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+}
+
+class User {
+    private String name;
+
+    public User() {
+
+    }
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(name, user.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
+    }
+}
+```
+
+
+
+
+
+
+
+##### 常见报错
+
+- 空指针异常:`NullPointerException`
+- 类型转换异常:`ClassCastException`
+- 数组下标越界异常:`ArrayIndexOutOfBoundsException`
+- 数字格式化异常:`NumberFormatException`
+
