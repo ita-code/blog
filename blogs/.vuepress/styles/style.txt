@@ -34,3 +34,15 @@
 header .links {
   background-color:transparent!important;
 }
+
+title: Javascript核心开发解密   //标题
+date: 2020-11-05              //发布日期
+sidebar: auto                 //右侧栏
+isShowComments: true          //开启评价
+categories:                   //类别
+ - Javascript
+tags:                         //标签
+ -  读后笔记
+publish: false                //false不显示博客
+sticky: 1                     //顶置
+<!-- more -->                 //标签上边内容全部显示
