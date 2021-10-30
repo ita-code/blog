@@ -1,4 +1,4 @@
-module.exports = [
+const nav = [
   { text: '主页', link: '/', icon: 'reco-home' },
   { text: '时间轴', link: '/timeline/', icon: 'reco-date' },
   { text: '留言板', link: '/other/messageBoard.md', icon: 'reco-suggestion' },
@@ -15,3 +15,4 @@ module.exports = [
     ]
   },
 ]
+module.exports = nav;

@@ -19,7 +19,6 @@ module.exports = {
     //   { icon: 'reco-npm', link: 'https://www.npmjs.com/~reco_luan' }
     // ]
   },
-  // subSidebar: 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
   // 搜索设置
   search: true,
   searchMaxSuggestions: 10,
