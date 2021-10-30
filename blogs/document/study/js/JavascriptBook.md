@@ -1,14 +1,25 @@
 ---
 title: Javascript核心开发解密
 date: 2020-11-05
-sidebar: false
+sidebar: auto
 isShowComments: true
 categories:
  - Javascript
 tags:
  -  读后笔记
+sticky: 1
 ---
-
+<!-- 
+title: Javascript核心开发解密   //标题
+date: 2020-11-05              //发布日期
+sidebar: auto                 //右侧栏
+isShowComments: true          //开启评价
+categories:                   //类别
+ - Javascript
+tags:                         //标签
+ -  读后笔记
+sticky: 1                     //顶置
+ -->
 ## 三种基础数据结构
 
   ### 栈
@@ -39,7 +50,7 @@ tags:
 
   
 
-- **堆**
+- ### 堆
 
   堆数据结构通常是一种数状态结构。
 
@@ -60,13 +71,13 @@ tags:
 
   [外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-ctcvcict-1604546278779)(C:\Users\19752\AppData\Roaming\Typora\typora-user-images\image-20201102203626430.png)]
 
-- **队列**
+- ### 队列
 
   队列（queue）是一种先进先出（FIFO)的数据结构。正如排队过安检一样，排在队伍前面的人一定是最先过安检的人。原理图如下[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-VJJYN4MD-1604546278781)(C:\Users\19752\Desktop\u=4007848708,1685442224&fm=15&gp=0.png)]
 
 ## 内存空间
 
-- **基本数据类型与变量对象**
+- ### 基本数据类型与变量对象
 
   
 
@@ -83,7 +94,7 @@ tags:
 
   
 
-- **引用数据类型与堆内存空间**
+- ### 引用数据类型与堆内存空间
 
   引用数据类型（Object）的值是保存在堆内存空间中的对象。在JavaScript中，不允许直接访问堆内存空间中的数据，因此不能直接操作对象的堆内存空间。在操作对象时，实际上是在操作对象的引用而不是实际对象。因此，引用数据类型都是按引用访问的。这里的引用，可以理解为保存在变量对象中的一个地址，该地址与堆内存中的对象相关联。
 
@@ -118,7 +129,7 @@ tags:
 
   [外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-kANNsRPW-1604546278787)(C:\Users\19752\AppData\Roaming\Typora\typora-user-images\image-20201104002312011.png)]
 
-- **内存空间管理**
+- ### 内存空间管理
 
   ```javascript
   	var num=20;
@@ -133,7 +144,7 @@ tags:
 
 ## 执行上下文
 
-- **JavaScript运行环境**
+- ### JavaScript运行环境
   1. 全局环境：代码运行起来首先会进入全局环境。
   2. 函数环境：当前函数被调用执行时，会进入当前函数中执行代码。
   3. eval环境：不建议使用。
@@ -1578,7 +1589,7 @@ Foo.prototype.bar = function () {
            }
    ```
 
-2. **函数内部this指向**
+2. ### 函数内部this指向
 
    ```javascript
    	//普通写法
@@ -2026,7 +2037,7 @@ Foo.prototype.bar = function () {
 
    ​		为了解决回调地狱，为了使代码更具有可以读性和可维护性，我们需要将数据请求与数据处理区分开来。
 
-   **当我们想要确保某些代码在某某之后执行时**
+   ### 当我们想要确保某些代码在某某之后执行时
 
    可以利用函数调用栈，将想要执行的代码放入回调函数中。
 
@@ -2184,7 +2195,7 @@ Foo.prototype.bar = function () {
               })
       ```
 
-      **Promise.all**
+      ### Promise.all
 
       ​	当有一个Ajax请求，它的参数需要另外两个或者甚至更多个请求都有返回结果之后才能确定是，就需要用到Promise.all来帮助我们应对这个场景。
 
@@ -2202,7 +2213,7 @@ Foo.prototype.bar = function () {
               })
       ```
 
-      **Promise.race**
+      ### Promise.race
 
       ​	与Promise.all相似的是。Promise.race也是以一个Promise对象组成的数组作为参数，不同的是，只有数组当中一个Promise状态变成resolved或者rejected时就调用then方法
 
@@ -2225,7 +2236,7 @@ Foo.prototype.bar = function () {
               })
       ```
 
-      **async/await**
+      ### async/await
 
       1. 异步问题不仅可以使用前面学到的Promise来解决。还可以用async/await来解决。
 
@@ -2303,7 +2314,7 @@ Foo.prototype.bar = function () {
                  demo();
          ```
 
-         **异常处理**
+         ### 异常处理
 
          在Promise中，是通过catch的方式捕获异常的，当使用async/await时，则是通过try/catch来捕获异常。
 
@@ -2353,7 +2364,7 @@ Foo.prototype.bar = function () {
                  foo();
          ```
 
-         **事件循环机制**
+         ### 事件循环机制
 
          1. 事件循环机制（Event Loop）是全面了解JavaScript代码执行顺序绕不开的一个重要知识点。虽然很多人知道这个知识点非常重要，但实际其实很少人能够真正理解它。特别是在ES6正式支持Promise之后，对于新标准中的时间循环的理解就变得更加重要。
 
@@ -2471,7 +2482,7 @@ const name = 'iskr';
         console.log(per[18]);//18
 ```
 
-**class**
+### class
 
 ```javascript
 	// ES5
@@ -2556,7 +2567,7 @@ const name = 'iskr';
         console.log(p._x);//undefined访问不到
 ```
 
-**继承**
+### 继承
 
 ```javascript
 	//继承了上面的类 	
@@ -2613,7 +2624,7 @@ class Person {
 
 我是在Vue里面测试，大家可以自行百度装下环境。
 
-**基础语法**
+### 基础语法
 
 - import-from
 
@@ -2682,7 +2693,7 @@ class Person {
     import module01 from './module01'
     ```
 
-    **例子**
+    ### 例子
 
     ```javascript
     //module02
@@ -2743,7 +2754,7 @@ class Person {
           fn();//this is function name is fn
     ```
 
-    **模块化开发**
+    ### 模块化开发
 
     ```javascript
     //state.js

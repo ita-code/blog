@@ -1,14 +1,14 @@
 ---
 title: Java基础教程
 date: 2021-09-05
-sidebar: false
+sidebar: auto
 isShowComments: true
 categories:
  - Java
 tags:
  -  笔记
 ---
-##### java HelloWorld的执行过程以及原理
+## java HelloWorld的执行过程以及原理
 
 - 第一步：启动Java虚拟机（JVM)
 - 第二步：虚拟机启动后，虚拟机会启动 **类加载器 classloader**
@@ -17,7 +17,7 @@ tags:
 - 第三步：类加载器如果在硬盘上找不到对应的字节码文件，会报错，无法加载主类
   - 类加载器如果找到对应的字节码文件，类加载器会将字节码文件装载到JVM当中，JVM启动”解释器“将字节码解释为”101010000...“这种二进制码，操作系统执行二进制文件和硬件交互。
 
-##### Java数据类型
+## Java数据类型
 
 - 基本数据类型   **8种**
 
@@ -54,7 +54,7 @@ tags:
 
   - char-->2字节(0~65535)可以表示65536个不同的数字，和short相同
 
-  - ```
+  - ```java
         int a=10;
         System.out.println(a);//默认十进制  10
         int b=010;
@@ -71,7 +71,7 @@ tags:
 
   - 计算机存储的是二进制补码形式
 
-  - ```
+  - ```java
     int i = 1;//正整数的原码反码补码相同
     //对应的二进制原码：00000000 00000000 00000000 00000001
     //对应的二进制反码：00000000 00000000 00000000 00000001
@@ -85,9 +85,9 @@ tags:
 
 - 数据类型混合运算的时候取**最大类型的字节**在继续做运算
 
-##### 逻辑判断符
+## 逻辑判断符
 
-```
+```java
     //&与&&的区别
     int x = 10;
     int y = 11;
@@ -100,11 +100,11 @@ tags:
     System.out.println(m);//11
 ```
 
-##### Java方法
+## Java方法
 
 - 普通方法
 
-  - ```
+  - ```java
     public class test02 {
         public static void main(String[] args) {
             Print_Str("打印一个方法体里面的内容");//打印一个方法体里面的内容
@@ -137,7 +137,7 @@ tags:
 
   - 方法体中的代码遵循自上而下的顺序依次执行
 
-  - ```
+  - ```java
     public class test03 {
         public static void main(String[] args) {
             print("main执行");
@@ -188,7 +188,7 @@ tags:
     - break控制的是循环；终止循环
     - return控制的是方法；终止当前方法
 
-##### Java方法重载
+## Java方法重载
 
 - 条件1:在同一个类当中
 
@@ -207,7 +207,7 @@ tags:
     - 和返回类型无关
     - 和修饰符无关
 
-  - ```
+  - ```java
     public class test06 {
         public static void main(String[] args) {
             System.out.println(m1(10, 1));//11
@@ -231,9 +231,9 @@ tags:
     System.out.println(true);
     ```
 
-##### Java递归
+## Java递归
 
-- ```
+- ```java
   public class RecursionTest02 {
       public static void main(String[] args) {
           int result=getSum(3);
@@ -252,7 +252,7 @@ tags:
 
 ![image-20210911220552370](https://iskr.gitee.io/pic/image-20210911220552370.png)
 
-##### 面向对象和面向过程的区别
+## 面向对象和面向过程的区别
 
 - 从语言方面
   - 对于c语言来说，是完全面向过程的。
@@ -306,13 +306,13 @@ tags:
   - ![image-20210912104204744](https://iskr.gitee.io/pic/image-20210912104204744.png)
   - ![image-20210912112455941](https://iskr.gitee.io/pic/image-20210912112455941.png)
 
-##### Java工程师与现实世界的关系
+## Java工程师与现实世界的关系
 
 - ![image-20210912114657300](https://iskr.gitee.io/pic/image-20210912114657300.png)
 
-##### 创建对象
+## 创建对象
 
-- ```
+- ```java
   public class test07 {
       public static void main(String[] args) {
           Student s1=new Student();
@@ -345,7 +345,7 @@ tags:
   - 引用是存储对象内存地址的一个变量。
   - 对象是堆内存里面new出来的。
 
-- ```
+- ```java
   package com.cobj.test01;
   
   public class Addres {
@@ -382,7 +382,7 @@ tags:
 
 - ![image-20210912172736452](https://iskr.gitee.io/pic/image-20210912172736452.png)
 
-##### 对象回收
+## 对象回收
 
 - 垃圾回收器：**`GC`**
   - 在Java语言中,垃圾回收器主要针对的是**`堆内存`**
@@ -393,12 +393,12 @@ tags:
 - 空指针异常（NullPointerException）
   - **`空引用`**访问实例【对象相关】相关的数据时，都会出现空指针异常。
 
-##### 方法调用参数传递
+## 方法调用参数传递
 
 - Java中关于方法调用时参数传递实际只有一个规则：
   - 在参数传递的时候，将变量中保存的那个`值`复制一份过去
 
-- ```
+- ```java
   public class Test01 {
       public static void main(String[]args){
           int i=10;
@@ -433,7 +433,7 @@ tags:
 
 - ![image-20210912204619980](https://iskr.gitee.io/pic/image-20210912204619980.png)
 
-##### 构造方法
+## 构造方法
 
 - 什么是构造方法，有什么用？
 
@@ -444,7 +444,7 @@ tags:
 
   - 使用new运算符来调用构造方法
 
-  - ```
+  - ```java
     public class Test {
         public static void main(String [] args){
             Student st=new Student(19,"张三","REP");
@@ -481,7 +481,7 @@ tags:
     - 实例变量是在构造方法执行的过程中完成初始化赋值
     - 错误❌不是在类加载的时候给实例变量赋值
 
-##### 封装
+## 封装
 
 - 面向对象的首要特征：封装 。什么是封装？有什么用？
 
@@ -497,7 +497,7 @@ tags:
     	第一步：属性私有化（使用private关键字进行修饰。）
     	第二步：对外提供简单的操作入口。
 
-- ```
+- ```java
   public class Student {
       private String name;
       private int Number;
@@ -535,9 +535,9 @@ tags:
   }
   ```
 
-##### 静态
+## 静态
 
-- ```
+- ```java
   class VarTest{
       /*
       *   成员变量：
@@ -565,9 +565,9 @@ tags:
 
 - ![image-20210913123448674](https://iskr.gitee.io/pic/image-20210913123448674.png)
 
-##### 代码执行顺序
+## 代码执行顺序
 
-- ```
+- ```java
   public class Test {
       //代码执行顺序
       static {
@@ -595,14 +595,14 @@ tags:
   }
   ```
 
-##### This
+## This
 
 - this是一个关键字
 - 一个对象一个this
   - this是一个变量，是一个引用。this保存当前对象的内存地址，指向自身。所以严格意义上来说，this代表的就是`当前对象`，this存储在堆内存当中对象的全部。
   - this不能使用在静态方法中。
 
-- ```
+- ```java
   package com.This;
   
   public class Shop {
@@ -638,7 +638,7 @@ tags:
 
 - this()
 
-  - ```
+  - ```java
     public Date(){
         //this.year=1970;
         //this.month=1;
@@ -655,11 +655,11 @@ tags:
 
 - ![image-20210913210947832](https://iskr.gitee.io/pic/image-20210913210947832.png)
 
-##### 变量内存图
+## 变量内存图
 
 - ![image-20210913223444841](https://iskr.gitee.io/pic/image-20210913223444841.png)
 
-##### 总结（实例、静态、构造）
+## 总结（实例、静态、构造）
 
 - ```java
   public class Sutdent {//类
@@ -762,7 +762,7 @@ tags:
   }
   ```
 
-##### 继承
+## 继承
 
 - 继承的相关特性
 
@@ -806,7 +806,7 @@ tags:
     }
     ```
 
-##### System.out.println
+## System.out.println
 
 - ```java
   public class Test {
@@ -829,7 +829,7 @@ tags:
   }
   ```
 
-##### 方法覆盖
+## 方法覆盖
 
 - 条件一：两个类必须要有继承关系。
 
@@ -888,7 +888,7 @@ tags:
   }
   ```
 
-##### 多态
+## 多态
 
 - 父类型引用指向子类型对象
 - 包括编译阶段和运行阶段
@@ -898,7 +898,7 @@ tags:
     - 运行阶段的时候，实际上在堆内存中创建的Java对象是Dog对象，所以move的时候，真正参与move的对象是Dog对象。动态执行Dog对象的move()方法(动态绑定)
   - 多种形态 ，多种状态，编译和运行有两个不同的状态
 
-- ```
+- ```java
   public class Animal {
       String name;
   
@@ -946,7 +946,7 @@ tags:
   }
   ```
 
-##### 多态应用
+## 多态应用
 
 - ```java
   public class Test {
@@ -1012,7 +1012,7 @@ tags:
   	以上的代表中表示：Master和Dog以及Cat的关系就脱离了，Master关注的是Pet类。
   	这样Master和Dog以及Cat的耦合度就降低了，提高了软件的扩展性。
 
-##### Super
+## Super
 
 - super能出现在实例方法和构造方法中。
 
@@ -1028,7 +1028,7 @@ tags:
     	super.方法名(实参)		【访问父类的方法】
     	super(实参)					【调用父类的构造方法】
   
-- ```
+- ```java
   // 示例代码
   public class test02 {
       public static void main(String []args){
@@ -1125,7 +1125,7 @@ tags:
   }
   ```
 
-##### final
+## final
 
 - final是Java语言中的一个关键字
 
@@ -1141,7 +1141,7 @@ tags:
 
 - final修饰的实例变量，系统不负责赋默认值，必须手动赋值。在**构造方法中赋值**或者在**变量后面赋**值。
 
-- ```
+- ```java
   public class Tc {
       public static void main(String[] args) {
           BAB b = new BAB("张三");
@@ -1168,11 +1168,11 @@ tags:
   ```
 
 
-##### 抽象类（abstract）
+## 抽象类（abstract）
 
 - 抽象类定义
 
-  - ```
+  - ```java
     abstract class AbsTest{ }
     ```
 
@@ -1188,13 +1188,13 @@ tags:
 
 - 抽象方法定义
 
-  - ```
+  - ```java
     public abstract void dosome();
     ```
 
 - 一个非抽象类继承抽象类，必须将抽象类中的抽象方法进行覆盖、重写、实现
 
-- ```
+- ```java
   abstract class AbsTest {
       public abstract void dosome();
   }
@@ -1206,7 +1206,7 @@ tags:
   }
   ```
 
-##### 接口（interface ）
+## 接口（interface ）
 
 - 接口时一种“引用数据类型”
 
@@ -1236,7 +1236,7 @@ tags:
 
 - 使用接口，写代码的时候，可以使用多态（父类型引用指向子类型对象）
 
-- ```
+- ```java
   public class Test01 {
       public static void main(String[] args) {
           A e = new E();
@@ -1287,7 +1287,7 @@ tags:
   }
   ```
 
-##### 接口在开发中的作业
+## 接口在开发中的作业
 
 - 注意：接口在开发中的作用，类似于多态在开发中的作用。
 
@@ -1303,7 +1303,7 @@ tags:
       		调用者面向接口调用。
       		实现者面向接口编写实现。
 
-- ```
+- ```java
   public class Test02 {
       public static void main(String[] args) {
           FoodMenu c = new WesternChef();   //实例化厨师
@@ -1374,7 +1374,7 @@ tags:
   }
   ```
 
-##### 类型和类型之间的关系
+## 类型和类型之间的关系
 
 - is a（继承）、has a（关联）、like a（实现）
 - is a：
@@ -1392,9 +1392,9 @@ tags:
   - 实现关系通常是：类实现接口。
   - A implements B
 
-##### 抽象类和接口有什么区别
+## 抽象类和接口有什么区别
 
-- ```
+- ```java
   在这里我们只说一下抽象类和接口在语法上的区别。
   至于以后抽象类和接口应该怎么进行选择，通过后面的项目去体会/学习。
   	
@@ -1417,7 +1417,7 @@ tags:
   	接口一般都是对“行为”的抽象。
   ```
 
-##### package和import
+## package和import
 
 - package
 
@@ -1442,7 +1442,7 @@ tags:
     - import 包名.*;
     - import java.util.Scanner; // 完整类名。
 
-  - ```
+  - ```java
     	// 同学的疑问：这样是不是效率比较低。
     	// 这个效率不低，因为编译器在编译的时候，会自动把*变成具体的类名。
     	import java.util.*;
@@ -1451,7 +1451,7 @@ tags:
     	import java.*; 这是不允许的，因为在java语言中规定，这里的*只代表某些类的名字。
     ```
 
-##### 访问控制权限
+## 访问控制权限
 
 - private 表示私有的，只能在本类中访问
 
@@ -1477,7 +1477,7 @@ tags:
   - 类（public和默认能用，其它不行。）
   - 接口（public和默认能用，其它不行。）
 
-##### 数组
+## 数组
 
 - 数组是引用数据类型，所以数组对象是存储堆内存当中。
 
@@ -1502,21 +1502,21 @@ tags:
 
   - 静态初始化：
 
-    ```
+    ```java
     int[] arr = {1,2,3,4};
     Object[] objs = {new Object(), new Object(), new Object()};
     ```
 
   - 动态初始化：
 
-    ```
+    ```java
     int[] arr = new int[4]; // 4个长度，每个元素默认值0
     Object[] objs = new Object[4]; // 4个长度，每个元素默认值null
     ```
 
-##### 冒泡排序
+## 冒泡排序
 
-- ```
+- ```java
   冒泡排序算法
       1、每一次循环结束之后，都要找出最大的数据，放到参与比较的这堆数据的最右边。（冒出最大的那个气泡。）
       2、核心：
@@ -1545,7 +1545,7 @@ tags:
   2, 3 (2和3比较，不需要交换位置)
   ```
 
-- ```
+- ```java
   for (int i = 0; i < arr.length - 1; i++) {
       int m = i;
       for (int j = i + 1; j < arr.length; j++) {
@@ -1561,12 +1561,12 @@ tags:
   }
   ```
 
-##### 选择排序
+## 选择排序
 
 - 挑出小的，往前排序，减少交换次数
 - 选择排序比冒泡排序好在：每一次的交换位置都是有意义的
 
-- ```
+- ```java
   for (int i = 0; i < arr.length; i++) {
               for (int j = i + 1; j < arr.length; j++) {
                   if (arr[i] > arr[j]) {
@@ -1578,13 +1578,13 @@ tags:
           }
   ```
 
-##### 二分查找
+## 二分查找
 
 - 二分法查找算法是基于排序的基础之上。（**没有排序的数据是无法查找的**。）
 
 - 二分法查找的终止条件：一直折半，直到中间的那个元素恰好是被查找的元素
 
-- ```
+- ```java
   public static void main(String[] args) {
       int[] arr = {3, 5, 7, 9, 12, 56, 78};
       int index = FindIndex(arr, 56);
@@ -1617,7 +1617,7 @@ tags:
   }
   ```
 
-##### String
+## String
 
 - 对String在内存存储方面的理解：
 
@@ -1629,7 +1629,7 @@ tags:
 
   - String已经重写了toString()和equals()方法。
 
-  - ```
+  - ```java
         String st=new String("hello");
         String st1=new String("hello");
         //以上共创建了三对象:两个堆方法区的String对象,方法区字符串常量池一个
@@ -1644,7 +1644,7 @@ tags:
   
   - 常用API	
   
-    ```
+    ```java
     // String类当中常用方法。
     //1（掌握）.char charAt(int index)
     char c = "中国人".charAt(1); // "中国人"是一个字符串String对象。只要是对象就能“点.”
@@ -1803,7 +1803,7 @@ tags:
     }
     ```
 
-##### 八种包装数据类型
+## 八种包装数据类型
 
 - Byte
 
@@ -1811,7 +1811,7 @@ tags:
 
 - Integer
 
-  - ```
+  - ```java
     		Integer n=100;
             Integer m=100;
             System.out.println(n==m);//true  ==>因为Jvm中整数常量池中的数据127~-128
@@ -1838,7 +1838,7 @@ tags:
 
 - 数字类
 
-  - ```
+  - ```java
     DecimalFormat数字格式化
     		###,###.## 表示加入千分位，保留两个小数。
     		###,###.0000 表示加入千分位，保留4个小数，不够补0
@@ -1846,9 +1846,9 @@ tags:
     		财务软件中通常使用BigDecimal
     ```
 
-##### 异常处理throws
+## 异常处理throws
 
-- ```
+- ```java
   1、什么是异常，java提供异常处理机制有什么用？
       以下程序执行过程中发生了不正常的情况，而这种不正常的情况叫做：异常
       java语言是很完善的语言，提供了异常的处理方式，以下程序执行过程中出现了不正常情况，
@@ -1866,7 +1866,7 @@ tags:
 
 - 处理异常的方式
 
-  - ```
+  - ```java
     处理异常的第一种方式：
         在方法声明的位置上使用throws关键字抛出，谁调用我这个方法，我就抛给谁。抛给调用者来处理。
         这种处理异常的态度：上报。
@@ -1980,7 +1980,7 @@ tags:
 
 - final finally finalize有什么区别？
 
-  - ```
+  - ```java
      final 关键字
             final修饰的类无法继承
             final修饰的方法无法覆盖
@@ -1995,7 +1995,7 @@ tags:
             这个方法是由垃圾回收器GC负责调用的。
     ```
 
-##### 集合
+## 集合
 
 - ArrayList：底层是数组
 - LinkedList：底层是双向链表
@@ -2022,9 +2022,9 @@ tags:
 - Map集合中的Key，就是一个Set集合
 - 在Set集合中放数据，实际上是放在了Map集合中的Key部分
 
-##### Collection
+## Collection
 
-```
+```java
 package Contains01;
 
 import java.util.ArrayList;
@@ -2088,7 +2088,7 @@ class User {
 
 
 
-##### 常见报错
+## 常见报错
 
 - 空指针异常:`NullPointerException`
 - 类型转换异常:`ClassCastException`

@@ -29,8 +29,8 @@ function getDocPath(title, collapsable, relateivePath, sidebarDepth) {
   })
   let frame = {
     title: title,
-    // sidebarDepth: sidebarDepth || 2,
-    displayAllHeaders: true,
+    sidebarDepth: sidebarDepth || 2,
+    // displayAllHeaders: true,
     collapsable: collapsable,
     children: components
   }
