@@ -19,4 +19,10 @@ isShowComments: false
 :::
 
 
+<!-- title: 'About'
+sidebar: false
+publish: false
+//直接插入自己的组件
+<about /> -->
+
 
