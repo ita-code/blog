@@ -1,14 +1,14 @@
 {
-  "name": "afternoon-grocery-store",
+  "name": "blog",
   "version": "1.0.0",
-  "description": "recoluan's blog",
+  "description": "壹樂's blog",
   "main": "index.js",
-  "repository": "http://recoluan.gitlab.io",
-  "author": "reco_luan",
+  "repository": "https://gitee.com/iskr/blog",
+  "author": "壹樂",
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev blogs",
+    "dev": "vuepress dev blogs --port 9527",
     "build": "vuepress build blogs",
     "deploy": "bash scripts/deploy.sh",
     "push": "bash scripts/push.sh"

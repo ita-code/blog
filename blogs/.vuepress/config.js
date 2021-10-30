@@ -20,9 +20,6 @@ module.exports = {
     ['script', { language: 'javascript', type: 'text/javascript', src: '/js/MouseClickEffect.js' }]
   ],
   theme: 'reco',
-  markdown: {
-    lineNumbers: true
-  },
   //设置默认语言
   locales: {
     '/': {
