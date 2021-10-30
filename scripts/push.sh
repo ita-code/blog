@@ -1,8 +1,8 @@
 npm run build
 
 git add .
-date=`date +%Y-%m-%d_%H:%M:%S`
-git commit -m "deploy ${date}"
+date=`date +%Y-%m-%d %H:%M:%S`
+git commit -m "commit '${date}'"
 
 git push 
 
