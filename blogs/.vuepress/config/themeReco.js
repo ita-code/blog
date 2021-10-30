@@ -48,10 +48,10 @@ module.exports = {
       link: 'http://pengzhihui.xyz'
     },
     {
-      title: '于樂壹生',
-      desc: 'Enjoy when you can, and endure when you must.',
-      email: '1156743527@qq.com',
-      link: 'https://www.recoluan.com'
+      title: '秋风的博客',
+      desc: '个人技能知识分享',
+      logo: "/links/pengzhihui.jpg",
+      link: 'https://qiufeng.blue'
     },
     {
       title: '友情链接',

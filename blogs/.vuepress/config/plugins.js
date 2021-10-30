@@ -36,6 +36,14 @@ const plugins = [
       buttonStaticIcon: true
     },
   ],
+  //将html文件名转拼音
+  [
+    'permalink-pinyin',
+    {
+      lowercase: true,
+      separator: '_'
+    }
+  ]
   // [
   // "vuepress-plugin-ribbon": "^1.0.4",
   //   'ribbon',//背景彩带
