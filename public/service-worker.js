@@ -27,7 +27,7 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "23f84eb15628cf3819dda5c189641846"
+    "revision": "76d1a213c69f92772fb211fdd94caf4a"
   },
   {
     "url": "assets/css/0.styles.d6d4d3dc.css",
@@ -58,16 +58,16 @@ self.__precacheManifest = [
     "revision": "ad9a74b2bf36634474ad14d0e9420a58"
   },
   {
-    "url": "assets/js/14.bf22fe0e.js",
-    "revision": "99255eb91e33091a79d1e87535ceda63"
+    "url": "assets/js/14.625091f2.js",
+    "revision": "53cc5a1f09665daf7d21cb128336fb1d"
   },
   {
-    "url": "assets/js/15.07afe424.js",
-    "revision": "9fe5c53ece179895a433e956b7e6e9fe"
+    "url": "assets/js/15.9b4d7767.js",
+    "revision": "9e311700c6370036fc4b913597be9272"
   },
   {
-    "url": "assets/js/16.5ce92944.js",
-    "revision": "bc52095bb1eab9d884341cf8b6e44489"
+    "url": "assets/js/16.aeb7d897.js",
+    "revision": "87d3158c3e2796c6058675dbb6740b7d"
   },
   {
     "url": "assets/js/17.a57d5c57.js",
@@ -106,8 +106,8 @@ self.__precacheManifest = [
     "revision": "9c9d7c662e5bb73388adaf8c9e8d6d45"
   },
   {
-    "url": "assets/js/app.3c4f8d3d.js",
-    "revision": "2e69774f56e14d272038e3edc25d0e16"
+    "url": "assets/js/app.3fd7a68c.js",
+    "revision": "f8ee803257c18e786d59b07867b1dcde"
   },
   {
     "url": "banner_2.jpg",
@@ -119,31 +119,27 @@ self.__precacheManifest = [
   },
   {
     "url": "categories/index.html",
-    "revision": "18ca75e88b7567d4cabecd06390eae26"
+    "revision": "8dc6804ebd29f66bab5cd791b587cd1c"
   },
   {
     "url": "categories/Java/index.html",
-    "revision": "8bb2f2ec0ee3ce5d6f83953a48e90b45"
+    "revision": "581c1187d861478722a5185e72dd1add"
   },
   {
     "url": "categories/Javascript/index.html",
-    "revision": "d8d239dd95b8f21281bad75f58057939"
-  },
-  {
-    "url": "categories/摘记/index.html",
-    "revision": "d607e2ca4a4c86de2eb45e863a6813f5"
+    "revision": "3c9919a1cf55f3ca047a5ee26d6a9ba8"
   },
   {
     "url": "document/study/java/Java.html",
-    "revision": "0b2f651956a00a49527ceca80d8bfd05"
+    "revision": "abbca91a7133499581187726025df38d"
   },
   {
     "url": "document/study/js/demo.html",
-    "revision": "2caaa9eb82756ed39044ac451753eb9a"
+    "revision": "e7ed78ad9299ecdca58f1fe7c2e746e2"
   },
   {
     "url": "document/study/js/JavascriptBook.html",
-    "revision": "0d5b2ed361a8f4e0cba8c3eda939bcdd"
+    "revision": "45cf319f5865e2358e7d5382d5c43c85"
   },
   {
     "url": "head.png",
@@ -163,7 +159,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "7adcb0579c4cac31755ca0faf4005248"
+    "revision": "320a5b766d03f777a95db7ac0e171649"
   },
   {
     "url": "js/MouseClickEffect.js",
@@ -175,39 +171,31 @@ self.__precacheManifest = [
   },
   {
     "url": "other/about.html",
-    "revision": "24ea6eac376ca0870f29134a026dcbae"
+    "revision": "9ff21a0c14911f7984a0af16fef6e599"
   },
   {
     "url": "other/messageBoard.html",
-    "revision": "b90d37b486d707a299cef82ba1537841"
+    "revision": "364e67110acffe2f84846a2a89a09490"
   },
   {
     "url": "other/resume.html",
-    "revision": "959ca1fb3691c6583e1d8070a2818394"
+    "revision": "4a4c51360e5ec5539938208430b79b0a"
   },
   {
     "url": "tag/index.html",
-    "revision": "4a5138ec32e647a24df7cdefb3b83e7e"
-  },
-  {
-    "url": "tag/句子/index.html",
-    "revision": "975df8ed5468feab7a8ede2d1d52ac19"
+    "revision": "f2efca5d0e7296d82d238ff87e44c8c2"
   },
   {
     "url": "tag/笔记/index.html",
-    "revision": "e5d50719c7723ae5a45716e684375548"
-  },
-  {
-    "url": "tag/诗/index.html",
-    "revision": "c17a045a3cd8da3cc2ce68f4bd2cf722"
+    "revision": "8dd6ef08d4a79170bdd3d8c1f76bb710"
   },
   {
     "url": "tag/读后笔记/index.html",
-    "revision": "bd163c72f2ad1019f7801d5fbe30f020"
+    "revision": "49f9f80fdd0ddc104ef8ebe67277b96a"
   },
   {
     "url": "timeline/index.html",
-    "revision": "d1eac0e441d140600915747763f53f2f"
+    "revision": "07e5acacd1d26b16100249ccf724dde5"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});

@@ -1,5 +1,5 @@
 ---
-title: Javascript核心开发解密
+title: 核心开发解密
 date: 2020-11-05
 sidebar: auto
 isShowComments: true
@@ -7,6 +7,7 @@ categories:
  - Javascript
 tags:
  -  读后笔记
+ -  笔记
 sticky: 1
 ---
 <!-- 
@@ -20,6 +21,9 @@ tags:                         //标签
  -  读后笔记
 sticky: 1                     //顶置
  -->
+::: tip
+  此篇文章是我在看JavaScript核心开发解密中，总结的一些笔记，希望大家能给出一些意见。
+:::
 ## 三种基础数据结构
 
   ### 栈
