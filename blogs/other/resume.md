@@ -1,8 +1,9 @@
 ---
-title: 个人简历
+title: 个人信息
 date: 2021-09-01
 sidebar: false
 isShowComments: false
+publish: false
 ---
 
 ## 工作

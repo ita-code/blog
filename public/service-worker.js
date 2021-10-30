@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "748e51c86973b8307266ca045a88e467"
+    "revision": "79c57836c2ce4c091e922d8fbc5002fb"
   },
   {
-    "url": "assets/css/0.styles.e94df3be.css",
-    "revision": "f5bf78cc2b2ae03f6c66d8d045400de6"
+    "url": "assets/css/0.styles.d6bb3358.css",
+    "revision": "f6cbea35e6ddee7c43d3106ae5b6a48b"
   },
   {
     "url": "assets/img/bg.2cfdbb33.svg",
@@ -58,12 +58,12 @@ self.__precacheManifest = [
     "revision": "df82f5a109f205e7f400a97005142a12"
   },
   {
-    "url": "assets/js/14.e04725c9.js",
-    "revision": "590a72cd7540fec3a4bd4ed2a778b3dc"
+    "url": "assets/js/14.1ac24751.js",
+    "revision": "8bb304c27b64c5b5f5366487efa6e450"
   },
   {
-    "url": "assets/js/15.a5c75004.js",
-    "revision": "ae8f17fd34c9f9cc8319ead3af9fed33"
+    "url": "assets/js/15.9e011912.js",
+    "revision": "6f8b8f99827766d9f63872b469bf8ea0"
   },
   {
     "url": "assets/js/16.8aab7343.js",
@@ -74,12 +74,12 @@ self.__precacheManifest = [
     "revision": "1cbabfb6c5c82002a8e36187345cee16"
   },
   {
-    "url": "assets/js/18.127ddb12.js",
-    "revision": "ff0ea083c14db356104c138008e89951"
+    "url": "assets/js/18.1242932c.js",
+    "revision": "ac1604c4b450c27add9703e57e6745d5"
   },
   {
-    "url": "assets/js/19.ea6b9442.js",
-    "revision": "1bb64d8c119e3add2b39c3253a660f92"
+    "url": "assets/js/19.c8e2b608.js",
+    "revision": "3df8cb88a7b6a954656e4ef7ab863115"
   },
   {
     "url": "assets/js/20.2dc56831.js",
@@ -114,48 +114,44 @@ self.__precacheManifest = [
     "revision": "9c9d7c662e5bb73388adaf8c9e8d6d45"
   },
   {
-    "url": "assets/js/app.57f3eb44.js",
-    "revision": "f7d56b4a222231a6a6642286fea014dd"
+    "url": "assets/js/app.e5a4e7e2.js",
+    "revision": "8c8259a3d42376ed52e8369dd150bff8"
   },
   {
     "url": "banner_2.jpg",
     "revision": "f7b3101c3f2ae2fb8227d7eec1a0fa38"
   },
   {
-    "url": "bg.jpg",
-    "revision": "51a3a995c3291427a35810c7e9b7217f"
-  },
-  {
     "url": "categories/index.html",
-    "revision": "379b6bfeb65e89681e6bbf4f4c7462d5"
+    "revision": "7b1b15c6c94a0710f7845fa26872a377"
   },
   {
     "url": "categories/Java/index.html",
-    "revision": "68718cb0e787085a406722840993be1a"
+    "revision": "863d30e06b98e2f25c9276f9c018d00a"
   },
   {
     "url": "categories/Javascript/index.html",
-    "revision": "1f55159dc42c8947db5d73ea63558368"
+    "revision": "5e2a5517caad7bf3cc0bddb87245a6fc"
   },
   {
     "url": "document/study/java/ji_chu_jiao_cheng.html",
-    "revision": "0011b75e8aa7e094301658fa20fe6bd2"
+    "revision": "d44881d8260346271adec698198ce206"
   },
   {
     "url": "document/study/js/he_xin_kai_fa_jie_mi.html",
-    "revision": "0f28dc2e96766124b543f71d3575a76d"
+    "revision": "d91609e7ecf24d356cffacf4c07512b4"
   },
   {
     "url": "document/study/js/jsshi_jian_wei_tuo.html",
-    "revision": "28cc6fdc71ae0bdec8abdeb9aa173744"
+    "revision": "d8b9ed2c7d90714b7ebf780c291dd4fe"
   },
   {
     "url": "document/study/js/jsshu_zu.html",
-    "revision": "4c137042484e46d35b149f87465d701f"
+    "revision": "8f2dc8dcb78e3c0c77e7b317ab9a7cbb"
   },
   {
     "url": "document/study/js/jszuo_yong_yu.html",
-    "revision": "cf73455257bf7e57a741a0e34ffa8496"
+    "revision": "1b54db8b5b90891aa24112cec7658488"
   },
   {
     "url": "head.png",
@@ -174,8 +170,16 @@ self.__precacheManifest = [
     "revision": "2a128d723c3642ea473d8c687385b451"
   },
   {
+    "url": "img/bg2.jpg",
+    "revision": "9ba14cbe4cc5fd6b1476b8c1e04a1209"
+  },
+  {
+    "url": "img/log1.jpg",
+    "revision": "7747c42d79a67c13035dce132cd27f63"
+  },
+  {
     "url": "index.html",
-    "revision": "2748ab63c5746fb9230608f83fc3c323"
+    "revision": "e605e688cc5fa34f59d6d29c2d16f7df"
   },
   {
     "url": "js/MouseClickEffect.js",
@@ -187,31 +191,31 @@ self.__precacheManifest = [
   },
   {
     "url": "other/about.html",
-    "revision": "e243e00b63666a6f58d0d36e1daa1bc2"
+    "revision": "4b9fa7b6377f27abe4e068489c06103e"
   },
   {
     "url": "other/messageboard.html",
-    "revision": "775e9a09579c9f3612b65c72ed48489a"
+    "revision": "e5478d2ca645c4f13b3c833673b2363b"
   },
   {
     "url": "other/resume.html",
-    "revision": "65126a217509dd105299c1c7e0c300c6"
+    "revision": "96cc7a7776fd7a203551b6df3501ca18"
   },
   {
     "url": "tag/index.html",
-    "revision": "440cac2a66ee2662bfe4626e612ae630"
+    "revision": "5ddc9b74f4117ba6235f3aa6a7492e20"
   },
   {
     "url": "tag/笔记/index.html",
-    "revision": "17a93a32e0f11d36fbbd05b0b7851ea4"
+    "revision": "e5653a5770c87492138c3c9cc561f2a7"
   },
   {
     "url": "tag/读后笔记/index.html",
-    "revision": "b10c4117dcee04b9f05616dbd80e4901"
+    "revision": "acb64badeb4174f6e55ca39fe0984bec"
   },
   {
     "url": "timeline/index.html",
-    "revision": "8aa27fc84baab6c93d2a94f2c5c81285"
+    "revision": "3c3355ffb2b0f432a75c892c2d26bc51"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});

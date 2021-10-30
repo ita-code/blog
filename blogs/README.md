@@ -1,7 +1,7 @@
 ---
 home: true
 #首页背景图片
-bgImage: '/bg.jpg'
+bgImage: '/img/bg1.jpg'
 # bgStyle: {
 #   color: '#fff'
 # }
@@ -12,12 +12,12 @@ bgImageStyle: {
 #首页logo背景图片
 # heroImage: /bg.jpg
 heroImageStyle: {
-#   height: 'calc(100vh - 3.6rem)'
-#   maxHeight: '200px',
-#   display: block,
-#   margin: '6rem auto 1.5rem',
-#   borderRadius: '50%',
-#   boxShadow: '0 5px 18px rgba(0,0,0,0.2)'
+  # height: 'calc(100vh - 3.6rem)',
+  # maxHeight: '200px',
+  # display: block,
+  # margin: '6rem auto 1.5rem',
+  # borderRadius: '50%',
+  # boxShadow: '0 5px 18px rgba(0,0,0,0.2)',
 }
 isShowTitleInHome: false
 isShowHeroImage: true

@@ -1,7 +1,7 @@
 const themeConfig = require('./config/themeConfig')
 const plugins = require('./config/plugins');
 module.exports = {
-  title: "于樂壹生",
+  title: "壹樂's blog",
   description: '任何值得去的地方都没有捷径。',
   dest: 'public',
   base: '/blog/',

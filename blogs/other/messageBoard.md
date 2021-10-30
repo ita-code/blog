@@ -1,6 +1,7 @@
 ---
 title: '留言板'
 isShowComments: true
+publish: false
 ---
 
 ::: tip

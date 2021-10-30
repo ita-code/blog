@@ -28,7 +28,7 @@ module.exports = {
   lastUpdated: false, // string | boolean
   // 作者
   author: '壹樂',
-  authorAvatar: '/head.png',
+  authorAvatar: '/img/log1.jpg',
   // valine 设置   Valine - 一款快速、简洁且高效的无后端评论系统。
   valineConfig: {
     appId: '7nuLftYTRqihah60MGXtwcTN-gzGzoHsz',

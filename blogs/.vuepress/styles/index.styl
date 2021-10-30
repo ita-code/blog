@@ -1,6 +1,24 @@
 .home-blog .hero h1, .home-blog .hero .description, .home-blog .hero .action, .home-blog .hero .huawei
   color: $textColor!important
 
+//解决滚动条宽度超出问题
+.home-blog
+  canvas
+   width calc(100vw - 5px)!important
+// 文章和标签中间的竖线
+.home-blog .home-blog-wrapper .info-wrapper .num > div:first-child {
+    border-right: 1px solid #a1a1a1;
+} 
+
+//首页中间字体颜色
+.hero .description, .hero h1 {
+    color: #fff;
+    font-weight: 700;
+    background-image: -webkit-gradient(linear,left 0,right 0,from(#ffffff),to(#2c3e50));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .about
   .aboutNav
     list-style none

@@ -3,10 +3,7 @@
   // color: #FF66CC!important
   color:rgba(255,255,255,0)!important
 }
-// 文章和标签中间的竖线
-.home-blog .home-blog-wrapper .info-wrapper .num > div:first-child {
-    border-right: 1px solid #eaecef;
-}
+
 // 代码块中背景和文字颜色
 .content__default {
   code {

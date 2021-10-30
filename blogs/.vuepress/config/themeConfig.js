@@ -8,7 +8,7 @@ module.exports = Object.assign({}, themeReco, {
   //侧边栏
   sidebar,
   //导航栏   logo
-  logo: '/head.png',
+  logo: '/img/log1.jpg',
   markdown: {
     lineNumbers: true
   },
