@@ -1,3 +1,3 @@
 git add .
-git commit -m 'feat: add doc'
-git push origin gh-pages-source
+git commit -m '自动提交'
+git push 
