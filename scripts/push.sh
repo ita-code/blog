@@ -1,3 +1,6 @@
+npm run build
+
 git add .
-git commit -m '自动提交'
+git commit -m 'deploy'
+
 git push 

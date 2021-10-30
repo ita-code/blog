@@ -10,7 +10,6 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "vuepress dev blogs --port 9527",
     "build": "vuepress build blogs",
-    "deploy": "bash scripts/deploy.sh",
     "push": "bash scripts/push.sh"
   },
   "dependencies": {
