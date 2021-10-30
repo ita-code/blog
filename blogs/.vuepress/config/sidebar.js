@@ -1,4 +1,7 @@
+const getDocPath = require('../utils/getDocPath')
 const sidebar = {
-  // '/document/': js,
+  '/document/study/': [
+    getDocPath('Javascript', true, '/document/study/js/'),
+  ],
 }
 module.exports = sidebar;
