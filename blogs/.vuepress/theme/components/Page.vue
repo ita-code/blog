@@ -36,13 +36,15 @@
       <div class="page-nav" v-if="recoShowModule && (prev || next)">
         <p class="inner">
           <span v-if="prev" class="prev">
-            <router-link v-if="prev" class="prev" :to="prev.path">
-              {{ prev.title || prev.path }}
+            <router-link v-if="prev" class="prev" :to="prev.path" :title="'上一篇：'+(prev.title || prev.path)">
+              <reco-icon class="fas fa-arrow-left" />
+              {{prev.title || prev.path}}
             </router-link>
           </span>
           <span v-if="next" class="next">
-            <router-link v-if="next" :to="next.path">
+            <router-link v-if="next" :to="next.path" :title="'下一篇：'+(next.title || next.path)">
               {{ next.title || next.path }}
+              <reco-icon class="fas fa-arrow-right" />
             </router-link>
           </span>
         </p>
@@ -65,9 +67,10 @@ import PageInfo from '@theme/components/PageInfo'
 import { resolvePage, outboundRE, endingSlashRE } from '@theme/helpers/utils'
 import { ModuleTransition } from '@vuepress-reco/core/lib/components'
 import SubSidebar from '@theme/components/SubSidebar'
+import { RecoIcon } from '@vuepress-reco/core/lib/components'
 
 export default defineComponent({
-  components: { PageInfo, ModuleTransition, SubSidebar },
+  components: { PageInfo, ModuleTransition, SubSidebar , RecoIcon},
 
   props: ['sidebarItems'],
 
