@@ -18,6 +18,7 @@
         class="cover-img"
         :src="
           item.frontmatter.cover ||
+          this.$themeConfig.covers[(item.frontmatter.title % 7) + 1] ||
           'https://pan.zealsay.com/zealsay/cover/6.jpg'
         "
         :alt="item.frontmatter.title"

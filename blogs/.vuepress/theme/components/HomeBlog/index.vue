@@ -23,11 +23,16 @@
             v-if="recoShowModule && $frontmatter.tagline !== null"
             class="description"
           >
-            {{
+            <!-- {{
               $frontmatter.tagline ||
               $description ||
               "Welcome to your vuePress-theme-reco site"
             }}
+            自己设定
+             -->
+            {{ $themeConfig.mottos[randoms].zh }}
+            <br>
+            {{ $themeConfig.mottos[randoms].en }}
           </p>
         </ModuleTransition>
       </div>
@@ -119,6 +124,11 @@ export default defineComponent({
       tags: [],
       bubbles: null,
     };
+  },
+  computed: {
+    randoms() {
+      return Math.floor(Math.random() * this.$themeConfig.mottos.length + 1);
+    },
   },
 
   setup(props, ctx) {
