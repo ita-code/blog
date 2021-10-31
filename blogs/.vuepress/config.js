@@ -28,6 +28,7 @@ module.exports = {
   },
   themeConfig,
   plugins,
+  //图片大小 2500X1765   显示默认图片defaultCover
   "covers": [
     'https://pan.zealsay.com/zealsay/cover/7.jpg',
     'https://pan.zealsay.com/zealsay/cover/1.jpg',

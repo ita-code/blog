@@ -1,5 +1,9 @@
 <template>
-  <div class="page-info">
+  <div
+    :class="{
+      'page-info': pageInfo.frontmatter.defaultCover || pageInfo.frontmatter.cover,
+    }"
+  >
     <reco-icon
       v-if="pageInfo.frontmatter.author || $themeConfig.author"
       icon="reco-account"
@@ -95,7 +99,7 @@ export default defineComponent({
 </script>
 
 <style lang="stylus" scoped>
-.page-info {
+.abstract-item-img .page-info {
   margin: 0 2rem;
   display: inline-flex;
   flex-wrap: wrap;
