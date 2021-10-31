@@ -1,104 +1,143 @@
 <template>
-  <div>
+  <div class="page-info">
     <reco-icon
       v-if="pageInfo.frontmatter.author || $themeConfig.author"
       icon="reco-account"
     >
       <span>{{ pageInfo.frontmatter.author || $themeConfig.author }}</span>
     </reco-icon>
-    <reco-icon
-      v-if="pageInfo.frontmatter.date"
-      icon="reco-date"
-    >
-      <span>{{ formatDateValue(pageInfo.frontmatter.date) }}</span>
+    <reco-icon v-if="pageInfo.frontmatter.date" icon="reco-date">
+      <span>{{ pageInfo.frontmatter.date | formatDateValue }}</span>
     </reco-icon>
-    <reco-icon
-      v-if="showAccessNumber === true"
-      icon="reco-eye"
-    >
+    <reco-icon v-if="showAccessNumber === true" icon="reco-eye">
       <AccessNumber :idVal="pageInfo.path" :numStyle="numStyle" />
     </reco-icon>
-    <reco-icon
-      v-if="pageInfo.frontmatter.tags"
-      icon="reco-tag"
-      class="tags"
-    >
+    <reco-icon v-if="pageInfo.frontmatter.tags" icon="reco-tag" class="tags">
       <span
         v-for="(subItem, subIndex) in pageInfo.frontmatter.tags"
         :key="subIndex"
         class="tag-item"
-        :class="{ 'active': currentTag == subItem }"
+        :class="{ active: currentTag == subItem }"
         @click.stop="goTags(subItem)"
-      >{{subItem}}</span>
+        >{{ subItem }}</span
+      >
     </reco-icon>
   </div>
 </template>
 
 <script>
-import { defineComponent, getCurrentInstance } from 'vue-demi'
-import { RecoIcon } from '@vuepress-reco/core/lib/components'
+import { formatDate } from "@theme/helpers/utils";
+import { defineComponent, getCurrentInstance } from "vue-demi";
+import { RecoIcon } from "@vuepress-reco/core/lib/components";
 
 export default defineComponent({
   components: { RecoIcon },
   props: {
     pageInfo: {
       type: Object,
-      default () {
-        return {}
-      }
+      default() {
+        return {};
+      },
     },
     currentTag: {
       type: String,
-      default: ''
+      default: "",
     },
     showAccessNumber: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
 
-  setup (props, ctx) {
-    const instance = getCurrentInstance().proxy
+  setup(props, ctx) {
+    const instance = getCurrentInstance().proxy;
 
     const numStyle = {
-      fontSize: '.9rem',
-      fontWeight: 'normal',
-      color: '#999'
-    }
+      fontSize: ".9rem",
+      fontWeight: "normal",
+      color: "#999",
+    };
 
     const goTags = (tag) => {
       if (instance.$route.path !== `/tag/${tag}/`) {
-        instance.$router.push({ path: `/tag/${tag}/` })
+        instance.$router.push({ path: `/tag/${tag}/` });
       }
-    }
+    };
 
     const formatDateValue = (value) => {
-      return new Intl.DateTimeFormat(instance.$lang).format(new Date(value))
-    }
+      return new Intl.DateTimeFormat(instance.$lang).format(new Date(value));
+    };
 
-    return { numStyle, goTags, formatDateValue }
-  }
-})
+    return { numStyle, goTags, formatDateValue };
+  },
+  filters: {
+    formatDateValue(value) {
+      if (!value) return "";
+      // 返回的value的值都是这个样子2019-09-20T18:22:30.000Z
+      // 对value进行处理
+      value = value.replace("T", " ").slice(0, value.lastIndexOf("."));
+      // 转化后的value 2019-09-20 18:22:30
+      // 获取到时分秒
+      const h = Number(value.substr(11, 2));
+      const m = Number(value.substr(14, 2));
+      const s = Number(value.substr(17, 2));
+      // 判断时分秒是不是 00:00:00 (如果是用户手动输入的00:00:00也会不显示)
+      if (h > 0 || m > 0 || s > 0) {
+        // 时分秒有一个> 0 就说明用户输入一个非 00:00:00 的时分秒
+        return formatDate(value);
+      } else {
+        // 用户没有输入或者输入了 00:00:00
+        return formatDate(value, "yyyy-MM-dd");
+      }
+    },
+  },
+});
 </script>
 
 <style lang="stylus" scoped>
-.iconfont
-  display inline-block
-  line-height 1.5rem
-  &:not(:last-child)
-    margin-right 1rem
-  span
-    margin-left 0.5rem
-.tags
-  .tag-item
-    font-family Ubuntu, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif
-    cursor pointer
-    &.active
-      color $accentColor
-    &:hover
-      color $accentColor
-@media (max-width: $MQMobile)
-  .tags
-    display block
-    margin-left 0 !important
+.page-info {
+  margin: 0 2rem;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.iconfont {
+  display: inline-block;
+  line-height: 1.5rem;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+
+  span {
+    margin-left: 0.5rem;
+  }
+}
+
+.tags {
+  .tag-item {
+    font-family: Ubuntu, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+
+    &.active {
+      color: $accentColor;
+    }
+
+    &:hover {
+      color: $accentColor;
+    }
+  }
+}
+
+@media (max-width: $MQMobile) {
+  .tags {
+    display: block;
+    margin-left: 0 !important;
+  }
+
+  .page-info {
+    margin: 0;
+    justify-content: center;
+  }
+}
 </style>

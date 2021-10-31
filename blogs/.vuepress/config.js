@@ -27,5 +27,14 @@ module.exports = {
     }
   },
   themeConfig,
-  plugins
+  plugins,
+  "covers": [
+    'https://pan.zealsay.com/zealsay/cover/7.jpg',
+    'https://pan.zealsay.com/zealsay/cover/1.jpg',
+    'https://pan.zealsay.com/zealsay/cover/2.jpg',
+    'https://pan.zealsay.com/zealsay/cover/3.jpg',
+    'https://pan.zealsay.com/zealsay/cover/4.jpg',
+    'https://pan.zealsay.com/zealsay/cover/5.jpg',
+    'https://pan.zealsay.com/zealsay/cover/6.jpg'
+  ],
 }
