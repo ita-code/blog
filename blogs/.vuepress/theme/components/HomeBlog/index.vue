@@ -19,21 +19,15 @@
         </ModuleTransition>
 
         <ModuleTransition delay="0.08">
-          <p
+          <div
             v-if="recoShowModule && $frontmatter.tagline !== null"
             class="description"
           >
-            <!-- {{
-              $frontmatter.tagline ||
-              $description ||
-              "Welcome to your vuePress-theme-reco site"
-            }}
-            自己设定
-             -->
-            {{ $themeConfig.mottos[randoms].zh }}
-            <br>
-            {{ $themeConfig.mottos[randoms].en }}
-          </p>
+            <p>{{ $themeConfig.mottos[randoms].zh }}</p>
+            <p id="typewriter">
+              {{ typewriter }}
+            </p>
+          </div>
         </ModuleTransition>
       </div>
     </div>
@@ -123,6 +117,9 @@ export default defineComponent({
       currentPage: 1,
       tags: [],
       bubbles: null,
+      typewriter: "",
+      timer: null,
+      i: 0,
     };
   },
   computed: {
@@ -191,6 +188,18 @@ export default defineComponent({
       const windowH = document.getElementsByClassName("hero")[0].clientHeight; // 获取窗口高度
       document.documentElement.scrollTop = windowH; // 滚动条滚动到指定位置
     },
+    typeing() {
+      const str = this.$themeConfig.mottos[this.randoms].en;
+      if (this.i <= str.length) {
+        this.typewriter =
+          str.slice(0, this.i++) + (this.i < str.length ? "_" : "");
+        this.timer = setTimeout(() => {
+          this.typeing();
+        }, 100);
+      } else {
+        clearTimeout(this.timer);
+      }
+    },
   },
   mounted() {
     import("vue-canvas-effect/src/components/bubbles").then((module) => {
@@ -208,6 +217,7 @@ export default defineComponent({
       // 添加点击事件
       this.scrollFn();
     });
+    this.typeing();
   },
 });
 </script>
@@ -303,6 +313,10 @@ export default defineComponent({
       margin: 1.8rem auto;
       font-size: 1.6rem;
       line-height: 1.3;
+
+      p {
+        margin: 0;
+      }
     }
   }
 
