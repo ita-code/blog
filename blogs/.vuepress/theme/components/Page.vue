@@ -2,9 +2,12 @@
   <main class="page" :style="pageStyle">
     <ModuleTransition delay="0.08">
       <section v-show="recoShowModule">
-        <div class="page-title">
-          <h1 class="title">{{$page.title}}</h1>
-          <PageInfo :pageInfo="$page" :showAccessNumber="showAccessNumber"></PageInfo>
+        <div class="page-image">
+          <img src="https://zihonghuang.gitee.io/image/bg2.jpg" alt="">
+          <div class="page-title">
+            <h1 class="title">{{$page.title}}</h1>
+            <PageInfo :pageInfo="$page" :showAccessNumber="showAccessNumber"></PageInfo>
+          </div>
         </div>
         <!-- 这里使用 v-show，否则影响 SSR -->
         <Content class="theme-reco-content" />
@@ -240,6 +243,34 @@ function flatten (items, res) {
 </script>
 
 <style lang="stylus">
+.page .page-image{
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  position: relative;
+}
+.page .page-image img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+.page .page-image .page-title{
+  color:#fff;
+}
+.page .page-image .page-title .iconfont{
+  color:#fff;
+  font-size:1em;
+  // 回去再弄
+}
+
 @require '../styles/wrapper.styl'
 
 .page
@@ -261,7 +292,6 @@ function flatten (items, res) {
     max-width: $contentWidth;
     margin: 0 auto;
     padding: 1rem 2.5rem;
-    color var(--text-color)
   .theme-reco-content h2
     position relative
     padding-left 0.8rem
