@@ -264,11 +264,11 @@ function flatten (items, res) {
 }
 .page .page-image .page-title{
   color:#fff;
+  margin: auto;
 }
 .page .page-image .page-title .iconfont{
   color:#fff;
   font-size:1em;
-  // 回去再弄
 }
 
 @require '../styles/wrapper.styl'

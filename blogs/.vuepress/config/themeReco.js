@@ -35,7 +35,8 @@ module.exports = {
     appKey: 'rIubETMeLM6FOD7PJ4f3ofyn',
     placeholder: '发一条友善的评论',
     verify: true, // 验证码服务
-    // notify: true, // 
+    // notify: true, //
+    visitor:false, //是否显示查看数
     recordIP: true,
     hideListAccessNumber: true
   },
