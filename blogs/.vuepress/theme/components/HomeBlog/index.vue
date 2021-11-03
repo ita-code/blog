@@ -23,7 +23,7 @@
             v-if="recoShowModule && $frontmatter.tagline !== null"
             class="description"
           >
-            <p>{{ $themeConfig.mottos[randoms].zh }}</p>
+            <p>{{ mottos.length ? mottos[randoms].zh : "" }}</p>
             <p id="typewriter">
               {{ typewriter }}
             </p>
@@ -101,6 +101,7 @@ import NoteAbstract from "@theme/components/NoteAbstract";
 import { ModuleTransition, RecoIcon } from "@vuepress-reco/core/lib/components";
 import PersonalInfo from "@theme/components/PersonalInfo";
 import { getOneColor } from "@theme/helpers/other";
+import { loalStorageSet, loalStorageGet } from "@theme/lib/utils";
 
 export default defineComponent({
   components: {
@@ -120,11 +121,12 @@ export default defineComponent({
       typewriter: "",
       timer: null,
       i: 0,
+      mottos: [],
     };
   },
   computed: {
     randoms() {
-      return Math.floor(Math.random() * this.$themeConfig.mottos.length + 1);
+      return Math.floor(Math.random() * this.mottos.length + 1);
     },
   },
 
@@ -189,7 +191,7 @@ export default defineComponent({
       document.documentElement.scrollTop = windowH; // 滚动条滚动到指定位置
     },
     typeing() {
-      const str = this.$themeConfig.mottos[this.randoms].en;
+      const str = this.mottos[this.randoms].en;
       if (this.i <= str.length) {
         this.typewriter =
           str.slice(0, this.i++) + (this.i < str.length ? "_" : "");
@@ -217,6 +219,11 @@ export default defineComponent({
       // 添加点击事件
       this.scrollFn();
     });
+    if (!loalStorageGet("$mottos")) {
+      loalStorageSet("$mottos", JSON.stringify(this.$themeConfig.mottos));
+    }
+    this.mottos =
+      JSON.parse(loalStorageGet("$mottos")) || this.$themeConfig.mottos;
     this.typeing();
   },
 });
