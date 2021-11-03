@@ -1,3 +1,5 @@
+git pull
+
 npm run build
 
 git add .
