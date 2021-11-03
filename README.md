@@ -49,13 +49,13 @@ nrm ls	# 查看有没有切换成功，切换成功会带*号标识
 ```js
     appId: 'G1is9uw********************zoHsz',	// valine appId
     appKey: 'KL2d************qAr30x',	// valine appKey
+    placeholder: '发一条友善的评论',
 ```
 
-如果不想使用评论功能，仅需要在进入文件`C:\Users\lenovo\Desktop\new-blog\docs\.vuepress\config\theme\index.js` 删除以下两处即可
+如果不想使用评论功能，仅需要在进入文件`blogs\.vuepress\config\theme\index.js` 删除以下两处即可
 
 ```js
 // 第一处：引入文件
-const {appId, appKey} = require('../privacy')
 
 // 第二次：配置评论功能
   valineConfig: {
@@ -65,9 +65,12 @@ const {appId, appKey} = require('../privacy')
     requiredFields: ['nick', 'mail'], // 关闭匿名评论，设置必填信息 v1.4.6+生效
     recordIP: true, // 记录评论者IP v1.3.5+生效
     avatar: 'mp'  // 头像样式
+    verify: true, // 验证码服务
+    // notify: true, //
+    visitor:false, //是否显示查看数
+    hideListAccessNumber: true
   }
 ```
-
 
 
 #### 4、启动项目并部署
@@ -76,18 +79,11 @@ const {appId, appKey} = require('../privacy')
 
 项目运行无问题后运行`npm run build` 命令即可打包项目，打包成功后根目录下回生成一个`public` 文件夹，仅需要上线`public` 文件的内容至网站根目录即可
 
-
-
 ----
 
 
-
 ### 项目展示
-
-![image-20200615094104820](https://oss.yitian2019.cn/img/image-20200615094104820.png)
-
-![image-20200615094142546](https://oss.yitian2019.cn/img/image-20200615094142546.png)
-
-![image-20200615094201226](https://oss.yitian2019.cn/img/image-20200615094201226.png)
-
-![image-20200615094235395](https://oss.yitian2019.cn/img/image-20200615094235395.png)
+![描述图片一](https://iskr.gitee.io/pic/bg/desc (2).png)
+![描述图片二](https://iskr.gitee.io/pic/bg/desc (3).png)
+![描述图片三](https://iskr.gitee.io/pic/bg/desc (4).png)
+![描述图片四](https://iskr.gitee.io/pic/bg/desc (1).png)
