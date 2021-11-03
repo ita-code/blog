@@ -1,4 +1,4 @@
-# 于樂壹生的博客
+# 壹樂's blog
 
 > 项目介绍：这是利用[vuepress](https://www.vuepress.cn/) 为主要架构，使用第三方主题[vuepress-theme-reco](https://github.com/vuepress-reco/vuepress-theme-reco) 搭建的个人技术博客，在这里记录了我的前端学习之路和一些人生感悟，欢迎大家一起交流学习。
 >
@@ -24,8 +24,6 @@ git -init
 git clone 项目地址
 ```
 
-
-
 #### 2、装包
 
 ```shell
@@ -44,17 +42,13 @@ nrm use taobao	# 切换为国内的淘宝镜像源
 nrm ls	# 查看有没有切换成功，切换成功会带*号标识
 ```
 
-
-
 #### 3、完善评论功能
 
-本项目的评论功能使用了第三方插件[valine](https://valine.js.org/configuration.html#requiredFields) 如果也想使用的话需要现在`valine` 官网实名注册一个账号实例，在控制台取得`AppID` 和`AppKey`，切换到项目目录下，在`docs\.vuepress\config` 路径下创建文件`privacy.js`，配置以下内容
+本项目的评论功能使用了第三方插件[valine](https://valine.js.org/configuration.html#requiredFields) 如果也想使用的话需要现在`valine` 官网实名注册一个账号实例，在控制台取得`AppID` 和`AppKey`，切换到项目目录下，在`blogs\.vuepress\config\themeReco.js`,配置以下内容
 
 ```js
-module.exports = {
     appId: 'G1is9uw********************zoHsz',	// valine appId
     appKey: 'KL2d************qAr30x',	// valine appKey
-}
 ```
 
 如果不想使用评论功能，仅需要在进入文件`C:\Users\lenovo\Desktop\new-blog\docs\.vuepress\config\theme\index.js` 删除以下两处即可
