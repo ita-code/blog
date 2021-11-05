@@ -1,17 +1,18 @@
 ---
-title: git基础教程
+title: Git命令大全
 date: 2021-09-05
 sidebar: auto
 isShowComments: true
 publish: true
 tags:
- -  笔记
+ -  git 
+ -  sh
 ---
 ::: tip
 在工作中常用的命令是我用'*'标记，大家可以ctrl+f搜索查看常用命令。
-此篇已经涵盖了大部分的git命令。建议收藏你一定用得到。
+此篇已经涵盖了大部分的git命令。
 :::
-
+<!-- more -->    
 ## 配置GIT
 
 ```
