@@ -27,11 +27,11 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "425d94532e1a32793f3e39cd3a5ca94f"
+    "revision": "af30770fe189a49579b38a059bf87e48"
   },
   {
     "url": "about/index.html",
-    "revision": "e1f75b54ced19f89a6a8d5582b0ccda2"
+    "revision": "56c880687fbecaddc0f152acedd252c0"
   },
   {
     "url": "assets/css/0.styles.eb24c3e5.css",
@@ -66,20 +66,20 @@ self.__precacheManifest = [
     "revision": "4c5952f9db649e817802817c5e016efa"
   },
   {
-    "url": "assets/js/15.4504bf8d.js",
-    "revision": "40713eeee81eed3dfb911d5ad8303a4e"
+    "url": "assets/js/15.48a8bfbf.js",
+    "revision": "6b5071719225924add690477daa16558"
   },
   {
-    "url": "assets/js/16.023f3c7e.js",
-    "revision": "84a8949e0bfffe70f90c17fde1fb6fdd"
+    "url": "assets/js/16.5df0d6ee.js",
+    "revision": "a8def0717c5c022880f9e4bcf5a138de"
   },
   {
     "url": "assets/js/17.7c1f3189.js",
     "revision": "2352b079d4c7b7baf5001a8e32363a86"
   },
   {
-    "url": "assets/js/18.d2d76a1a.js",
-    "revision": "aa6aa5f4e5f4420fddaba4db28f1061a"
+    "url": "assets/js/18.fc2fba84.js",
+    "revision": "216e933fe0ddedb145dd27d54b3c5d0f"
   },
   {
     "url": "assets/js/19.c4201df5.js",
@@ -110,20 +110,20 @@ self.__precacheManifest = [
     "revision": "0ecbcfbbd9a926289383e03e747a8145"
   },
   {
-    "url": "assets/js/25.84af1b05.js",
-    "revision": "8e186d15e0e97128da93cb67b36bd748"
+    "url": "assets/js/25.942f849f.js",
+    "revision": "130a6ec4edcf3a5b7e30a240d0a20af4"
   },
   {
-    "url": "assets/js/26.f074d23b.js",
-    "revision": "beba60864fb123e4c1e82e920e31ef47"
+    "url": "assets/js/26.ac88c661.js",
+    "revision": "6e3c76dd9b4822bff7859088219a8f5b"
   },
   {
-    "url": "assets/js/27.4abb2085.js",
-    "revision": "eb2d7b01b7d3ebe107903112a3907393"
+    "url": "assets/js/27.dd46488a.js",
+    "revision": "81e363bff76e46b7553adf6f530df7be"
   },
   {
-    "url": "assets/js/28.80cda0da.js",
-    "revision": "33da01d6cbfbf4ce43fe91c530d88a5c"
+    "url": "assets/js/28.759d6000.js",
+    "revision": "0917f7ae17cb359141acacdcb048e1f8"
   },
   {
     "url": "assets/js/29.129abb9a.js",
@@ -158,8 +158,8 @@ self.__precacheManifest = [
     "revision": "1ad7967cad64ee63aa604041f8c003b0"
   },
   {
-    "url": "assets/js/app.0a3238e0.js",
-    "revision": "56fcb31ae7d8803cfbaf60358bf1dd25"
+    "url": "assets/js/app.cd438cd1.js",
+    "revision": "95d4fec3f6ea2730acf0185576345d25"
   },
   {
     "url": "banner_2.jpg",
@@ -167,79 +167,79 @@ self.__precacheManifest = [
   },
   {
     "url": "categories/Css/index.html",
-    "revision": "9dd409e887bf6914d548e15255ea23bf"
+    "revision": "f0041c660d6408369301151bb6a8be78"
   },
   {
     "url": "categories/index.html",
-    "revision": "5e8b02a6f6004852afe1b9d6e28021e2"
+    "revision": "a931726ec6adf6cb097593ebdebafd43"
   },
   {
     "url": "categories/Java/index.html",
-    "revision": "707c847e64673d40152eeed58dccca46"
+    "revision": "484cec42ae76cf6b698e495711229ab1"
   },
   {
     "url": "categories/Javascript/index.html",
-    "revision": "80ca34356dc43d9cf36952321e432c74"
+    "revision": "f1e041542c3ab6d1567198bb2e7f692b"
   },
   {
     "url": "categories/Vue.js/index.html",
-    "revision": "4a013cb0b30d313dd68c5ade2eb3cac2"
+    "revision": "e723a4b2f75c4c0543e5712b28fb5e2c"
   },
   {
     "url": "document/study/css/dan_xing_bu_ju.html",
-    "revision": "c71501c04d351be8c4ed8ec900bdff3a"
+    "revision": "1bb7d5d4f1a8e56176d8b0ddd87f728b"
   },
   {
     "url": "document/study/git/gitji_chu_jiao_cheng.html",
-    "revision": "c70d07493467ee1815443d918af161d9"
+    "revision": "c3ffa805bf853487db2b51f7b08a1b9f"
   },
   {
     "url": "document/study/java/ji_chu_jiao_cheng.html",
-    "revision": "3ca93de46cec347ca386407c11f7f8e4"
+    "revision": "4843e7fdf25d13ad8f8c34de76080057"
   },
   {
     "url": "document/study/js/he_xin_kai_fa_jie_mi.html",
-    "revision": "f95e7f07afdb083a694873da43b262f2"
+    "revision": "03594888591943257c9de071945866d5"
   },
   {
     "url": "document/study/js/jsshi_jian_wei_tuo.html",
-    "revision": "d59f95b3daf039962f76ab3bfb0553e3"
+    "revision": "d74e318fab60053d503b142525b6e837"
   },
   {
     "url": "document/study/js/jsshu_zu.html",
-    "revision": "143a21d792f09f473c702eea65315414"
+    "revision": "075bbe0d1072a447126027d9f33569cd"
   },
   {
     "url": "document/study/js/jszuo_yong_yu.html",
-    "revision": "3f1c6864d8c30721c0691421870e563b"
+    "revision": "82232724505ce5d35f236dbb74c5361a"
   },
   {
     "url": "document/study/js/shi_yong_gong_ju_han_shu.html",
-    "revision": "351d9009503c91564d351fd7a3344469"
+    "revision": "bb00b992a303cde900961856957a0a7d"
   },
   {
     "url": "document/study/js/shu_ju_jie_gou_yu_suan_fa.html",
-    "revision": "b45a57b0bfa9fb1ddd677f80aa302163"
+    "revision": "848fabe673801ee7e6835d6cb88dd2cf"
   },
   {
     "url": "document/study/vue/biao_dan_yan_zheng_wen_ti.html",
-    "revision": "246b7a8bb5d9fa9c8443eeb3ea3d2a6f"
+    "revision": "4c57f97eed2ebd7f5fc6c8f32e4ec0ef"
   },
   {
     "url": "document/study/vue/dao_ji_shi_dan_chu_kuang.html",
-    "revision": "9d5b252705fe12aaf4270b6ef0adecf1"
+    "revision": "6dbf0a24db1a78c68bbb8efdd5df8d63"
   },
   {
     "url": "document/study/vue/kai_fa_zhong_bi_bei_de_20ge_lun_zi.html",
-    "revision": "9d947c8ea141206df0ce461e49f6ca99"
+    "revision": "8f77731592d955651f427fc015f9508e"
   },
   {
     "url": "document/study/vue/pdfda_yin.html",
-    "revision": "82aee8dcdd5ef0c7de7a12cba93b066d"
+    "revision": "85b9b44110749e7219f75001dbd38b46"
   },
   {
     "url": "document/study/vue/vueji_chu_zong_jie_xing_ji_lu.html",
-    "revision": "c419bc0f0ba2638eaf09b099e427aff9"
+    "revision": "addd2102e7542c13f4e19c0c95b58bc1"
   },
   {
     "url": "head.png",
@@ -267,7 +267,7 @@ self.__precacheManifest = [
   },
   {
     "url": "index.html",
-    "revision": "a209a7069ddbe3126eea01448c57ae8c"
+    "revision": "6f530e1575bb371f113512fce7ca4cc2"
   },
   {
     "url": "js/MouseClickEffect.js",
@@ -279,55 +279,55 @@ self.__precacheManifest = [
   },
   {
     "url": "messageboard/index.html",
-    "revision": "06bfc58448a60b7a6ffb2a15a63a3d97"
+    "revision": "fc779a6c16689e6b2a27765b2211da01"
   },
   {
     "url": "resume/index.html",
-    "revision": "2f03795af9f39692ee55c51f912e9106"
+    "revision": "ecc44dac61559c532acca0c48af6f8b8"
   },
   {
     "url": "tag/element ui/index.html",
-    "revision": "6cbd98cf92a25726db6e45cd3b5a994c"
+    "revision": "affd3c1e4e98dd17d349022970b11f1e"
   },
   {
     "url": "tag/git/index.html",
-    "revision": "2cf3941e3265cd557b7bb4ef48d5c6d5"
+    "revision": "6d92dfdde602cd3b28dcb2d7891e4748"
   },
   {
     "url": "tag/index.html",
-    "revision": "df69c01cbf9510ade8dd4411451db781"
+    "revision": "b3c7b6a9cd80d381103c21fe32a55e9d"
   },
   {
     "url": "tag/js/index.html",
-    "revision": "d69b145217b98cd5ee288024f38dfbb5"
+    "revision": "118ca85bc79bbf6f391cb4926591a0c7"
   },
   {
     "url": "tag/pdf/index.html",
-    "revision": "f941d7feae8eb05b289cfaea92541fa2"
+    "revision": "8adf865581d1b73d708c2e481630b472"
   },
   {
     "url": "tag/sh/index.html",
-    "revision": "53b98f326cfb03a1334dfe3d551e8135"
+    "revision": "19b74a12a8dc07ba1b80b0080b2459cf"
   },
   {
     "url": "tag/vue/index.html",
-    "revision": "493f12c98784b5b0818054691d619e28"
+    "revision": "0ca9f343580215ebe0f763e25d40ed04"
   },
   {
     "url": "tag/工具/index.html",
-    "revision": "5767f44bd30f8d6a7691f3dbe71b228c"
+    "revision": "adfa811a5776e1ac754026a7f9eb46f6"
   },
   {
     "url": "tag/笔记/index.html",
-    "revision": "c41b086a2da6e8840480af4c30bf5ef5"
+    "revision": "99510c2c4d500361da13188c18eb506f"
   },
   {
     "url": "tag/读后笔记/index.html",
-    "revision": "978b35d8e59a1ab11a05fdd3ed19f7e7"
+    "revision": "296de58400284caea6dbb16b35ad0bc3"
   },
   {
     "url": "timeline/index.html",
-    "revision": "a4df29b80d2a459657c8aa5f3ebd7089"
+    "revision": "de093626be8360e73f6ef1005326009d"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
