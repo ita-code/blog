@@ -83,7 +83,7 @@ nrm ls	# 查看有没有切换成功，切换成功会带*号标识
 
 
 ### 项目展示
-![描述图片一](https://iskr.gitee.io/pic/bg/desc (2).png)
-![描述图片二](https://iskr.gitee.io/pic/bg/desc (3).png)
-![描述图片三](https://iskr.gitee.io/pic/bg/desc (4).png)
-![描述图片四](https://iskr.gitee.io/pic/bg/desc (1).png)
+![描述图片一](https://iskr.gitee.io/pic/bg/desc(2).png)
+![描述图片二](https://iskr.gitee.io/pic/bg/desc(3).png)
+![描述图片三](https://iskr.gitee.io/pic/bg/desc(4).png)
+![描述图片四](https://iskr.gitee.io/pic/bg/desc(1).png)
