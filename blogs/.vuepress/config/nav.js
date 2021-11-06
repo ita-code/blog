@@ -13,7 +13,6 @@ const nav = [
     text: '关于', icon: 'reco-account', items: [
       { text: '联系我', icon: 'reco-mail', link: '/about/' },
       { text: '关于我', icon: 'reco-blog', link: '/resume/' },
-      { text: '彩蛋', icon: 'reco-blog', link: '/haa/' },
     ]
   },
 ]

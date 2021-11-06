@@ -6,6 +6,8 @@ isShowComments: false
 publish: false
 ---
 
+<Cat />
+
 ## 学习中
 
 目前学习Java中...
