@@ -12,11 +12,11 @@
           />
         </ModuleTransition>
 
-        <ModuleTransition delay="0.04">
+        <!-- <ModuleTransition delay="0.04">
           <h1 v-if="recoShowModule && $frontmatter.heroText !== null">
             {{ $frontmatter.heroText || $title || "vuePress-theme-reco" }}
           </h1>
-        </ModuleTransition>
+        </ModuleTransition> -->
 
         <ModuleTransition delay="0.08">
           <div
@@ -274,8 +274,8 @@ export default defineComponent({
   width: 20px;
   height: 20px;
   display: block;
-  border-right: 3px solid #fff;
-  border-top: 3px solid #fff;
+  border-right: 3px solid #9da5ae;
+  border-top: 3px solid #9da5ae;
   transform: rotate(135deg);
   position: absolute;
   bottom: 10px;
@@ -286,8 +286,8 @@ export default defineComponent({
   width: 20px;
   height: 20px;
   display: block;
-  border-right: 3px solid #fff;
-  border-top: 3px solid #fff;
+  border-right: 3px solid #9da5ae;
+  border-top: 3px solid #9da5ae;
   transform: rotate(135deg);
 }
 
