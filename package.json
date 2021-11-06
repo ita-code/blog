@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "vuepress dev blogs --port 9527",
+    "dev": "vuepress dev blogs --port 1111",
     "build": "vuepress build blogs",
     "push": "bash scripts/push.sh"
   },
