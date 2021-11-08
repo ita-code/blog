@@ -18,7 +18,7 @@
         class="cover-img"
         :src="
           item.frontmatter.cover ||
-          this.$themeConfig.covers[(item.frontmatter.title % 7) + 1] ||
+          this.$themeConfig.covers[randoms] ||
           'https://pan.zealsay.com/zealsay/cover/6.jpg'
         "
         :alt="item.frontmatter.title"
@@ -42,6 +42,11 @@ import PageInfo from "./PageInfo";
 export default defineComponent({
   components: { PageInfo, RecoIcon },
   props: ["item", "currentPage", "currentTag"],
+  computed: {
+    randoms() {
+      return Math.floor(Math.random() * this.$themeConfig.covers.length + 1);
+    },
+  },
 });
 </script>
 
