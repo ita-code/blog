@@ -231,7 +231,7 @@ export default defineComponent({
 
 <style lang="stylus">
 .anchor-down {
-  z-index: 9999;
+  z-index: 19;
   display: block;
   margin: 12rem auto 0;
   bottom: 45px;

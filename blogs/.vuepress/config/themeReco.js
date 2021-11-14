@@ -40,6 +40,7 @@ module.exports = {
     recordIP: true,
     hideListAccessNumber: true
   },
+  // 友情链接
   friendLink: [
     {
       title: '稚晖的个人站',
@@ -59,12 +60,6 @@ module.exports = {
       desc: '花有重开日，人无再少年',
       logo: 'https://www.imcao.cn/favicon.ico',
       link: 'https://www.imcao.cn',
-    },
-    {
-      title: '友情链接',
-      desc: 'A simple and beautiful vuepress Blog & Doc theme.',
-      logo: "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-      link: 'https://vuepress-theme-reco.recoluan.com'
     },
   ],
   // 项目开始时间

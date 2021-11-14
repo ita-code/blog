@@ -1,5 +1,23 @@
 const plugins = [
   [
+    'meting', {
+      auto: "https://music.163.com/#/playlist?id=2748205282", //你的歌单的链接，网页歌单链接
+      meting: {
+        server: "netease",  //歌单的平台、"netease" | "tencent" | "kuwo" | "kugou" | "baidu"
+        type: "playlist",
+        mid: "5138830240", //链接后面的id
+      },          // 不配置该项的话不会出现全局播放器
+      aplayer: {
+        lrcType: 3,
+        autoplay: false,//是否开启自动播放
+        fixed:true
+      },
+      mobile:{
+        lrc:false
+      }
+    }
+  ],
+  [
     //离开页面时提示
     "dynamic-title", {
       showIcon: "/assets/img/logo.png",

@@ -275,7 +275,7 @@ function flatten (items, res) {
 
 .page
   position relative
-  padding-top 5rem
+  padding-top 3.5rem
   padding-bottom 2rem
   padding-right 14rem
   display block
