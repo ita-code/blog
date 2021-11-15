@@ -8,12 +8,25 @@ const plugins = [
         mid: "5138830240", //链接后面的id
       },          // 不配置该项的话不会出现全局播放器
       aplayer: {
-        lrcType: 3,
         autoplay: false,//是否开启自动播放
-        fixed:true
+        // 吸底模式
+        fixed: true,
+        mini: true,
+        // 歌曲栏折叠
+        listFolded: true,
+        // 颜色
+        // theme: "#f9bcdd",
+        // 播放顺序为随机
+        order: "random",
+        // 初始音量
+        volume: 0.5,
+        // 关闭歌词显示
+        lrcType: 0,
       },
       mobile:{
-        lrc:false
+        lrc:false,
+        // 手机端去掉cover图
+        cover: false,
       }
     }
   ],
