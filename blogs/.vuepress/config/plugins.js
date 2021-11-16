@@ -33,9 +33,9 @@ const plugins = [
   [
     //离开页面时提示
     "dynamic-title", {
-      showIcon: "/assets/img/logo.png",
+      showIcon: "https://iskr.gitee.io/pic/bg/logo.ico",
       showText: "(/≧▽≦/)你来啦！",
-      hideIcon: "/assets/img/favicon.ico",
+      hideIcon: "https://iskr.gitee.io/pic/bg/logo.ico",
       hideText: "(●—●)喔哟，崩溃啦！",
       recoverTime: 2000
     },

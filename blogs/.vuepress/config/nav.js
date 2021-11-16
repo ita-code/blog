@@ -6,7 +6,7 @@ const nav = [
     text: '实用', icon: 'reco-api', items: [
       { text: 'iconfont', link: 'https://www.iconfont.cn/' },
       { text: 'lodash', link: 'https://www.lodashjs.com/' },
-      { text: 'xxx', link: '/' },
+      { text: 'vuepress', link: 'https://www.vuepress.cn/' },
     ]
   },
   {
