@@ -41,4 +41,5 @@ window.onload = function () {
       span.parentNode.removeChild(span)
     }, 1500)
   };
+console.info("%c Gitee %c", "background:#24272A; color:#ffffff", "", "https://gitee.com/iskr");
 };
