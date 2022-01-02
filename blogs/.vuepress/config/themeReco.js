@@ -46,13 +46,12 @@ module.exports = {
       title: '稚晖的个人站',
       desc: '“十年饮冰，难凉热血”',
       //主题中的配置---使用public目录
-      logo: "/links/pengzhihui.png",
+      logo: "https://portrait.gitee.com/uploads/avatars/user/151/453149_david.pzh_1624611292.png!avatar200",
       link: 'http://pengzhihui.xyz'
     },
     {
       title: '秋风的博客',
       desc: '个人技能知识分享',
-      logo: "/links/qiufeng.png",
       link: 'https://qiufeng.blue'
     },
     {
