@@ -4,6 +4,7 @@ date: 2021-09-05
 sidebar: auto
 isShowComments: true
 publish: true
+sticky: 2
 tags:
  -  git 
  -  sh
