@@ -85,6 +85,9 @@ $ git commit --amend -m [message]
 
 # 重做上一次commit，并包括指定文件的新变化
 $ git commit --amend [file1] [file2] ...
+
+# git commit 忽略eslint 校验
+$ git commit --no-verify -m "commit"
 ```
 
 ## 撤销
