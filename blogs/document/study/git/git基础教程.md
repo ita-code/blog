@@ -308,7 +308,9 @@ git update-index --assume-unchanged 你的文件路径
 
 git update-index --no-assume-unchanged 你的文件路径
 
+# 更新.gitignore的忽略
 
+git rm -r --cached .
 
 ```
 
