@@ -1,5 +1,15 @@
 git pull
 
+#!/bin/bash
+
+# 设置要替换的地址和新地址
+old_address="/Users/ita/code/pic"
+new_address="https://iskr.gitee.io/pic"
+
+# 替换指定类型的文件中的地址
+find . -name "*.md" -type f -exec sed -i "s|$old_address|$new_address|g" {} +
+
+
 npm run build
 
 git add .
