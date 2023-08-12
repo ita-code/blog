@@ -22,7 +22,7 @@ categories:
 
 - row-reverse:主轴为水平方向,起点在右端。
 
-  ![row-reverse](/Users/ita/code/pic/blog/flex/row-reverse.png)
+  ![row-reverse](https://iskr.gitee.io/pic/blog/flex/row-reverse.png)
 
 - column:主轴为垂直方向,起点在上沿。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201019132100670.png#pic_center)
