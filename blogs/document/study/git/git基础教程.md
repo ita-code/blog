@@ -171,7 +171,7 @@ $ git reset --hard [commit]
 $ git reset --keep [commit]
 
 # 新建一个commit，用来撤销指定commit
-# 后者的所有变化都将被前者抵消，并且应用到当前分支
+# 后者的所有变化都将被前者抵消，并且应用到当前分支  撤销提交
 $ git revert [commit]
 
 暂时将未提交的变化移除，稍后再移入
