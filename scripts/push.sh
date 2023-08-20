@@ -16,4 +16,4 @@ date=`date "+%Y-%m-%d %H:%M:%S"`
 git commit -m "commit: ${date}"
 
 git push
-git push origin github
+git push github
