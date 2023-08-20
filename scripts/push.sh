@@ -7,7 +7,7 @@ find /Users/ita/code/Document/blog/blogs -type f -name "*.md" -exec sed -i '' "s
 
 # . ../../pic/push.sh
 
-git pull
+git pull origin master
 
 npm run build
 
@@ -16,4 +16,4 @@ date=`date "+%Y-%m-%d %H:%M:%S"`
 git commit -m "commit: ${date}"
 
 git push origin
-git push github
+git push origin github
