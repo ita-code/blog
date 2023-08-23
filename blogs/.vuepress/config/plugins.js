@@ -56,17 +56,17 @@ const plugins = [
       ga: 'UA-149716079-2'
     }
   ],
-  // 复制代码功能
-  [
-    "vuepress-plugin-nuggets-style-copy",
-    {
-      copyText: "复制代码",
-      tip: {
-        content: "复制成功!",
-      },
-      buttonStaticIcon: true
-    },
-  ],
+  // // 复制代码功能
+  // [
+  //   "vuepress-plugin-nuggets-style-copy",
+  //   {
+  //     copyText: "复制代码",
+  //     tip: {
+  //       content: "复制成功!",
+  //     },
+  //     buttonStaticIcon: true
+  //   },
+  // ],
   //将html文件名转拼音
   [
     'permalink-pinyin',
