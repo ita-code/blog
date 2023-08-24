@@ -1,35 +1,35 @@
 const plugins = [
-  [
-    'meting', {
-      auto: "https://music.163.com/#/playlist?id=2748205282", //你的歌单的链接，网页歌单链接
-      meting: {
-        server: "netease",  //歌单的平台、"netease" | "tencent" | "kuwo" | "kugou" | "baidu"
-        type: "playlist",
-        mid: "5138830240", //链接后面的id
-      },          // 不配置该项的话不会出现全局播放器
-      aplayer: {
-        autoplay: false,//是否开启自动播放
-        // 吸底模式
-        fixed: true,
-        mini: true,
-        // 歌曲栏折叠
-        listFolded: true,
-        // 颜色
-        // theme: "#f9bcdd",
-        // 播放顺序为随机
-        order: "random",
-        // 初始音量
-        volume: 0.5,
-        // 关闭歌词显示
-        lrcType: 0,
-      },
-      mobile:{
-        lrc:false,
-        // 手机端去掉cover图
-        cover: false,
-      }
-    }
-  ],
+  // [
+  //   'meting', {
+  //     auto: "https://music.163.com/#/playlist?id=2748205282", //你的歌单的链接，网页歌单链接
+  //     meting: {
+  //       server: "netease",  //歌单的平台、"netease" | "tencent" | "kuwo" | "kugou" | "baidu"
+  //       type: "playlist",
+  //       mid: "5138830240", //链接后面的id
+  //     },          // 不配置该项的话不会出现全局播放器
+  //     aplayer: {
+  //       autoplay: false,//是否开启自动播放
+  //       // 吸底模式
+  //       fixed: true,
+  //       mini: true,
+  //       // 歌曲栏折叠
+  //       listFolded: true,
+  //       // 颜色
+  //       // theme: "#f9bcdd",
+  //       // 播放顺序为随机
+  //       order: "random",
+  //       // 初始音量
+  //       volume: 0.5,
+  //       // 关闭歌词显示
+  //       lrcType: 0,
+  //     },
+  //     mobile:{
+  //       lrc:false,
+  //       // 手机端去掉cover图
+  //       cover: false,
+  //     }
+  //   }
+  // ],
   [
     //离开页面时提示
     "dynamic-title", {
