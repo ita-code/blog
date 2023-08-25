@@ -2,9 +2,9 @@
 title: 弹性布局
 date: 2022/12/6 23:56:54
 lastmod: 2023/1/25 11:42:13
-tags: [React.js, 掘金·金石计划]
+tags: [css]
 draft: false
-summary: 本文例举创建 react 应用的常见 7 种方式，首先，我们第一个是想到的是 react 官方团队提供的脚手架工具 Create React App(cra) 项目是零配置。
+summary: 常见的flex布局
 images: https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f2429d85e694e2c83e047daf1b6f3c0~tplv-k3u1fbpfcp-watermark.image?
 authors: ['default']
 layout: PostLayout

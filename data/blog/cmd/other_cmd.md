@@ -1,3 +1,13 @@
+---
+title: 工作中常用命令
+date: 2023/8/3 23:56:54
+tags: [命令]
+draft: false
+summary: 工作中常用命令
+images: https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f2429d85e694e2c83e047daf1b6f3c0~tplv-k3u1fbpfcp-watermark.image?
+authors: ['default']
+layout: PostLayout
+---
 ## 工作中常用命令
 
 - 在docker中启动nacos镜像

@@ -1,3 +1,4 @@
+// 博客配置设置
 const siteMetadata = {
   title: '壹樂 | 热爱挑战，探究极至。',
   author: '壹樂',
