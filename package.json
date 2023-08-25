@@ -9,7 +9,8 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir src --dir scripts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "push":"sh ./scripts/push.sh"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.2",
