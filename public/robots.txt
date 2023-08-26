@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-Disallow: /bin/
-Sitemap: https://maqib.com/sitemap.xml
