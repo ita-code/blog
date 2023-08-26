@@ -2,7 +2,7 @@
 const siteMetadata = {
   title: '壹樂 | 热爱挑战，探究极至。',
   author: '壹樂',
-  headerLogo:'https://iskr.gitee.io/blog/img/log1.jpg',
+  headerLogo: 'https://iskr.gitee.io/blog/img/log1.jpg',
   headerTitle: "壹樂's blog",
   description: '分享 JavaScript 以及热门框架，记录前端工程师学习成长历程。',
   language: 'en-us',
@@ -13,11 +13,14 @@ const siteMetadata = {
   image: 'https://iskr.gitee.io/blog/img/log1.jpg',
   socialBanner: '/static/images/twitter-card.png',
   email: 'ita201125@gmail.com',
-  github: 'https://github.com/maqi1520',
-  juejin: 'https://juejin.cn/user/2189882895384093',
-  zhihu: 'https://www.zhihu.com/people/xiao-ma-15-3',
+  github: 'https://github.com/ita-code',
+  // juejin: 'https://juejin.cn/user/2189882895384093',
+  // zhihu: 'https://www.zhihu.com/people/xiao-ma-15-3',
+  csdn: 'https://blog.csdn.net/qq_43490372?spm=1000.2115.3001.5343',
   locale: 'zh-CN',
   welcome: '热爱挑战，探究极至。',
+  // 备案
+  forTheRecord: '',
   analytics: {
     //如果要使用分析提供程序，则必须将其添加到。
     //`next.config.js`文件中的内容安全策略。

@@ -3,12 +3,11 @@ import siteMetadata from '@/data/siteMetadata'
 import { getVideos, VItem } from '@/lib/video'
 import Image from 'next/image'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
-
+  // 获取视频资源
 export const getStaticProps: GetStaticProps<{ videos: VItem[] }> = async () => {
-  const videos = await getVideos()
+  // const videos = await getVideos()
   // console.log(videos)
-  // 获取外部视频
-  return { props: { videos: JSON.parse(JSON.stringify(videos)) } }
+  return { props: { videos: [] } }
 }
 
 export default function Vodeo({ videos }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -20,7 +19,7 @@ export default function Vodeo({ videos }: InferGetStaticPropsType<typeof getStat
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
             我的视频
           </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">我的B站视频</p>
+          {/* <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">我的B站视频</p> */}
         </div>
 
         <div className="container py-12">
@@ -115,6 +114,7 @@ export default function Vodeo({ videos }: InferGetStaticPropsType<typeof getStat
                 </h2>
               </article>
             ))}
+            {!videos.length&&'暂无视频'}
           </section>
         </div>
       </div>

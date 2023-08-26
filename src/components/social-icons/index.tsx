@@ -4,8 +4,10 @@ import Linkedin from './linkedin.svg'
 import Twitter from './twitter.svg'
 import Juejin from './juejin.svg'
 import Zhihu from './zhihu.svg'
+import Csdn from './csdn.svg'
 
 // Icons taken from: https://simpleicons.org/
+// https://www.iconfont
 
 const components = {
   mail: Mail,
@@ -14,6 +16,7 @@ const components = {
   zhihu: Zhihu,
   linkedin: Linkedin,
   twitter: Twitter,
+  csdn:Csdn
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {
