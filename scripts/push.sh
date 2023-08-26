@@ -3,7 +3,7 @@ old_address="/Users/ita/code/document/pic"
 new_address="https://iskr.gitee.io/pic"
 
 # 替换指定类型的文件中的地址
-find /Users/ita/code/document/blog/blogs -type f -name "*.md" -exec sed -i '' "s|$old_address|$new_address|g" {} \;
+find /Users/ita/code/document/blog/data/blog -type f -name "*.md" -exec sed -i '' "s|$old_address|$new_address|g" {} \;
 
 sh ../../pic/push.sh
 
@@ -14,12 +14,12 @@ npm run build
 git add .
 
 if [ -z "$1" ]; then
-  data=`date "+%Y-%m-%d %H:%M:%S"`
+  data=$(date +"commit: %Y-%m-%d %H:%M:%S")
 else
   data="$1"
 fi
 
-git commit -m "commit: ${date}"
+git commit -m "$data"
 
 git push
 git push gitee
