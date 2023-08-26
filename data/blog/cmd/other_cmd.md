@@ -1,6 +1,6 @@
 ---
 title: 工作中常用命令
-date: 2023/8/3 23:56:54
+date: 2023/8/3
 tags: [命令]
 draft: false
 summary: 工作中常用命令

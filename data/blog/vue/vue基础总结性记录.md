@@ -1,7 +1,7 @@
 ---
 title: 学习Vue的基础性总结
-date: 2020/05/25 23:56:54
-lastmod: 2020/09/05 23:56:54
+date: 2020/05/25
+lastmod: 2020/09/05
 tags: [Vue,element ui]
 draft: false
 summary: 记录刚开始学习Vue~

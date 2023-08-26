@@ -12,7 +12,7 @@ const getAuthors = () => {
 }
 
 const getLayouts = () => {
-  const layoutPath = path.join(root, 'layouts')
+  const layoutPath = path.join(root, 'src', 'layouts')
   const layoutList = fs
     .readdirSync(layoutPath)
     .map((filename) => path.parse(filename).name)
@@ -63,7 +63,7 @@ inquirer
       name: 'extension',
       message: 'Choose post extension:',
       type: 'list',
-      choices: ['mdx', 'md'],
+      choices: ['md', 'mdx'],
     },
     {
       name: 'authors',
@@ -108,9 +108,8 @@ inquirer
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
     if (!fs.existsSync('data/blog')) fs.mkdirSync('data/blog', { recursive: true })
-    const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${
-      answers.extension ? answers.extension : 'md'
-    }`
+    const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${answers.extension ? answers.extension : 'md'
+      }`
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
         throw err
