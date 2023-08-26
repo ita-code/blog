@@ -4,17 +4,12 @@ date: 2021/9/5 00:00:00
 lastmod: 2021/9/5 00:00:00
 tags: [sh,git]
 draft: false
-summary: 列举了很多Git命令
-images: https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f2429d85e694e2c83e047daf1b6f3c0~tplv-k3u1fbpfcp-watermark.image?
+summary: 在工作中常用的命令是我用'*'标记，大家可以ctrl+f搜索查看常用命令。
+此篇已经涵盖了大部分的git命令。
+images: https://pan.zealsay.com/zealsay/cover/6.jpg
 authors: ['default']
 layout: PostLayout
 ---
-::: tip
-在工作中常用的命令是我用'*'标记，大家可以ctrl+f搜索查看常用命令。
-此篇已经涵盖了大部分的git命令。
-:::
-<!-- more -->    
-
 ## 常用GIT命令
 
 ```

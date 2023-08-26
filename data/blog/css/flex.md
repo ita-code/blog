@@ -5,7 +5,7 @@ lastmod: 2023/1/25 11:42:13
 tags: [css]
 draft: false
 summary: 常见的flex布局
-images: https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/3f2429d85e694e2c83e047daf1b6f3c0~tplv-k3u1fbpfcp-watermark.image?
+images: https://pan.zealsay.com/zealsay/cover/6.jpg
 authors: ['default']
 layout: PostLayout
 ---
