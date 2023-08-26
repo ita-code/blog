@@ -12,7 +12,13 @@ git pull origin master
 npm run build
 
 git add .
-date=`date "+%Y-%m-%d %H:%M:%S"`
+
+if [ -z "$1" ]; then
+  data=`date "+%Y-%m-%d %H:%M:%S"`
+else
+  data="$1"
+fi
+
 git commit -m "commit: ${date}"
 
 git push

@@ -4,7 +4,6 @@ date: 2023/8/3
 tags: [命令]
 draft: false
 summary: 工作中常用命令
-images: https://pan.zealsay.com/zealsay/cover/6.jpg
 authors: ['default']
 layout: PostLayout
 ---

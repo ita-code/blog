@@ -5,7 +5,6 @@ lastmod: 2023/1/25 11:42:13
 tags: [命令]
 draft: false
 summary: 本文收集了npm
-images: https://pan.zealsay.com/zealsay/cover/6.jpg
 authors: ['default']
 layout: PostLayout
 ---
