@@ -1,8 +1,13 @@
 ---
-title: 作用域
-date: 2020-12-10
-categories:
- - Javascript
+title: Js作用域
+date: 2020/7/05 23:56:54
+lastmod: 2020/09/05 23:56:54
+tags: [Javascript]
+draft: false
+summary: 刚接触Javascript时，记录的笔记。
+images: https://pan.zealsay.com/zealsay/cover/6.jpg
+authors: ['default']
+layout: PostLayout
 ---
 > 关于深入理解JS作用域的一些笔记
 

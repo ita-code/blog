@@ -1,13 +1,13 @@
 ---
-title: 学习VUE的基础性总结
-date: 2020-05-25
-sidebar: auto
-isShowComments: true
-categories:
- - Vue.js
-tags:
- -  vue 
- -  js
+title: 学习Vue的基础性总结
+date: 2020/05/25 23:56:54
+lastmod: 2020/09/05 23:56:54
+tags: [Vue,element ui]
+draft: false
+summary: 记录刚开始学习Vue~
+images: https://pan.zealsay.com/zealsay/cover/6.jpg
+authors: ['default']
+layout: PostLayout
 ---
 ## vue里面的一些方法
 ## created:在模板渲染成html前调用，即通常初始化某些属性值，然后再渲染成视图。（操作不了dom节点此方法在渲染html前调用）

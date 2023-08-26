@@ -1,8 +1,13 @@
 ---
 title: 事件委托
-date: 2021-02-10
-categories:
- - Javascript
+date: 2021/02/10 23:56:54
+lastmod: 2021/09/05 23:56:54
+tags: [Javascript]
+draft: false
+summary: 面试面到了后来就接着学习了一点，感觉打开了新的世界。
+images: https://pan.zealsay.com/zealsay/cover/6.jpg
+authors: ['default']
+layout: PostLayout
 ---
 要理解`DOM`相关事件，我们先要理解`“事件流”`这个概念，事件流描述的是从页面中接收事件的顺序。
 

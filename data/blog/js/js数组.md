@@ -1,13 +1,15 @@
 ---
 title: 最全的数组方法以及实例
-date: 2020-12-10
-categories:
- - Javascript
+date: 2020/12/05 23:56:54
+lastmod: 2021/09/05 23:56:54
+tags: [Javascript]
+draft: false
+summary: 数组的操作开发中应该是常见的，建议大家一定要学，不会就多上菜鸟看看，这里给大家推荐个最全[工具类](https://www.lodashjs.com/)。这工具类在开发中具有用。
+images: https://pan.zealsay.com/zealsay/cover/6.jpg
+authors: ['default']
+layout: PostLayout
 ---
-::: tip
-  数组的操作开发中应该是常见的，建议大家一定要学，不会就多上菜鸟看看，这里给大家推荐个最全[工具类](https://www.lodashjs.com/)。这工具类在开发中具有用。
-:::
-<!-- more -->
+## 数组的操作开发中应该是常见的，建议大家一定要学，不会就多上菜鸟看看，这里给大家推荐个最全[工具类](https://www.lodashjs.com/)。这工具类在开发中具有用。
 `concat()` 方法用于合并两个或多个数组。此方法不会更改现有数组，而是返回一个新数组。
 
 ```js
