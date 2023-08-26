@@ -1,23 +1,26 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
+  title: '壹樂 | 热爱挑战，探究极至。',
+  author: '壹樂',
+  headerLogo: 'https://iskr.gitee.io/blog/img/log1.jpg',
+  headerTitle: "壹樂's blog",
+  description: '分享 JavaScript 以及热门框架，记录前端工程师学习成长历程。',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
-  siteLogo: '/static/images/logo.png',
+  siteUrl: 'https://maqib.cn',
+  siteRepo: 'https://github.com/ita-code/blog',
+  siteLogo: 'https://iskr.gitee.io/blog/img/log1.jpg',
+  image: 'https://iskr.gitee.io/blog/img/log1.jpg',
   socialBanner: '/static/images/twitter-card.png',
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
-  github: 'https://github.com',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
-  locale: 'en-US',
+  email: 'ita201125@gmail.com',
+  github: 'https://github.com/ita-code',
+  // juejin: 'https://juejin.cn/user/2189882895384093',
+  // zhihu: 'https://www.zhihu.com/people/xiao-ma-15-3',
+  csdn: 'https://blog.csdn.net/qq_43490372?spm=1000.2115.3001.5343',
+  locale: 'zh-CN',
+  welcome: '热爱挑战，探究极至。',
+  // 备案
+  forTheRecord: '',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
     // content security policy in the `next.config.js` file.
@@ -47,7 +50,7 @@ const siteMetadata = {
     // content security policy in the `next.config.js` file.
     // Select a provider and use the environment variables associated to it
     // https://vercel.com/docs/environment-variables
-    provider: 'giscus', // supported providers: giscus, utterances, disqus
+    provider: '', // supported providers: giscus, utterances, disqus
     giscusConfig: {
       // Visit the link below, and follow the steps in the 'configuration' section
       // https://giscus.app/
@@ -69,7 +72,7 @@ const siteMetadata = {
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
       // This corresponds to the `data-lang="en"` in giscus's configurations
-      lang: 'en',
+      // lang: 'en',
     },
   },
   search: {

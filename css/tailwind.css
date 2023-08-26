@@ -29,3 +29,7 @@ input:-webkit-autofill:focus {
     background-color 600000s 0s,
     color 600000s 0s;
 }
+
+.transition-in > span {
+  opacity: 1;
+}
