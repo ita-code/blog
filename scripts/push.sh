@@ -1,13 +1,13 @@
-# # 设置要替换的地址和新地址
-# old_address="/Users/ita/code/document/pic"
-# new_address="https://iskr.gitee.io/pic"
+# 设置要替换的地址和新地址
+old_address="/Users/ita/code/document/pic"
+new_address="https://iskr.gitee.io/pic"
 
-# # 替换指定类型的文件中的地址
-# find /Users/ita/code/document/blog/data/blog -type f -name "*.md" -exec sed -i '' "s|$old_address|$new_address|g" {} \;
+# 替换指定类型的文件中的地址
+find /Users/ita/code/document/blog/data/blog -type f -name "*.md" -exec sed -i '' "s|$old_address|$new_address|g" {} \;
 
-# sh ../../pic/push.sh
+sh ../../pic/push.sh
 
-# git pull origin master
+git pull origin master
 
 # npm run build
 
