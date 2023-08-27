@@ -8,7 +8,8 @@
     "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
-    "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts"
+    "lint": "next lint --fix --dir pages --dir app --dir components --dir lib --dir layouts --dir scripts",
+    "push":"sh ./scripts/push.sh $1"
   },
   "dependencies": {
     "@next/bundle-analyzer": "13.4.19",
