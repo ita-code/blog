@@ -3,6 +3,7 @@
   "version": "2.0.1",
   "private": true,
   "scripts": {
+    "init":"node ./scripts/initArticle.js",
     "start": "next dev",
     "dev": "cross-env INIT_CWD=$PWD next dev",
     "build": "cross-env INIT_CWD=$PWD next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
@@ -55,7 +56,9 @@
     "lint-staged": "^13.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-tailwindcss": "^0.4.1",
-    "typescript": "^5.1.3"
+    "typescript": "^5.1.3",
+    "inquirer": "^8.1.1",
+    "dedent": "^0.7.0"
   },
   "resolutions": {
     "@opentelemetry/api": "1.4.1",

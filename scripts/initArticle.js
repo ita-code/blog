@@ -12,7 +12,7 @@ const getAuthors = () => {
 }
 
 const getLayouts = () => {
-  const layoutPath = path.join(root, 'src', 'layouts')
+  const layoutPath = path.join(root, 'layouts')
   const layoutList = fs
     .readdirSync(layoutPath)
     .map((filename) => path.parse(filename).name)

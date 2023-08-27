@@ -9,9 +9,9 @@ export default function Comments({ slug }: { slug: string }) {
   return (
     <>
       {!loadComments && <button onClick={() => setLoadComments(true)}>Load Comments</button>}
-      {/* {siteMetadata.comments && loadComments && (
+      {siteMetadata.comments && loadComments && (
         <CommentsComponent commentsConfig={siteMetadata.comments} slug={slug} />
-      )} */}
+      )}
     </>
   )
 }
