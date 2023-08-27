@@ -1,23 +1,25 @@
-import { Mail, Github, Facebook, Youtube, Linkedin, Twitter, Mastodon, Csdn } from './icons'
+import Mail from './mail.svg'
+import Github from './github.svg'
+import Linkedin from './linkedin.svg'
+import Twitter from './twitter.svg'
+import Juejin from './juejin.svg'
+import Zhihu from './zhihu.svg'
+import Csdn from './csdn.svg'
+
+// Icons taken from: https://simpleicons.org/
+// https://www.iconfont
 
 const components = {
   mail: Mail,
   github: Github,
-  facebook: Facebook,
-  youtube: Youtube,
+  juejin: Juejin,
+  zhihu: Zhihu,
   linkedin: Linkedin,
   twitter: Twitter,
-  mastodon: Mastodon,
   csdn:Csdn
 }
 
-type SocialIconProps = {
-  kind: keyof typeof components
-  href: string | undefined
-  size?: number
-}
-
-const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
+const SocialIcon = ({ kind, href, size = 8 }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
@@ -32,7 +34,7 @@ const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
-        className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
+        className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
       />
     </a>
   )
