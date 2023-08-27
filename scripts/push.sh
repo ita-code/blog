@@ -9,7 +9,7 @@ sh ../../pic/push.sh
 
 git pull origin master
 
-npm run build
+# npm run build
 
 git add .
 

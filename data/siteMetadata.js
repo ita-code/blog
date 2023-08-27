@@ -1,5 +1,5 @@
 const siteMetadata = {
-  title: '壹樂 | 热爱挑战，探究极至。',
+  title: '热爱挑战，探究极至。',
   author: '壹樂',
   headerLogo: '/static/images/avatar.png',
   headerTitle: "壹樂's blog",
