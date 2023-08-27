@@ -11,7 +11,7 @@ export function useReadingProgress() {
       // 已经滚动的高度
       const currentScrollY = window.scrollY
       // 可以滚动的高度
-      let scrollHeight = document.body.scrollHeight - window.innerHeight
+      const scrollHeight = document.body.scrollHeight - window.innerHeight
       if (scrollHeight) {
         setProgress(Number((currentScrollY / scrollHeight).toFixed(2)) * 100)
       }

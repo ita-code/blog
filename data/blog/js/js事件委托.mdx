@@ -5,7 +5,6 @@ lastmod: 2021/09/05
 tags: [Javascript]
 draft: false
 summary: 面试面到了后来就接着学习了一点，感觉打开了新的世界。
-images: https://pan.zealsay.com/zealsay/cover/6.jpg
 authors: ['default']
 layout: PostLayout
 ---

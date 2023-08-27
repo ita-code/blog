@@ -16,7 +16,7 @@ const components = {
   zhihu: Zhihu,
   linkedin: Linkedin,
   twitter: Twitter,
-  csdn:Csdn
+  csdn: Csdn,
 }
 
 const SocialIcon = ({ kind, href, size = 8 }) => {

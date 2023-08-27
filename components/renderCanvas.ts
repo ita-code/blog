@@ -140,8 +140,8 @@ export const renderCanvas = function () {
       //     f.frequency,
       //     f.amplitude
       //   );
-      for (var i = 0; i < E.trails; i++) {
-        var line = lines[i]
+      for (let i = 0; i < E.trails; i++) {
+        const line = lines[i]
         line.update()
         line.draw(ctx)
       }
@@ -153,7 +153,7 @@ export const renderCanvas = function () {
   function bindMouseMove(event) {
     function drawLine() {
       lines = []
-      for (var i = 0; i < E.trails; i++)
+      for (let i = 0; i < E.trails; i++)
         lines.push(new Line({ spring: 0.45 + (i / E.trails) * 0.025 }, pos))
     }
     function move(e) {
