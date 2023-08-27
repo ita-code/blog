@@ -1,2 +1,4 @@
-node_modules
-.eslintrc.js
+# node_modules
+# .eslintrc.js
+# 暂时先关闭
+*
