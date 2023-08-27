@@ -1,15 +1,15 @@
 const siteMetadata = {
   title: '热爱挑战，探究极至。',
   author: '壹樂',
-  headerLogo: '/static/images/avatar.png',
+  headerLogo: '/static/images/logo.jpg',
   headerTitle: "壹樂's blog",
   description: '分享 JavaScript 以及热门框架，记录前端工程师学习成长历程。',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://maqib.cn',
   siteRepo: 'https://github.com/ita-code/blog',
-  siteLogo: '/static/images/avatar.png',
-  image: '/static/images/avatar.png',
+  siteLogo: '/static/images/logo.jpg',
+  image: '/static/images/logo.jpg',
   socialBanner: '/static/images/twitter-card.png',
   email: 'ita201125@gmail.com',
   github: 'https://github.com/ita-code',
