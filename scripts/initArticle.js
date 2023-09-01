@@ -108,7 +108,9 @@ inquirer
       .replace(/-+/g, '-')
     const frontMatter = genFrontMatter(answers)
     if (!fs.existsSync('data/blog')) fs.mkdirSync('data/blog', { recursive: true })
-    const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${answers.extension ? answers.extension : 'md'}`
+    const filePath = `data/blog/${fileName ? fileName : 'untitled'}.${
+      answers.extension ? answers.extension : 'md'
+    }`
     fs.writeFile(filePath, frontMatter, { flag: 'wx' }, (err) => {
       if (err) {
         throw err
