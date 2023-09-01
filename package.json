@@ -14,7 +14,9 @@
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "push": "sh ./scripts/push.sh",
+    "push-img": "sh ./scripts/push-img.sh"
   },
   "license": "MIT",
   "repository": {
