@@ -15,7 +15,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts",
     "prepare": "husky install",
-    "push": "sh ./scripts/push.sh",
+    "push": "sh ./scripts/push.sh $1",
     "push-img": "sh ./scripts/push-img.sh"
   },
   "license": "MIT",
