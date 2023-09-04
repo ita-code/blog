@@ -5,7 +5,6 @@ lastmod: 2020/09/05
 tags: [Vue, element ui]
 draft: false
 summary: 记录刚开始学习Vue~
-images: https://pan.zealsay.com/zealsay/cover/6.jpg
 authors: ['default']
 layout: PostLayout
 ---

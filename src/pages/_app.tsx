@@ -29,6 +29,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       {isDevelopment && isSocket && <ClientReload />}
       <Analytics />
+      {/* 主体框架 */}
       <LayoutWrapper>
         <Component {...pageProps} />
       </LayoutWrapper>

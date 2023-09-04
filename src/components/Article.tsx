@@ -1,3 +1,4 @@
+// 文章列表
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import Link from '@/components/Link'
@@ -12,21 +13,6 @@ export default function Article({ slug, date, title, summary, tags, images }: Po
       <article>
         <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-start xl:gap-5 xl:space-y-0">
           <dl className="xl:col-span-1">
-            {src ? (
-              <dt className="mb-4">
-                <Link
-                  href={`/blog/${slug}`}
-                  className="block overflow-hidden rounded shadow-lg"
-                  title={title}
-                >
-                  <img
-                    alt={title}
-                    className="transform  object-cover duration-200 hover:scale-110"
-                    src={src}
-                  />
-                </Link>
-              </dt>
-            ) : null}
             <dd className="sr-only">发布时间</dd>
             <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
               <time dateTime={date}>{formatDate(date)}</time>
