@@ -12,7 +12,7 @@ const getAuthors = () => {
 }
 
 const getLayouts = () => {
-  const layoutPath = path.join(root, 'layouts')
+  const layoutPath = path.join(root, 'src', 'layouts')
   const layoutList = fs
     .readdirSync(layoutPath)
     .map((filename) => path.parse(filename).name)
@@ -63,7 +63,7 @@ inquirer
       name: 'extension',
       message: 'Choose post extension:',
       type: 'list',
-      choices: ['mdx', 'md'],
+      choices: ['md', 'mdx'],
     },
     {
       name: 'authors',

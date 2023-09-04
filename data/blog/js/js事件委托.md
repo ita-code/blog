@@ -5,9 +5,11 @@ lastmod: 2021/09/05
 tags: [Javascript]
 draft: false
 summary: 面试面到了后来就接着学习了一点，感觉打开了新的世界。
+images: https://pan.zealsay.com/zealsay/cover/6.jpg
 authors: ['default']
 layout: PostLayout
 ---
+
 要理解`DOM`相关事件，我们先要理解`“事件流”`这个概念，事件流描述的是从页面中接收事件的顺序。
 
 事件冒泡：事件开始由最具体的元素接收，然后逐级向上传播到较为不具体的节点或文档。
@@ -33,15 +35,15 @@ layout: PostLayout
 ### 不使用事件委托
 
 ```javascript
-var mybox = document.getElementById('mybox');
-var li = mybox.getElementsByTagName('li');
+var mybox = document.getElementById('mybox')
+var li = mybox.getElementsByTagName('li')
 
-for(var i = 0; i < li.length; i++) {
-  li[i].onclick = function(e) {
-    var e = event || window.event;
-    var target = e.target || e.srcElement;
-    alert(e.target.id + ':' + e.target.innerText);  
-  };
+for (var i = 0; i < li.length; i++) {
+  li[i].onclick = function (e) {
+    var e = event || window.event
+    var target = e.target || e.srcElement
+    alert(e.target.id + ':' + e.target.innerText)
+  }
 }
 ```
 
@@ -72,36 +74,36 @@ for(var i = 0; i < li.length; i++) {
 
 ```html
 <div id="mybox">
-    <li id="li01">qwe</li>
-    <li id="li02">
-      <span>asd</span>
-    </li>
-    <li id="li03">qwe</li>
-    <li id="li04">
-      <span>123</span>
-    </li>
- </div>
+  <li id="li01">qwe</li>
+  <li id="li02">
+    <span>asd</span>
+  </li>
+  <li id="li03">qwe</li>
+  <li id="li04">
+    <span>123</span>
+  </li>
+</div>
 ```
 
 ```javascript
-delegate(document.getElementById("mybox"), 'click', 'li', function () {
-  console.log('this=>',this);
+delegate(document.getElementById('mybox'), 'click', 'li', function () {
+  console.log('this=>', this)
 })
 
 function delegate(element, eventType, selector, fn) {
-     element.addEventListener(eventType, e => {
-       let el = e.target
-       while (!el.matches(selector)) {
-         if (element === el) {
-           el = null
-           break
-         }
-         el = el.parentNode
-       }
-       el && fn.call(el, e, el)
-     })
-     return element
- }
+  element.addEventListener(eventType, (e) => {
+    let el = e.target
+    while (!el.matches(selector)) {
+      if (element === el) {
+        el = null
+        break
+      }
+      el = el.parentNode
+    }
+    el && fn.call(el, e, el)
+  })
+  return element
+}
 ```
 
 思路是点击 `span`后，递归遍历 `span` 的祖先元素看其中有没有 `ul` 里面的 `li`。
@@ -116,7 +118,7 @@ function delegate(element, eventType, selector, fn) {
 - 事件委托的实现依靠的冒泡，因此不支持事件冒泡的事件就不适合使用事件委托。
 - 不是所有的事件绑定都适合使用事件委托，不恰当使用反而可能导致不需要绑定事件的元素也被绑定上了事件。
 
-**jQuery的delegate实现源码**
+**jQuery 的 delegate 实现源码**
 
 ```javascript
 delegate: function( selector, types, data, fn ) {

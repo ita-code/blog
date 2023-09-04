@@ -1,5 +1,4 @@
-Sitemap: https://musing.vercel.app/sitemap.xml
-
 User-agent: *
-Allow: /
-Disallow: /api/*
+Disallow: 
+Disallow: /bin/
+Sitemap: https://maqib.com/sitemap.xml

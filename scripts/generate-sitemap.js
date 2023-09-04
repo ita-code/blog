@@ -11,8 +11,6 @@ const siteMetadata = require('../data/siteMetadata')
     'pages/*.tsx',
     'data/blog/**/*.mdx',
     'data/blog/**/*.md',
-    'data/snippets/**/*.md',
-    'data/snippets/**/*.mdx',
     'public/tags/**/*.xml',
     '!pages/_*.js',
     '!pages/_*.tsx',
@@ -38,7 +36,6 @@ const siteMetadata = require('../data/siteMetadata')
                 const path = page
                   .replace('pages/', '/')
                   .replace('data/blog', '/blog')
-                  .replace('data/snippets', '/snippets')
                   .replace('public/', '/')
                   .replace('.js', '')
                   .replace('.tsx', '')
@@ -46,7 +43,6 @@ const siteMetadata = require('../data/siteMetadata')
                   .replace('.md', '')
                   .replace('/feed.xml', '')
                 const route = path === '/index' ? '' : path
-
                 if (page.search('pages/404.') > -1 || page.search(`pages/blog/[...slug].`) > -1) {
                   return
                 }

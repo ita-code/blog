@@ -2,16 +2,16 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
-// You might need to insert additional domains in script-src if you are using external services
+// 如果您使用的是外部服务，则可能需要在script-src中插入其他域
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' giscus.app www.googletagmanager.com;
   style-src 'self' 'unsafe-inline';
   img-src * blob: data:;
-  media-src 'none';
+  media-src 'self';
   connect-src *;
   font-src 'self';
-  frame-src giscus.app
+  frame-src giscus.app game.runjs.cool player.bilibili.com
 `
 
 const securityHeaders = [
@@ -52,32 +52,12 @@ const securityHeaders = [
   },
 ]
 
+/**
+ * @type {import('next/dist/next-server/server/config').NextConfig}
+ **/
 module.exports = withBundleAnalyzer({
   reactStrictMode: true,
-  images: {
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com',
-      'cdn.discordapp.com', // discord url
-      'avatars.githubusercontent.com',
-      'github.com',
-      's3.us-west-2.amazonaws.com', // Images coming from Notion
-      'via.placeholder.com', // for articles that do not have a cover image
-      'images.unsplash.com', // For blog posts that use an external cover image
-      'pbs.twimg.com', // Twitter Profile Picture
-      'dwgyu36up6iuz.cloudfront.net',
-      'cdn.hashnode.com',
-      'res.craft.do',
-      'res.cloudinary.com', // Twitter Profile Picture
-    ],
-  },
-  rewrites: async () => [
-    {
-      source: '/public/terms.html',
-      destination: '/pages/api/html.js',
-    },
-  ],
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
@@ -89,21 +69,54 @@ module.exports = withBundleAnalyzer({
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/blog/1',
+        destination: '/blog/Refactoring-my-blog-using-NextJS-and-TailwindCSS',
+        permanent: true,
+      },
+      {
+        source: '/blog/4',
+        destination: '/blog/Implement-a-vscode-translation-extension',
+        permanent: true,
+      },
+      {
+        source: '/blog/6',
+        destination: '/blog/how-to-deploy-a-dynamic-website-for-free',
+        permanent: true,
+      },
+    ]
+  },
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
+  },
+  images: {
+    loader: 'custom',
+    loaderFile: './image-loader.js',
+  },
   webpack: (config, { dev, isServer }) => {
+    config.module.rules.push({
+      test: /\.(png|jpe?g|gif|mp4|mp3)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            publicPath: '/_next',
+            name: 'static/media/[name].[hash].[ext]',
+          },
+        },
+      ],
+    })
+
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     })
-
-    if (!dev && !isServer) {
-      // Replace React with Preact only in client production build
-      Object.assign(config.resolve.alias, {
-        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      })
-    }
 
     return config
   },
