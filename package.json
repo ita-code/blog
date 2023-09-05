@@ -10,6 +10,7 @@
     "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint --fix --dir src --dir scripts",
     "prepare": "husky install",
+    "push_img": "sh ./scripts/push_img.sh $1",
     "push": "sh ./scripts/push.sh $1"
   },
   "dependencies": {
