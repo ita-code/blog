@@ -7,17 +7,18 @@ import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 
 export default function Article({ slug, date, title, summary, tags, images }: PostFrontMatter) {
-  const src = Array.isArray(images) ? images[0] : images
   return (
-    <li className="py-12">
+    <li className="py-6">
       <article>
-        <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-start xl:gap-5 xl:space-y-0">
-          <dl className="xl:col-span-1">
-            <dd className="sr-only">发布时间</dd>
-            <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-              <time dateTime={date}>{formatDate(date)}</time>
-            </dd>
-          </dl>
+        <div className="space-y-2 xl:items-start xl:gap-5 xl:space-y-0">
+          <div className="relative z-10 order-first mb-3 flex items-center pl-3 text-sm text-zinc-400 dark:text-zinc-500">
+            <span className="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
+              <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
+            </span>
+            {formatDate(date)}
+          </div>
+          {/* <dd className="sr-only">发布时间</dd> */}
+          {/* <time dateTime={date}>{formatDate(date)}</time> */}
           <div className="space-y-4 xl:col-span-3">
             <div className="space-y-4">
               <div>
