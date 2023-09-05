@@ -5,7 +5,6 @@ lastmod: 2020/09/05
 tags: [Javascript]
 draft: false
 summary: 刚接触Javascript时，记录的笔记。
-images: https://pan.zealsay.com/zealsay/cover/6.jpg
 authors: ['default']
 layout: PostLayout
 ---
