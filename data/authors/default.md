@@ -1,6 +1,6 @@
 ---
 name: 壹樂
-avatar: https://iskr.gitee.io/pic/bg/avatar.png
+avatar: https://iskr.gitee.io/pic/bg/avatar.jpg
 occupation: 前端工程师
 company: 分享 JavaScript 热门框架，记录前端工程师学习成长历程。
 email: ita201125@gmail.com

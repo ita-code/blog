@@ -2,7 +2,7 @@
 const siteMetadata = {
   title: '壹樂 | 热爱挑战，探究极至。',
   author: '壹樂',
-  headerLogo: 'https://iskr.gitee.io/blog/img/log1.jpg',
+  headerLogo: 'https://iskr.gitee.io/pic/bg/avatar.jpg',
   headerTitle: "壹樂's blog",
   description: '分享 JavaScript 以及热门框架，记录前端工程师学习成长历程。',
   language: 'en-us',
