@@ -3,9 +3,12 @@
 import React from 'react'
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
-import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from 'types/PostFrontMatter'
-
+const postDateTemplate: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}
 export default function ArticleList({ slug, date, title, summary, tags, images }: PostFrontMatter) {
   return (
     <li className="py-6">
@@ -15,10 +18,10 @@ export default function ArticleList({ slug, date, title, summary, tags, images }
             <span className="absolute inset-y-0 left-0 flex items-center" aria-hidden="true">
               <span className="h-4 w-0.5 rounded-full bg-zinc-200 dark:bg-zinc-500" />
             </span>
-            {formatDate(date)}
+            <time dateTime={date}>
+              {new Date(date).toLocaleDateString('zh-CN', postDateTemplate)}
+            </time>
           </div>
-          {/* <dd className="sr-only">发布时间</dd> */}
-          {/* <time dateTime={date}>{formatDate(date)}</time> */}
           <div className="space-y-4 xl:col-span-3">
             <div className="space-y-4">
               <div>

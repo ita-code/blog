@@ -13,15 +13,16 @@ import TOCInline from '@/components/TOCInline'
 import { ReactNode } from 'react'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
+import SocialIcon from '@/components/social-icons'
+
 import { Toc } from 'types/Toc'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
   year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
 }
 
 interface Props {
@@ -34,7 +35,14 @@ interface Props {
 }
 
 export default function PostLayout(props: Props) {
-  const { frontMatter, authorDetails, next, prev, children } = props
+  const {
+    frontMatter,
+    frontMatter: { readingTime },
+    authorDetails,
+    next,
+    prev,
+    children,
+  } = props
   const { slug, fileName, date, title, tags, images } = frontMatter
   const src = Array.isArray(images) ? images[0] : images
 
@@ -51,18 +59,21 @@ export default function PostLayout(props: Props) {
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
             <div className="space-y-1 text-center">
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
-                  </dd>
-                </div>
-              </dl>
               <div>
                 <PageTitle>{title}</PageTitle>
+              </div>
+              <div className="flex justify-center gap-5 py-4">
+                <span className="flex items-center gap-1.5">
+                  <SocialIcon target="" kind="datas" size={5} />
+                  <dt className="sr-only">Published on</dt>
+                  <time dateTime={date}>
+                    {new Date(date).toLocaleDateString('zh-CN', postDateTemplate)}
+                  </time>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <SocialIcon target="" kind="times" size={5} />
+                  {readingTime.text}
+                </span>
               </div>
             </div>
           </header>
@@ -71,7 +82,7 @@ export default function PostLayout(props: Props) {
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
             <div className="">
-              <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
+              {/* <dl className="pt-6 pb-10 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
                 <dt className="sr-only">Authors</dt>
                 <dd>
                   <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
@@ -94,7 +105,7 @@ export default function PostLayout(props: Props) {
                     ))}
                   </ul>
                 </dd>
-              </dl>
+              </dl> */}
               <h2 className="pt-6 text-xs font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                 目录
               </h2>

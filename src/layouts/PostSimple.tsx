@@ -3,7 +3,6 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
-import formatDate from '@/lib/utils/formatDate'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { ReactNode } from 'react'
@@ -15,7 +14,11 @@ interface Props {
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
 }
-
+const postDateTemplate: Intl.DateTimeFormatOptions = {
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+}
 export default function PostLayout({ frontMatter, next, prev, children }: Props) {
   const { slug, date, title } = frontMatter
 
@@ -31,7 +34,9 @@ export default function PostLayout({ frontMatter, next, prev, children }: Props)
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>{formatDate(date)}</time>
+                    <time dateTime={date}>
+                      {new Date(date).toLocaleDateString('zh-CN', postDateTemplate)}
+                    </time>
                   </dd>
                 </div>
               </dl>

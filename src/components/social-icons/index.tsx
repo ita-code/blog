@@ -5,6 +5,8 @@ import Twitter from './twitter.svg'
 import Juejin from './juejin.svg'
 import Zhihu from './zhihu.svg'
 import Csdn from './csdn.svg'
+import datas from './datas.svg'
+import times from './times.svg'
 
 // Icons taken from: https://simpleicons.org/
 // https://www.iconfont
@@ -17,9 +19,11 @@ const components = {
   linkedin: Linkedin,
   twitter: Twitter,
   csdn: Csdn,
+  datas,
+  times,
 }
 
-const SocialIcon = ({ kind, href, size = 8 }) => {
+const SocialIcon = ({ kind, href = 'javascript:void(0)', target = '_blank', size = 8 }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
@@ -28,7 +32,7 @@ const SocialIcon = ({ kind, href, size = 8 }) => {
   return (
     <a
       className="text-sm text-gray-500 transition hover:text-gray-600"
-      target="_blank"
+      target={target}
       rel="noopener noreferrer"
       href={href}
     >

@@ -14,10 +14,7 @@ const siteMetadata = {
   socialBanner: '/static/images/twitter-card.png',
   email: 'ita201125@gmail.com',
   github: 'https://github.com/ita-code',
-  // juejin: 'https://juejin.cn/user/2189882895384093',
-  // zhihu: 'https://www.zhihu.com/people/xiao-ma-15-3',
   csdn: 'https://blog.csdn.net/qq_43490372?spm=1000.2115.3001.5343',
-  locale: 'zh-CN',
   welcome: '热爱挑战，探究极至。',
   // 备案
   forTheRecord: '',
