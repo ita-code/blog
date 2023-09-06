@@ -9,7 +9,7 @@ import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 import { Toc } from 'types/Toc'
 
-const DEFAULT_LAYOUT = 'PostLayout'
+const DEFAULT_LAYOUT = 'PostDetail'
 export async function getStaticPaths() {
   const posts = getFiles('blog')
   return {
@@ -32,8 +32,9 @@ export const getStaticProps: GetStaticProps<{
   const slug = (params.slug as string[]).join('/')
   const allPosts = await getAllFilesFrontMatter('blog')
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
-  const prev: { slug: string; title: string } = allPosts[postIndex + 1] || null
-  const next: { slug: string; title: string } = allPosts[postIndex - 1] || null
+  const prev: { slug: string; title: string } = allPosts[postIndex - 1] || null
+  const next: { slug: string; title: string } = allPosts[postIndex + 1] || null
+  console.log(allPosts, 'allPosts')
   const post = await getFileBySlug<PostFrontMatter>('blog', slug)
   //增加预发布默认值
   post.frontMatter.draft = post.frontMatter.draft ?? false

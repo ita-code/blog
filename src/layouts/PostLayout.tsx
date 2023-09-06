@@ -65,7 +65,7 @@ export default function PostLayout(props: Props) {
               <div className="flex justify-center gap-5 py-4">
                 <span className="flex items-center gap-1.5">
                   <SocialIcon target="" kind="datas" size={5} />
-                  <dt className="sr-only">Published on</dt>
+                  <dt className="sr-only">发布时间</dt>
                   <time dateTime={date}>
                     {new Date(date).toLocaleDateString('zh-CN', postDateTemplate)}
                   </time>

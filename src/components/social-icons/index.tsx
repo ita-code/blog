@@ -23,7 +23,7 @@ const components = {
   times,
 }
 
-const SocialIcon = ({ kind, href = 'javascript:void(0)', target = '_blank', size = 8 }) => {
+const SocialIcon = ({ kind, href, target = '_blank', size = 8 }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 

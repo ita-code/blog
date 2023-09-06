@@ -7,8 +7,11 @@ import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { ReactNode } from 'react'
 import { PostFrontMatter } from 'types/PostFrontMatter'
+import SocialIcon from '@/components/social-icons'
+import Tag from '@/components/Tag'
 
 interface Props {
+  toc: Toc
   frontMatter: PostFrontMatter
   children: ReactNode
   next?: { slug: string; title: string }
@@ -19,9 +22,8 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
   month: '2-digit',
   day: '2-digit',
 }
-export default function PostLayout({ frontMatter, next, prev, children }: Props) {
-  const { slug, date, title } = frontMatter
-
+export default function PostDetail({ frontMatter, next, prev, children, toc }: Props) {
+  const { slug, date, title, readingTime, tags } = frontMatter
   return (
     <SectionContainer>
       <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} />
@@ -30,19 +32,29 @@ export default function PostLayout({ frontMatter, next, prev, children }: Props)
         <div>
           <header>
             <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
-              <dl>
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString('zh-CN', postDateTemplate)}
-                    </time>
-                  </dd>
-                </div>
-              </dl>
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
+              <div className="flex justify-center gap-5 py-4">
+                <span className="flex items-center gap-1.5">
+                  <SocialIcon href="#" target="" kind="datas" size={5} />
+                  <dt className="sr-only">发布时间</dt>
+                  <time dateTime={date}>
+                    {new Date(date).toLocaleDateString('zh-CN', postDateTemplate)}
+                  </time>
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <SocialIcon href="#" target="" kind="times" size={5} />
+                  {readingTime.text}
+                </span>
+              </div>
+              {tags && (
+                <div className="mt-3 flex flex-wrap">
+                  {tags.map((tag) => (
+                    <Tag key={tag} text={tag} />
+                  ))}
+                </div>
+              )}
             </div>
           </header>
           <div

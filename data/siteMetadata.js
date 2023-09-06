@@ -1,23 +1,22 @@
 // 博客配置设置
 const siteMetadata = {
   title: '壹樂 | 热爱挑战，探究极至。',
+  welcome: '热爱挑战，探究极至。',
   author: '壹樂',
   headerLogo: 'https://iskr.gitee.io/pic/bg/avatar.jpg',
   headerTitle: "壹樂's blog",
   description: '分享 JavaScript 以及热门框架，记录前端工程师学习成长历程。',
+  email: 'ita201125@gmail.com',
+  github: 'https://github.com/ita-code',
+  csdn: 'https://blog.csdn.net/qq_43490372?spm=1000.2115.3001.5343',
+  forTheRecord: '',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://maqib.cn',
+  siteUrl: 'https://iskr.gitee.io',
   siteRepo: 'https://github.com/ita-code/blog',
   siteLogo: 'https://iskr.gitee.io/blog/img/log1.jpg',
   image: 'https://iskr.gitee.io/blog/img/log1.jpg',
   socialBanner: '/static/images/twitter-card.png',
-  email: 'ita201125@gmail.com',
-  github: 'https://github.com/ita-code',
-  csdn: 'https://blog.csdn.net/qq_43490372?spm=1000.2115.3001.5343',
-  welcome: '热爱挑战，探究极至。',
-  // 备案
-  forTheRecord: '',
   analytics: {
     //如果要使用分析提供程序，则必须将其添加到。
     //`next.config.js`文件中的内容安全策略。

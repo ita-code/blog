@@ -3,7 +3,7 @@ title: 前端的npm命令大全
 date: 2023/8/15
 tags: [命令]
 summary: 本文收集了npm
-layout: PostSimple
+layout: PostDetail
 ---
 
 ## 前端的 npm 命令大全
