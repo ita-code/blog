@@ -3,10 +3,7 @@ title: 最全的数组方法以及实例
 date: 2020/12/05
 lastmod: 2021/09/05
 tags: [Javascript]
-draft: false
 summary: 数组的操作开发中应该是常见的，建议大家一定要学，不会就多上菜鸟看看，这里给大家推荐个最全[工具类](https://www.lodashjs.com/)。这工具类在开发中具有用。
-authors: ['default']
-layout: PostLayout
 ---
 
 ## 数组的操作开发中应该是常见的，建议大家一定要学，不会就多上菜鸟看看，这里给大家推荐个最全[工具类](https://www.lodashjs.com/)。这工具类在开发中具有用。

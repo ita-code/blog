@@ -3,10 +3,7 @@ title: 学习Vue的基础性总结
 date: 2020/05/25
 lastmod: 2020/09/05
 tags: [Vue, element ui]
-draft: false
 summary: 记录刚开始学习Vue~
-authors: ['default']
-layout: PostLayout
 ---
 
 ## vue 里面的一些方法

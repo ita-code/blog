@@ -3,10 +3,7 @@ title: PDF文件流前端下载并打印
 date: 2021/04/05
 lastmod: 2020/09/05
 tags: [Vue, element ui]
-draft: false
 summary: 我的业务场景是需要解析后端的PDF文件流,然后预览最后可以打印出来就完事！完全不需要插件几句代码就搞定了，这里就不废话了直接上代码！
-authors: ['default']
-layout: PostLayout
 ---
 
 我的业务场景是需要解析后端的 PDF 文件流,然后预览最后可以打印出来就完事！

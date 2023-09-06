@@ -2,13 +2,11 @@
 title: Git命令大全
 date: 2021/9/5
 lastmod: 2021/9/5
-tags: [sh,git]
-draft: false
+tags: [sh, git]
 summary: 在工作中常用的命令是我用'*'标记，大家可以ctrl+f搜索查看常用命令。此篇已经涵盖了大部分的git命令。
-authors: ['default']
-layout: PostLayout
 ---
-## 常用GIT命令
+
+## 常用 GIT 命令
 
 ```
 git config --global user.name "你的名字" 让你全部的Git仓库绑定你的名字
@@ -60,7 +58,7 @@ git check-ignore -v <file> 检查为什么Git会忽略该文件
 
 ```
 
-## 配置GIT
+## 配置 GIT
 
 ```
 # 显示当前的Git配置
@@ -359,4 +357,3 @@ git update-index --no-assume-unchanged 你的文件路径
 git rm -r --cached .
 
 ```
-

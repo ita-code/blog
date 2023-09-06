@@ -1,18 +1,15 @@
 ---
 title: 前端的npm命令大全
 date: 2022/12/6
-lastmod: 2023/1/25 11:42:13
 tags: [命令]
-draft: false
 summary: 本文收集了npm
-authors: ['default']
-layout: PostLayout
 ---
-## 前端的npm命令大全
 
-> npm（Node Package Manager）是一个用于管理和共享JavaScript代码包的工具。主要作用是提供一种简单的方式来安装、更新、卸载和发布JavaScript包。它允许开发者从npm仓库中获取其他开发者已经创建的代码包，并将这些包集成到自己的项目中。通过使用npm，开发者可以快速、高效地构建复杂的前端应用程序，同时避免重复造轮子。
+## 前端的 npm 命令大全
 
-### npm 安装cnpm
+> npm（Node Package Manager）是一个用于管理和共享 JavaScript 代码包的工具。主要作用是提供一种简单的方式来安装、更新、卸载和发布 JavaScript 包。它允许开发者从 npm 仓库中获取其他开发者已经创建的代码包，并将这些包集成到自己的项目中。通过使用 npm，开发者可以快速、高效地构建复杂的前端应用程序，同时避免重复造轮子。
+
+### npm 安装 cnpm
 
 ```sh
 #查看 npm 版本
@@ -28,7 +25,7 @@ cnpm install <Module Name>
 `[]可选命令`
 
 ```sh
-# 查看npm配置信息 --Json 
+# 查看npm配置信息 --Json
 npm config list [--json]
 # 设置npm配置信息
 npm config set <key>=<value> [<key>=<value> ...]
@@ -113,24 +110,20 @@ npm docs jquery  # 会打开默认浏览器跳转到github中jquery的README.MD�
 npm home jquery  # 会打开默认浏览器跳转到github中jquery的主页
 ```
 
-### npm init 生成的package.json
+### npm init 生成的 package.json
 
 ```json
 {
   // 包的名称
   "name": "sg-utils",
   // 包的版本号
-  "version": "1.4.6", 
+  "version": "1.4.6",
   // 包的描述
-  "description": "javascript通用工具类", 
+  "description": "javascript通用工具类",
   // 包的入口文件
-  "main": "index.js", 
+  "main": "index.js",
   // 上传npm的白名单，即被允许上传的文件
-  "files": [ 
-    "src",
-    "demo",
-    "index.js"
-  ],
+  "files": ["src", "demo", "index.js"],
   // 指定了运行脚本命令的npm命令行缩写
   "scripts": {
     "start": "node server.js"
@@ -141,10 +134,7 @@ npm home jquery  # 会打开默认浏览器跳转到github中jquery的主页
     "url": "https://github.com/shiguang0116/sg-utils"
   },
   // 关键字
-  "keywords": [
-    "javascript",
-    "util"
-  ],
+  "keywords": ["javascript", "util"],
   // 作者
   "author": "guang.shi",
   // 许可证数组
@@ -173,12 +163,12 @@ npm home jquery  # 会打开默认浏览器跳转到github中jquery的主页
 }
 ```
 
-### package.json版本详解
+### package.json 版本详解
 
 ```json
 {
   "dependencies": {
-      "foo": "1.0.0 - 2.9999.9999",   
+      "foo": "1.0.0 - 2.9999.9999",
       "bar": ">=1.0.2 <2.1.2",        必须大于等于1.0.2版本且小于2.1.2版本
       "baz": ">1.0.2 <=2.3.4",        必须大于1.0.2版本且小于等于2.3.4版本
       "boo": "2.3.1",                 必须匹配这个版本
@@ -187,8 +177,8 @@ npm home jquery  # 会打开默认浏览器跳转到github中jquery的主页
       "boo": "^2.3.1",                与2.3.1版本兼容，相当于2.X.X, 即>=2.3.1 < 3.0.0,不改变大版本号。
       "qux": "<1.0.0 || >=2.3.1 <2.4.5 || >=2.5.2 <3.0.0",
       "asd": "http://asdf.com/asdf.tar.gz",   在版本上指定一个压缩包的url，当执行npm install 时这个压缩包会被下载并安装到本地。
-      "til": "~1.2",   
-      "elf": "~1.2.3", 
+      "til": "~1.2",
+      "elf": "~1.2.3",
       "two": "2.x",
       "lat": "latest",             安装最新版本
       "dyl": "file:../dyl",         使用本地路径
@@ -196,4 +186,3 @@ npm home jquery  # 会打开默认浏览器跳转到github中jquery的主页
   }
 }
 ```
-

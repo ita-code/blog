@@ -3,10 +3,7 @@ title: Js作用域
 date: 2020/7/05
 lastmod: 2020/09/05
 tags: [Javascript]
-draft: false
 summary: 刚接触Javascript时，记录的笔记。
-authors: ['default']
-layout: PostLayout
 ---
 
 > 关于深入理解 JS 作用域的一些笔记
