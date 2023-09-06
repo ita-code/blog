@@ -31,7 +31,7 @@ export default function PostDetail({ frontMatter, next, prev, children, toc }: P
       <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} />
       <ScrollTopAndComment />
       <article className="relative">
-        <TOCInline asDisclosure={false} toc={toc} />
+        <TOCInline toc={toc} />
         <div>
           <header>
             <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">

@@ -109,7 +109,7 @@ export default function PostLayout(props: Props) {
               <h2 className="pt-6 text-xs font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                 目录
               </h2>
-              <TOCInline asDisclosure={false} toc={props.toc} />
+              <TOCInline toc={props.toc} />
             </div>
             <div className="xl:col-span-3 xl:row-span-2 xl:pb-0">
               {src ? (
