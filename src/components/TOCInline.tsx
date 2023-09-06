@@ -42,15 +42,17 @@ const TOCInline = ({
   )
 
   const tocList = (
-    <ul className="py-4 text-sm font-medium leading-relaxed xl:border-b xl:border-gray-200  xl:dark:border-gray-700">
-      {filteredToc.map((heading) => (
-        <li key={heading.value} className={`${heading.depth >= indentDepth && 'ml-6'}`}>
-          <a className="text-primary-500" href={heading.url}>
-            {heading.value}
-          </a>
-        </li>
-      ))}
-    </ul>
+    <div className="absolute left-full ml-16 h-full w-[250px] pt-16">
+      <ul className="sticky top-[0] mr-4 py-4 text-sm font-medium leading-relaxed">
+        {filteredToc.map((heading) => (
+          <li key={heading.value} className={`${heading.depth >= indentDepth && 'ml-6'}`}>
+            <a className="text-primary-500" href={heading.url}>
+              {heading.value}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 
   return (

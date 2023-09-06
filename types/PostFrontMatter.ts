@@ -11,4 +11,5 @@ export type PostFrontMatter = {
   canonicalUrl?: string
   slug: string
   fileName: string
+  readingTime: any
 }

@@ -76,15 +76,6 @@ npm uninstall express --save  # 卸载模块，同时卸载留在package.json中
 npm uninstall express --save-dev  # 卸载模块，同时卸载留在package.json中devDependencies下的信息
 ```
 
-### npm 卸载模块
-
-```sh
-npm uninstall express  # 卸载模块，但不卸载模块留在package.json中的对应信息
-npm uninstall express -g  # 卸载全局模块
-npm uninstall express --save  # 卸载模块，同时卸载留在package.json中dependencies下的信息
-npm uninstall express --save-dev  # 卸载模块，同时卸载留在package.json中devDependencies下的信息
-```
-
 ### npm 查看命令
 
 ```sh
