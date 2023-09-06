@@ -1,4 +1,4 @@
-import Article from '@/components/Article'
+import ArticleList from '@/components/ArticleList'
 import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
 import { PostFrontMatter } from 'types/PostFrontMatter'
@@ -55,7 +55,7 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
           {!filteredBlogPosts.length && '暂无数据'}
           {displayPosts.map((frontMatter) => {
             const { slug } = frontMatter
-            return <Article {...frontMatter} key={slug} />
+            return <ArticleList {...frontMatter} key={slug} />
           })}
         </ul>
       </div>

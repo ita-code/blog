@@ -5,7 +5,7 @@ import { getAllFilesFrontMatter } from '@/lib/mdx'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 import NewsletterForm from '@/components/NewsletterForm'
-import Article from '@/components/Article'
+import ArticleList from '@/components/ArticleList'
 import Hero from '@/components/Hero'
 
 const MAX_DISPLAY = 5
@@ -34,7 +34,7 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
           {!posts.length && '暂无数据'}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
             const { slug } = frontMatter
-            return <Article {...frontMatter} key={slug} />
+            return <ArticleList {...frontMatter} key={slug} />
           })}
         </ul>
       </div>

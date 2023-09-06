@@ -6,7 +6,7 @@ import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 
-export default function Article({ slug, date, title, summary, tags, images }: PostFrontMatter) {
+export default function ArticleList({ slug, date, title, summary, tags, images }: PostFrontMatter) {
   return (
     <li className="py-6">
       <article>
