@@ -1,3 +1,4 @@
+// 文章详情
 import fs from 'fs'
 import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
@@ -9,7 +10,6 @@ import { PostFrontMatter } from 'types/PostFrontMatter'
 import { Toc } from 'types/Toc'
 
 const DEFAULT_LAYOUT = 'PostLayout'
-
 export async function getStaticPaths() {
   const posts = getFiles('blog')
   return {
@@ -35,6 +35,8 @@ export const getStaticProps: GetStaticProps<{
   const prev: { slug: string; title: string } = allPosts[postIndex + 1] || null
   const next: { slug: string; title: string } = allPosts[postIndex - 1] || null
   const post = await getFileBySlug<PostFrontMatter>('blog', slug)
+  //增加预发布默认值
+  post.frontMatter.draft = post.frontMatter.draft ?? false
   // @ts-ignore
   const authorList = post.frontMatter.authors || ['default']
   const authorPromise = authorList.map(async (author) => {
@@ -48,7 +50,6 @@ export const getStaticProps: GetStaticProps<{
     const rss = generateRss(allPosts)
     fs.writeFileSync('./public/feed.xml', rss)
   }
-
   return {
     props: {
       post,
@@ -65,8 +66,8 @@ export default function Blog({
   prev,
   next,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  // console.log(post,'post')
   const { mdxSource, toc, frontMatter } = post
-
   return (
     <>
       {'draft' in frontMatter && frontMatter.draft !== true ? (
