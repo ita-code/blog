@@ -1,7 +1,6 @@
 ---
 title: Js作用域
 date: 2020/7/05
-lastmod: 2020/09/05
 tags: [Javascript]
 summary: 刚接触Javascript时，记录的笔记。
 ---

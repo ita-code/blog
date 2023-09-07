@@ -1,7 +1,6 @@
 ---
 title: Git命令大全
 date: 2021/9/5
-lastmod: 2021/9/5
 tags: [sh, git]
 summary: 在工作中常用的命令是我用'*'标记，大家可以ctrl+f搜索查看常用命令。此篇已经涵盖了大部分的git命令。
 ---
