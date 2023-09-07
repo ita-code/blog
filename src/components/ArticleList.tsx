@@ -30,11 +30,13 @@ export default function ArticleList({ slug, date, title, summary, tags, images }
                     {title}
                   </Link>
                 </h2>
-                <div className="mt-3 flex flex-wrap">
-                  {tags.map((tag) => (
-                    <Tag key={tag} text={tag} />
-                  ))}
-                </div>
+                {tags && (
+                  <div className="mt-3 flex flex-wrap">
+                    {tags.map((tag) => (
+                      <Tag key={tag} text={tag} />
+                    ))}
+                  </div>
+                )}
               </div>
               <div className="prose max-w-none text-gray-500 dark:text-gray-400">{summary}</div>
             </div>
