@@ -9,7 +9,7 @@ import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
 
 const Wrapper: React.ComponentType<{ layout: string }> = ({ layout, ...rest }) => {
-  const Layout = require(`../layouts/${layout}`).default
+  const Layout = require(`../components/layouts/${layout}`).default
   return <Layout {...rest} />
 }
 

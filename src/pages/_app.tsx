@@ -10,7 +10,10 @@ import Head from 'next/head'
 
 import siteMetadata from '@/data/siteMetadata'
 import Analytics from '@/components/analytics'
-import LayoutWrapper from '@/components/LayoutWrapper'
+import Container from 'src/layouts/Container'
+import Header from 'src/layouts/Header'
+import Footer from 'src/layouts/Footer'
+
 import { ClientReload } from '@/components/ClientReload'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
@@ -29,10 +32,11 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       {isDevelopment && isSocket && <ClientReload />}
       <Analytics />
-      {/* 主体框架 */}
-      <LayoutWrapper>
+      <Header />
+      <Container>
         <Component {...pageProps} />
-      </LayoutWrapper>
+      </Container>
+      <Footer />
     </ThemeProvider>
   )
 }

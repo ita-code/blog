@@ -1,6 +1,6 @@
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
+import SectionContainer from 'src/layouts/Container'
 import { BlogSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'

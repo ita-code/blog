@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
+import SectionContainer from 'src/layouts/Container'
 import { BlogSEO } from '@/components/SEO'
 import Image from '@/components/Image'
 import Tag from '@/components/Tag'
