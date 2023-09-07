@@ -45,21 +45,39 @@ const Catalogue = ({
   return (
     <div className="hidden sm:contents">
       <div className="absolute left-full ml-16 h-full w-[250px] pt-16">
-        <ul className="sticky top-[0] mr-4 py-10 text-sm font-medium leading-relaxed">
-          {filteredToc.length > 1 &&
-            filteredToc.map((heading) => (
-              <li
-                key={heading.value}
-                className={`${heading.depth >= indentDepth ? 'ml-5' : ''} ${
-                  activeHeadingUlr === heading.url ? 'text-primary' : 'text-black dark:text-white'
-                }`}
-              >
-                <a className="text-primary-500" href={heading.url}>
-                  {heading.value}
-                </a>
-              </li>
-            ))}
-        </ul>
+        <div className="sticky top-[0] mr-4 py-10 text-sm font-medium leading-relaxed">
+          <ul className="group/toc better-scrollbar max-h-[50vh] list-none overflow-y-auto">
+            {filteredToc.length > 1 &&
+              filteredToc.map((heading) => (
+                <li key={heading.value}>
+                  <a
+                    href={heading.url}
+                    className={`group relative my-1 flex max-w-full items-center gap-2 truncate text-xs leading-loose text-zinc-500/80 hover:text-zinc-800 dark:hover:text-zinc-50 ${
+                      activeHeadingUlr === heading.url ? '!text-zinc-800 dark:!text-zinc-50' : ''
+                    }`}
+                  >
+                    <div className="w-[20px]">
+                      <div
+                        className={`h-[4px] rounded-full bg-black/10 transition duration-500 group-hover:bg-black/50 dark:bg-white/10 dark:group-hover:bg-white/50 ${
+                          activeHeadingUlr === heading.url ? '!bg-black/50 dark:!bg-white/50' : ''
+                        }`}
+                        style={{ width: heading.depth > 2 ? 10 : 16 }}
+                      ></div>
+                    </div>
+                    <span
+                      className={`truncate opacity-0 transition duration-500 group-hover/toc:opacity-100 ${
+                        heading.depth !== 2 ? 'ml-2' : ''
+                      } ${heading.depth === 2 ? 'font-medium' : ''} ${
+                        activeHeadingUlr === heading.url ? 'opacity-100' : ''
+                      }`}
+                    >
+                      {heading.value}
+                    </span>
+                  </a>
+                </li>
+              ))}
+          </ul>
+        </div>
       </div>
     </div>
   )

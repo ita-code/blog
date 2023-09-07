@@ -128,6 +128,7 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
     const matterFile = matter(source)
     const frontmatter = matterFile.data as AuthorFrontMatter | PostFrontMatter
     frontmatter.draft = frontmatter.draft ?? false
+    frontmatter.tags = frontmatter.tags ?? []
     if ('draft' in frontmatter && frontmatter.draft !== true) {
       allFrontMatter.push({
         ...frontmatter,

@@ -28,10 +28,8 @@ export default function Tags({ tags }: InferGetStaticPropsType<typeof getStaticP
           {sortedTags.map((t) => {
             return (
               <div key={t} className="mt-2 mb-2 mr-5">
-                <Tag text={t} />
-                &nbsp;&nbsp;
                 <Link href={`/tags/${kebabCase(t)}`} className="-ml-2 text-xs uppercase">
-                  {`  (${tags[t]})`}
+                  <Tag text={t} content={`  (${tags[t]})`} />
                 </Link>
               </div>
             )

@@ -2,6 +2,7 @@
 title: Next.js 入门
 date: 2023/09/05
 summary: Next.js是一个轻量级的react服务端渲染应用框架。
+tags: []
 ---
 
 ## 创建项目
