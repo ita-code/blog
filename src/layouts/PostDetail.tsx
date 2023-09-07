@@ -34,7 +34,7 @@ export default function PostDetail({ frontMatter, next, prev, children, toc }: P
         <TOCInline toc={toc} />
         <div>
           <header>
-            <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
+            <div className="space-y-1 border-b border-gray-200 pb-3 text-center dark:border-gray-700">
               <div>
                 <PageTitle>{title}</PageTitle>
               </div>
