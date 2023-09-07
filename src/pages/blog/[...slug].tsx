@@ -34,7 +34,6 @@ export const getStaticProps: GetStaticProps<{
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
   const prev: { slug: string; title: string } = allPosts[postIndex - 1] || null
   const next: { slug: string; title: string } = allPosts[postIndex + 1] || null
-  console.log(allPosts, 'allPosts')
   const post = await getFileBySlug<PostFrontMatter>('blog', slug)
   //增加预发布默认值
   post.frontMatter.draft = post.frontMatter.draft ?? false
