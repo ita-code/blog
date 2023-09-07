@@ -1,13 +1,12 @@
 import Mail from './mail.svg'
 import Github from './github.svg'
-import Linkedin from './linkedin.svg'
 import Twitter from './twitter.svg'
 import Juejin from './juejin.svg'
 import Zhihu from './zhihu.svg'
 import Csdn from './csdn.svg'
 import datas from './datas.svg'
 import times from './times.svg'
-
+import jianli from './jianli.svg'
 // Icons taken from: https://simpleicons.org/
 // https://www.iconfont
 
@@ -16,11 +15,11 @@ const components = {
   github: Github,
   juejin: Juejin,
   zhihu: Zhihu,
-  linkedin: Linkedin,
   twitter: Twitter,
   csdn: Csdn,
   datas,
   times,
+  jianli,
 }
 
 const SocialIcon = ({ kind, href, target = '_blank', size = 8 }) => {

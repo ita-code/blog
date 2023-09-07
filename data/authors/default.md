@@ -6,18 +6,17 @@ company: 分享 JavaScript 热门框架，记录前端工程师学习成长历�
 email: ita201125@gmail.com
 github: https://github.com/ita-code
 csdn: https://blog.csdn.net/qq_43490372?spm=1000.2115.3001.5343
+jianli: https://iskr.gitee.io/pic/敖宇杰-前端工程师.pdf
 ---
 
 - 姓名：敖宇杰
-- 昵称：壹樂
 - 座右铭：你不一定要很厲害，才能開始；但你要開始，才能很厲害
-- 我是一名前端工程师，也是一名 Javascript 全栈开发者，长期关注前端工程化，开发体验优化等方向，近期对低代码、微前端、serverless、vite 有浓厚兴趣并实践中
-- 坐标：杭州
+- 我是一名前端工程师，想成为一名全栈工程师，长期关注前端工程化，开发体验优化等方向，近期对 Java 框架、有浓厚兴趣并实践中
+- 坐标：\*\*
 - skill：
-  - 前端：React、ES6/7/8、Antd、Axios、Tailwindcss
-  - 服务端：Next.js、Koa2、Prisma、Typeorm
-  - 数据库：Mysql、Postgresql
-  - 其他：Webpack、Vite、Typescript、Serverless
+  - 前端：Vue2/3、ES6/7/8、UniApp、微信小程序、Admin-Template、React
+  - 服务端：Java
+  - 数据库：Mysql、MongDB
 
 ## 技能
 
@@ -33,7 +32,7 @@ csdn: https://blog.csdn.net/qq_43490372?spm=1000.2115.3001.5343
 
 ## 工作
 
-### 中网智通(深圳)技术有限公司(2021.09-至今)
+### 中网智通(深圳)技术有限公司(2021.09-2023.07)
 
 前端开发工程师
 
