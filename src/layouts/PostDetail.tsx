@@ -52,7 +52,7 @@ export default function PostDetail({ frontMatter, next, prev, children, toc }: P
                 </span>
               </div>
               {tags && (
-                <div className="mt-3 flex flex-wrap">
+                <div className="mt-3 flex flex-wrap justify-center">
                   {tags.map((tag) => (
                     <Tag key={tag} text={tag} />
                   ))}
