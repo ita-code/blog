@@ -1,8 +1,8 @@
-'use client'
+// 目录导航
 import { Toc } from 'types/Toc'
 import { useEffect, useState } from 'react'
 
-interface TOCInlineProps {
+interface CatalogueProps {
   toc: Toc
   indentDepth?: number
   fromHeading?: number
@@ -15,7 +15,7 @@ interface TOCInlineProps {
  * Exclude titles matching this string (new RegExp('^(' + string + ')$', 'i')).
  * If an array is passed the array gets joined with a pipe (new RegExp('^(' + array.join('|') + ')$', 'i')).
  *
- * @param {TOCInlineProps} {
+ * @param {CatalogueProps} {
  *   toc,
  *   indentDepth = 3,
  *   fromHeading = 1,
@@ -24,13 +24,13 @@ interface TOCInlineProps {
  * }
  *
  */
-const TOCInline = ({
+const Catalogue = ({
   toc,
   indentDepth = 3,
   fromHeading = 1,
   toHeading = 6,
   exclude = '',
-}: TOCInlineProps) => {
+}: CatalogueProps) => {
   const re = Array.isArray(exclude)
     ? new RegExp('^(' + exclude.join('|') + ')$', 'i')
     : new RegExp('^(' + exclude + ')$', 'i')
@@ -45,7 +45,7 @@ const TOCInline = ({
   return (
     <div className="hidden sm:contents">
       <div className="absolute left-full ml-16 h-full w-[250px] pt-16">
-        <ul className="sticky top-[0] mr-4 py-4 text-sm font-medium leading-relaxed">
+        <ul className="sticky top-[0] mr-4 py-10 text-sm font-medium leading-relaxed">
           {filteredToc.length > 1 &&
             filteredToc.map((heading) => (
               <li
@@ -127,4 +127,4 @@ const throttle = (func: any, limit: any) => {
     }
   }
 }
-export default TOCInline
+export default Catalogue

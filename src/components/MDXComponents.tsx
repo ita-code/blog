@@ -4,7 +4,7 @@ import { ComponentMap, getMDXComponent } from 'mdx-bundler/client'
 import Image from './Image'
 import Video from './Video'
 import CustomLink from './Link'
-import TOCInline from './TOCInline'
+import Catalogue from './Catalogue'
 import Pre from './Pre'
 import { BlogNewsletterForm } from './NewsletterForm'
 
@@ -17,7 +17,7 @@ export const MDXComponents: ComponentMap = {
   Image,
   Video,
   //@ts-ignore
-  TOCInline,
+  Catalogue,
   a: CustomLink,
   pre: Pre,
   wrapper: Wrapper,

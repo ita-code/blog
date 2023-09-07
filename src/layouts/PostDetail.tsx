@@ -9,7 +9,7 @@ import { ReactNode } from 'react'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 import SocialIcon from '@/components/social-icons'
 import Tag from '@/components/Tag'
-import TOCInline from '@/components/TOCInline'
+import Catalogue from '@/components/Catalogue'
 import { Toc } from 'types/Toc'
 
 interface Props {
@@ -31,7 +31,7 @@ export default function PostDetail({ frontMatter, next, prev, children, toc }: P
       <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} />
       <ScrollTopAndComment />
       <article className="relative">
-        <TOCInline toc={toc} />
+        <Catalogue toc={toc} />
         <div>
           <header>
             <div className="space-y-1 border-b border-gray-200 pb-3 text-center dark:border-gray-700">

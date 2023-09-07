@@ -9,7 +9,7 @@ import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import ProgressBar from '@/components/ProgressBar'
-import TOCInline from '@/components/TOCInline'
+import Catalogue from '@/components/Catalogue'
 import { ReactNode } from 'react'
 import { PostFrontMatter } from 'types/PostFrontMatter'
 import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
@@ -109,7 +109,7 @@ export default function PostLayout(props: Props) {
               <h2 className="pt-6 text-xs font-bold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                 目录
               </h2>
-              <TOCInline toc={props.toc} />
+              <Catalogue toc={props.toc} />
             </div>
             <div className="xl:col-span-3 xl:row-span-2 xl:pb-0">
               {src ? (
