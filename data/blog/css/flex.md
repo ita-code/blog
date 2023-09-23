@@ -17,7 +17,7 @@ summary: 常见的flex布局
 
 ## 二、容器属性
 
-### 2.1 flex-direction:
+### flex-direction:
 
 - row(默认值):主轴为水平方向,起点在左端。
 
@@ -31,7 +31,7 @@ summary: 常见的flex布局
 - column-reverse:主轴为垂直方向,起点在下沿。
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020101913210660.png#pic_center)
 
-### 2.2 flex-wrap:
+### flex-wrap:
 
 - nowrap(默认):不换行。多余内容溢出
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201019132305185.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDkwMzcy,size_16,color_FFFFFF,t_70#pic_center)
@@ -42,7 +42,7 @@ summary: 常见的flex布局
 - wrap-reverse:换行,第一行在下方
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201019132319479.png#pic_center)
 
-### 2.3 justify-content:
+### justify-content:
 
 - flex-start(默认值):左对齐
 - flex-end:右对齐
@@ -55,7 +55,7 @@ summary: 常见的flex布局
 - space-around:每个项目两侧的间距相等。所以,项目之间的间隔比项目与与边框的间隔大一倍
   ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020101913241146.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQzNDkwMzcy,size_16,color_FFFFFF,t_70#pic_center)
 
-### 2.4 align-items:
+### align-items:
 
 - flex-start:交叉轴为起点对齐
 - flex-end:交叉的终点对齐
@@ -63,7 +63,7 @@ summary: 常见的flex布局
 - baseline:项目的第一行文字的基线对齐
 - streach(默认值):如果项目未设置高度或设为 auto,将占满整个容器。
 
-### 2.5 align-content:
+### align-content:
 
 定义了多根轴线的对齐方式,如果项目只有一根轴线,那么该属性将不起作用
 
@@ -86,7 +86,7 @@ summary: 常见的flex布局
 
 ## 三、项目属性
 
-### 3.1 order 属性
+### order 属性
 
 ```javascript
 		.box {
@@ -127,7 +127,7 @@ summary: 常见的flex布局
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201019133657461.png#pic_center)
 
-### 3.2 flex-grow 属性 flex-grow:1==flex:1
+### flex-grow 属性 flex-grow:1==flex:1
 
 flex-grow 属性定义项目的放大比例,默认为 0,即如果存在剩余空间，也不放大
 
@@ -170,7 +170,7 @@ flex-grow 属性定义项目的放大比例,默认为 0,即如果存在剩余空
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201019132614447.png#pic_center)
 
-### 3.3 flex-shrink 属性
+### flex-shrink 属性
 
 定义了项目的缩小比例，默认为 1，即如果空间不足，该项目将缩小。
 
@@ -220,7 +220,7 @@ flex-grow 属性定义项目的放大比例,默认为 0,即如果存在剩余空
 166:1 代表蓝色 6 代表红绿
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201019134452399.png#pic_center)
 
-### 3.4 align-self 属性
+### align-self 属性
 
 align-self 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性。默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。
 
