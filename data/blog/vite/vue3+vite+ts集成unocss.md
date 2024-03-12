@@ -1,7 +1,7 @@
 ---
 title: 项目配置集成unocss指南
-date: 2020/05/25
-tags: [Vue3]
+date: 2024/01/16
+tags: [Vite]
 summary: vue3+vite+ts集成unocss
 ---
 
@@ -157,6 +157,8 @@ import 'virtual:uno.css'
 
 ![image-20240116153724018](https://iskr.gitee.io/pic/blog/image-20240116153724018.png)
 
-#### 安装 VsCode 插件一起食用
+#### 配合 VsCode 插件一起食用
 
-![image-20240116153418715](https://iskr.gitee.io/pic/blog/image-20240116153418715.png)
+**[WindiCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=voorjaar.windicss-intellisense)**
+
+![](https://iskr.gitee.io/pic/blog/image-20240117164007992.png)
