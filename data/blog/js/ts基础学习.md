@@ -1,3 +1,10 @@
+---
+title: TypeScript学习笔记
+date: 2024/03/10
+tags: [TypeScript]
+summary: 涵盖了Ts的类型、泛型、装饰器、类型推断的一下学习。
+---
+
 # 创建一个 TypeScript 项目
 
 ```sh
@@ -335,7 +342,7 @@ eventBus.on('changeTitle', (e: string) => {
       console.log('delete', key)
       delete target[key]
     },
-    // 获取属性
+    // 拦截 for in
     ownKeys(target) {
       console.log('ownKeys')
       return Reflect.ownKeys(target)
@@ -360,6 +367,11 @@ eventBus.on('changeTitle', (e: string) => {
       console.log('set', key, value)
       target[key] = value
     },
+    // 拦截new操作符
+    construct(target, args) {
+      console.log('construct', args)
+      return new target(...args)
+    },
   })
 
   console.log('判断属性是否存在', 'name' in nProxy)
@@ -370,3 +382,376 @@ eventBus.on('changeTitle', (e: string) => {
   console.log('获取属性', nProxy.age)
   console.log('设置属性', (nProxy.age = 20))
   ```
+
+# `mobx`观察者模式
+
+```ts
+const fnList: Set<Function> = new Set()
+
+const AutoRun = (cb: Function) => {
+  if (cb) {
+    fnList.add(cb)
+  }
+}
+
+const observable = <T extends object>(params: T) => {
+  return new Proxy(params, {
+    set(target, key, value, receiver) {
+      const result = Reflect.set(target, key, value, receiver)
+      fnList.forEach((fn) => fn())
+      console.log(fnList)
+      return result
+    },
+  })
+}
+AutoRun(() => {
+  console.log('age', state.age)
+})
+AutoRun(() => {
+  console.log('name', state.name)
+})
+const state = observable({
+  name: 0,
+  age: 0,
+})
+
+state.name = 1
+state.age = 2
+//MobX 使用了 ES6 的 Proxy 对象来实现观察者模式。通过使用 Proxy，MobX能够监听对象的属性访问、修改等操作，从而实现数据的自动响应和更新。这种响应式的机制使得开发者可以很方便地管理应用的状态，并确保界面和数据的同步性。
+```
+
+# 类型守卫
+
+**类型守卫（Type Guard）是一种在代码中检查变量类型的技术。它允许我们在特定条件下缩小变量类型的范围，从而在后续代码中获得更精确的类型推断。 **
+
+**当使用联合类型或类型别名时，可能会遇到需要在特定条件下确定具体类型的情况。类型守卫能够帮助我们在这些情况下进行类型判断。**
+
+- **typeof** 类型守卫：使用 `typeof` 操作符可以检查一个变量的类型是否为 `'string'`、`'number'`、`'boolean'` 或 `'symbol'` 等基本类型。
+
+  ```ts
+  function printLength(value: string | number) {
+    if (typeof value === 'string') {
+      console.log(value.length) // 可以安全地访问 value 的 length 属性
+    }
+  }
+  ```
+
+- **instanceof** 类型守卫：使用 `instanceof` 操作符可以检查一个对象是否属于特定类或构造函数的实例。
+
+  ```ts
+  class Animal {}
+  class Dog extends Animal {}
+
+  function playSound(animal: Animal) {
+    if (animal instanceof Dog) {
+      animal.bark() // 可以安全地调用 Dog 类的方法
+    }
+  }
+  ```
+
+- **自定义**类型谓词守卫：使用自定义的类型谓词函数，根据返回值来判断变量的具体类型。
+
+  ```ts
+  interface Circle {
+    kind: 'circle'
+    radius: number
+  }
+
+  interface Square {
+    kind: 'square'
+    sideLength: number
+  }
+
+  type Shape = Circle | Square
+
+  function printArea(shape: Shape) {
+    if (isCircle(shape)) {
+      console.log(Math.PI * shape.radius ** 2)
+    } else {
+      console.log(shape.sideLength ** 2)
+    }
+  }
+
+  function isCircle(shape: Shape): shape is Circle {
+    return shape.kind === 'circle'
+  }
+  ```
+
+**通过使用类型守卫，我们可以在代码中更准确地操作和处理不同类型的变量，提高代码的健壮性和可靠性。**
+
+# 泛型工具
+
+## 1、**Partial<T>**：将类型 T 中的所有属性变为`可选`。
+
+```ts
+interface User {
+  name: string
+  age: number
+}
+type user = Partial<User>
+// type user = {
+//   name?: string | undefined;
+//   age?: number | undefined;
+// };
+//实现一个Partial<T>，它接受一个类型T并返回一个T的部分类型。
+type PartialUser<T> = {
+  [P in keyof T]?: T[P]
+}
+type testUser = PartialUser<User>
+```
+
+## 2、**Required<T>**：将类型 T 中的所有属性变为`必选`。
+
+```ts
+interface User {
+  name?: string | undefined
+  age?: number | undefined
+}
+type user = Required<User>
+// type user = {
+//   name?: string | undefined;
+//   age?: number | undefined;
+// };
+// 实现Required<T>，它接受一个类型 T 并返回一个新的类型，该类型将所有属性设置为必需的，这意味着所有属性都不能为 undefined。
+type RequiredUser<T> = {
+  [P in keyof T]-?: T[P]
+}
+type testUser = RequiredUser<User>
+```
+
+## 3、**Exclude<T, U>**：从类型 T 中`排除`可以赋值给类型 U 的部分。
+
+```ts
+interface User {
+  name?: string | undefined
+  age?: number | undefined
+}
+type user = Exclude<keyof User, 'name'>
+//type user = "age"
+//实现Exclude   如果T是U的子类型，返回never，否则返回T
+type ExcludeUser<T, U> = T extends U ? never : T
+
+type testUser = ExcludeUser<keyof User, 'name'>
+//type testUser = "age"
+```
+
+## 4、**Extract<T, U>**：从类型 T 中`提取`可以赋值给类型 U 的部分。
+
+```ts
+interface User {
+  name?: string | undefined
+  age?: number | undefined
+}
+
+type user = Extract<keyof User, 'age' | 'aaa'>
+//type user = "age"
+// const a: user = "aaa"; 不能将类型“"aaa"”分配给类型“"age"”。
+
+//实现Extract  从T中提取出可以赋值给U的类型
+type ExtractUser<T, U> = T extends U ? T : never
+type testUser = ExtractUser<keyof User, 'age' | 'aaa'>
+//type testUser = "age"
+// const b: testUser = "aaa"; 不能将类型“"aaa"”分配给类型“"age"”。
+```
+
+## 5、**Pick<T, K>**：从类型 T 中`选择`部分属性 K 组成新类型。
+
+```ts
+interface User {
+  name?: string | undefined
+  age?: number | undefined
+}
+type user = Pick<User, 'name'>
+// type user = {
+//   name?: string | undefined;
+// };
+// 实现一个Pick
+type PickUser<T, K extends keyof T> = {
+  [P in K]-?: T[P]
+}
+type testUser = PickUser<User, 'name'>
+// type testUser = {
+//   name: string;
+// };
+```
+
+## 6、**Omit<T, K>**：从类型 T 中排除部分属性 K 组成新类型。
+
+```ts
+interface User {
+  name?: string | undefined
+  age?: number | undefined
+}
+type user = Required<Omit<User, 'name'>>
+// type user = {
+//   age: number;
+// };
+// 排除U  name\age 属性，然后将剩下的属性变成必填属性
+type ExcludeUser<T, U> = T extends U ? never : T
+
+// 实现一个Omit
+type OmitUser<T, K extends keyof T> = {
+  [P in ExcludeUser<keyof T, K>]: T[P]
+}
+type OmitUser<T, K extends keyof T> = Pick<T, ExcludeUser<keyof T, K>>
+
+type testUser = OmitUser<User, 'name'>
+// type testUser = {
+//   age: number ;
+// };
+```
+
+## 7、**Record<K, T>**：根据类型 K 中的键创建值为类型 T 的新对象类型。
+
+```ts
+type keys = 'age' | 'name' | 'abc'
+type User = Record<keys, string>
+// const user: User = {
+//   age: "18",
+//   name: "张三",
+//   abc: 0,//不能将类型“number”分配给类型“string”
+// };
+// type ObjKeys = string | number | symbol;
+type ObjKeys = keyof any //type ObjKeys = string | number | symbol
+type UserRecord<T extends ObjKeys, P> = {
+  [K in T]: P
+}
+const user: UserRecord<keys, string> = {
+  age: '18',
+  name: '张三',
+  abc: '0', //不能将类型“number”分配给类型“string”。
+}
+//支持嵌套
+const user: UserRecord<keys, UserRecord<keys, string>> = {
+  age: {
+    age: '18',
+    name: '张三',
+    abc: '0',
+  },
+  name: {
+    age: '18',
+    name: '张三',
+    abc: '0',
+  },
+  abc: {
+    age: '18',
+    name: '张三',
+    abc: '0',
+  },
+}
+```
+
+## 8、**ReturnType<T>**：是一个内置的泛型工具类型（Utility Types），它用于获取函数类型的返回值类型。
+
+```ts
+function greet(): string {
+  return 'Hello, TypeScript!'
+}
+
+type GreetReturnType = ReturnType<typeof greet> // 获取 greet 函数的返回值类型，即 string
+
+const message: GreetReturnType = greet() // 此时 message 的类型为 string
+
+console.log(message) // 输出：Hello, TypeScript!
+
+//实现ReturnType
+type FunctionReturnType<T extends (...args: any) => any> = T extends (...args: any) => infer R
+  ? R
+  : any
+
+function getNumber(): number {
+  return 100
+}
+
+const num: FunctionReturnType<typeof getNumber> = '1' //不能将类型“1”分配给类型“string”
+//使用 ReturnType 工具类型可以使代码更加灵活，能够更好地利用 TypeScript 的类型系统来进行静态类型检查，确保代码的正确性和健壮性。
+```
+
+## 9、**infer**： 关键字通常用于条件类型中进行类型推断`推导泛型参数`。
+
+```ts
+1、推导
+interface User {
+  name: string;
+  age: number;
+}
+
+type Result = Promise<User>;
+
+type PromiseRes<T> = T extends Promise<infer R> ? R : never;
+
+type result = PromiseRes<Result>;
+// type result = User
+2、多层推导
+interface User {
+    name:string
+    age:number
+}
+
+type Result = Promise<Promise<Promise<User>>>
+
+type PromiseRes<T> = T extends Promise<infer R> ? PromiseRes<R> : T
+
+type r = PromiseRes<Result>
+// type result = User
+3、协变
+协变指的是子类型之间的转换关系。在 TypeScript 中，当一个类型参数被传递给一个期望其子类型的位置时（例如数组元素的类型），就会发生协变。在类型推断中，协变通常表现为从更具体的类型向更一般的类型的转换。
+const User = {
+  name: "小楽",
+  age: 24,
+};
+type UserKey<T> = T extends { name: infer N; age: infer A } ? [N, A] : T;
+
+type res = UserKey<typeof User>;
+//type res = [string, number]
+
+type UserKey<T> = T extends { name: infer N; age: infer N } ? N : T;
+
+type res = UserKey<typeof User>;
+//type res = string | number  对象使用一个变量就会产生协变，返回值就是联合类型
+4、逆变
+逆变与协变相反，指的是父类型之间的转换关系。当一个类型参数被传递给一个期望其父类型的位置时（例如函数参数的类型），就会发生逆变。在类型推断中，逆变通常表现为从更一般的类型向更具体的类型的转换。
+type FnType<T> = T extends {
+    a:(args:infer U)=>void,
+    b:(args:infer U)=>void
+} ? U : never
+
+type T = FnType<{a:(args:number)=>void,b:(args:string)=>void}>
+// string & number === never
+// type T = never
+
+5、提取头部元素
+type Arr = ["a", "b", "c"];
+
+type ArrFirst<T extends any[]> = T extends [infer R, ...any[]] ? R : never;
+
+type First = ArrFirst<Arr>; // type First = "a"
+6、提取最后一个元素
+type ArrFirst<T extends any[]> = T extends [...any[], infer R] ? R : never;
+
+type First = ArrFirst<Arr>; // type First = "c"
+7、提取第二个元素
+type ArrInter<T extends any[]> = T extends [infer A, infer B, ...any[]]
+  ? B
+  : never;
+
+type Result = ArrInter<Arr>; // "b"
+8、去除第一个元素shift
+type ArrInter<T extends any[]> = T extends [infer A, ...infer B] ? B : never;
+type ArrInter<T extends any[]> = T extends [unknown, ...infer B] ? B : never;
+
+type Result = ArrInter<Arr>; // ["b", "c"]
+9、去除最后一个元素pop
+type ArrInter<T extends any[]> = T extends [...infer B, unknown] ? B : never;
+
+type Result = ArrInter<Arr>;
+// type Result = ["a", "b"]
+10、递归
+//首先使用泛型约束 约束只能传入数组类型的东西  然后从数组中提取第一个，放入新数组的末尾，反复此操作，形成递归 满足结束条件返回该类型
+type ArrInter<T extends any[]> = T extends [infer A, ...infer B]
+  ? [...ArrInter<B>, A]
+  : T;
+
+type Result = ArrInter<Arr>;
+// type Result = ["c", "b", "a"]
+```

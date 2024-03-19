@@ -178,3 +178,52 @@ npm home jquery  # 会打开默认浏览器跳转到github中jquery的主页
   }
 }
 ```
+
+### 其他镜像地址查询
+
+1. 安装 nrm
+   `npm install nrm -g`
+
+2. 使用 nrm 查询其他镜像地址
+   `nrm ls`
+
+   ```sh
+   # 安装成功显示
+   * npm ---- https://registry.npmjs.org/
+     cnpm --- http://r.cnpmjs.org/
+     taobao - https://registry.npm.taobao.org/
+     nj ----- https://registry.nodejitsu.com/
+     npmMirror  https://skimdb.npmjs.com/registry/
+     edunpm - http://registry.enpmjs.org/
+   ```
+
+3. 查询所有命令
+
+   `nrm --help`
+
+   ```sh
+   Options:
+     -V, --version                    output the version number
+     -h, --help                       display help for command
+
+   Commands:
+     ls                               List all the registries
+     current [options]                Show current registry name or URL
+     use <name>                       Change current registry
+     add <name> <url> [home]          Add custom registry
+     login [options] <name> [base64]  Set authorize information for a custom
+                                      registry with a base64 encoded string or
+                                      username and password
+     set-hosted-repo <name> <repo>    Set hosted npm repository for a custom
+                                      registry to publish package
+     set-scope <scopeName> <url>      Associating a scope with a registry
+     del-scope <scopeName>            Remove a scope
+     set [options] <name>             Set a custom registry attribute
+     rename <name> <newName>          Change custom registry name
+     del <name>                       Delete custom registry
+     home <name> [browser]            Open the homepage of registry with optional
+                                      browser
+     test [registry]                  Show response time for specific or all
+                                      registries
+     help [command]                   display help for command
+   ```
