@@ -195,14 +195,14 @@ export class Http {
 ```ts
 const types = ['a', 'b', 'c'] as const
 //这里首先定义了一个常量数组 types，并使用 as const 将其标记为只读（readonly）元组类型，这样数组中的元素值将不可变。
-type Keys = typeof types[number]
+type Keys = (typeof types)[number]
 //这里通过 typeof types 获取 types 数组的类型，然后使用 [number] 索引访问操作符获取该数组的元素类型，即 "a" | "b" | "c"。
 const keys: Keys = '123'
 //这行代码尝试将字符串 "123" 赋值给类型 Keys，即 "a" | "b" | "c"。由于类型不匹配，TypeScript 会在编译时报错，因为 "123" 不属于联合类型 "a" | "b" | "c"。
 
 // 拓展
 const types = ['a', 'b', 'c'] as const
-type Keys = typeof types[number]
+type Keys = (typeof types)[number]
 // 定义 dictsValue 对象类型
 type DictsValue = {
   [key in Keys]: { value: string; label: string; [key: string]: any }[]
@@ -481,9 +481,10 @@ state.age = 2
 
 # 泛型工具
 
-## 1、**Partial<T>**：将类型 T 中的所有属性变为`可选`。
+## 1、**Partial**：将类型 T 中的所有属性变为`可选`。
 
 ```ts
+Partial<T>
 interface User {
   name: string
   age: number
@@ -500,9 +501,10 @@ type PartialUser<T> = {
 type testUser = PartialUser<User>
 ```
 
-## 2、**Required<T>**：将类型 T 中的所有属性变为`必选`。
+## 2、**Required**：将类型 T 中的所有属性变为`必选`。
 
 ```ts
+Required<T>
 interface User {
   name?: string | undefined
   age?: number | undefined
@@ -519,9 +521,10 @@ type RequiredUser<T> = {
 type testUser = RequiredUser<User>
 ```
 
-## 3、**Exclude<T, U>**：从类型 T 中`排除`可以赋值给类型 U 的部分。
+## 3、**Exclude**：从类型 T 中`排除`可以赋值给类型 U 的部分。
 
 ```ts
+Exclude<T, U>
 interface User {
   name?: string | undefined
   age?: number | undefined
@@ -535,9 +538,10 @@ type testUser = ExcludeUser<keyof User, 'name'>
 //type testUser = "age"
 ```
 
-## 4、**Extract<T, U>**：从类型 T 中`提取`可以赋值给类型 U 的部分。
+## 4、**Extract**：从类型 T 中`提取`可以赋值给类型 U 的部分。
 
 ```ts
+Extract<T, U>
 interface User {
   name?: string | undefined
   age?: number | undefined
@@ -554,9 +558,10 @@ type testUser = ExtractUser<keyof User, 'age' | 'aaa'>
 // const b: testUser = "aaa"; 不能将类型“"aaa"”分配给类型“"age"”。
 ```
 
-## 5、**Pick<T, K>**：从类型 T 中`选择`部分属性 K 组成新类型。
+## 5、**Pick**：从类型 T 中`选择`部分属性 K 组成新类型。
 
 ```ts
+Pick<T, K>
 interface User {
   name?: string | undefined
   age?: number | undefined
@@ -575,9 +580,10 @@ type testUser = PickUser<User, 'name'>
 // };
 ```
 
-## 6、**Omit<T, K>**：从类型 T 中排除部分属性 K 组成新类型。
+## 6、**Omit**：从类型 T 中排除部分属性 K 组成新类型。
 
 ```ts
+Omit<T, K>
 interface User {
   name?: string | undefined
   age?: number | undefined
@@ -601,9 +607,10 @@ type testUser = OmitUser<User, 'name'>
 // };
 ```
 
-## 7、**Record<K, T>**：根据类型 K 中的键创建值为类型 T 的新对象类型。
+## 7、**Record**：根据类型 K 中的键创建值为类型 T 的新对象类型。
 
 ```ts
+Record<K, T>
 type keys = 'age' | 'name' | 'abc'
 type User = Record<keys, string>
 // const user: User = {
@@ -641,9 +648,10 @@ const user: UserRecord<keys, UserRecord<keys, string>> = {
 }
 ```
 
-## 8、**ReturnType<T>**：是一个内置的泛型工具类型（Utility Types），它用于获取函数类型的返回值类型。
+## 8、**ReturnType**：是一个内置的泛型工具类型（Utility Types），它用于获取函数类型的返回值类型。
 
 ```ts
+ReturnType<T>
 function greet(): string {
   return 'Hello, TypeScript!'
 }
