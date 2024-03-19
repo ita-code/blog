@@ -1,8 +1,8 @@
 ---
-title: 工具、命令、代码片段
-date: 2024/03/10
-tags: ['常用']
-summary: 常用的工具命令代码记录
+title: 学习vue3
+date: 2024/03/20
+tags: ['vue3']
+summary: 学习vue3的新特性、方法原理、api等。
 ---
 
 # 3.2 新增 v-memo
